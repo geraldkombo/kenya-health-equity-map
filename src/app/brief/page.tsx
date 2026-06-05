@@ -206,14 +206,14 @@ function BriefContent() {
                   <a className="underline" href="https://github.com/tigawanna/kenya_wards_geojson_data" target="_blank" rel="noreferrer">
                     IEBC via Kenya Wards GeoJSON
                   </a>{" "}
-                  &mdash; CC-BY-4.0
+                  CC-BY-4.0
                 </li>
                 <li>
                   Facilities (points):{" "}
                   <a className="underline" href="https://geoportal.icpac.net" target="_blank" rel="noreferrer">
                     ICPAC/KEMRI Kenya Health Facilities
                   </a>{" "}
-                  &mdash; CC-BY-4.0
+                  CC-BY-4.0
                 </li>
                 <li>
                   Populations:{" "}

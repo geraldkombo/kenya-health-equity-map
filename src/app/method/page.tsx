@@ -56,19 +56,19 @@ export default function MethodPage() {
           <h2 className="text-base font-semibold text-neutral-900">Components</h2>
           <div className="mt-4 space-y-5 text-sm leading-6 text-neutral-700">
             <div className="border-l-4 border-accent-500 pl-4">
-              <h3 className="font-medium text-neutral-900">Accessibility &mdash; 40% (default)</h3>
+              <h3 className="font-medium text-neutral-900">Accessibility &ndash; 40% (default)</h3>
               <p className="mt-1 text-neutral-600">
                 Combines travel time proxy (60%) and facility density (40%, inverted). Measures how easily residents can reach health services. Longer travel times and lower facility density increase the score.
               </p>
             </div>
             <div className="border-l-4 border-warm-500 pl-4">
-              <h3 className="font-medium text-neutral-900">Vulnerability &mdash; 30% (default)</h3>
+              <h3 className="font-medium text-neutral-900">Vulnerability &ndash; 30% (default)</h3>
               <p className="mt-1 text-neutral-600">
                 Uses poverty proxy as a socio-economic indicator. Counties with higher poverty rates face greater barriers to accessing care, increasing the score.
               </p>
             </div>
             <div className="border-l-4 border-red-500 pl-4">
-              <h3 className="font-medium text-neutral-900">Population Pressure &mdash; 30% (default)</h3>
+              <h3 className="font-medium text-neutral-900">Population Pressure &ndash; 30% (default)</h3>
               <p className="mt-1 text-neutral-600">
                 Uses total population as a proxy for service demand. Larger populations may strain available health resources, increasing the score.
               </p>
@@ -111,7 +111,7 @@ export default function MethodPage() {
               Real-world deployment requires comprehensive MFL data.
             </li>
             <li>
-              <strong>Spatial granularity:</strong>               County-level analysis masks within-county disparities.
+              <strong>Spatial granularity:</strong> County-level analysis masks within-county disparities.
               Finer-resolution data would enable more granular analysis.
             </li>
             <li>

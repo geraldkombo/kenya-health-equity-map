@@ -6,10 +6,10 @@ import CountyDetails from "@/components/CountyDetails";
 import HowToUse from "@/components/HowToUse";
 import SourcesPanel from "@/components/SourcesPanel";
 import InsightsDashboard from "@/components/InsightsDashboard";
-import type { CountyRecord, IndicatorRecord, FacilitiesGeoJSON } from "@/lib/adapters";
+import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
 import { normalizeCounty } from "@/lib/normalize";
 import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
-import { fetchCounties, fetchFacilities, fetchIndicators } from "@/lib/data-fetch";
+import { fetchCounties, fetchIndicators } from "@/lib/data-fetch";
 import MapErrorBoundary from "@/components/MapErrorBoundary";
 
 const MapView = dynamic(() => import("@/components/MapView"), { ssr: false });
@@ -17,7 +17,6 @@ const MapView = dynamic(() => import("@/components/MapView"), { ssr: false });
 export default function HomePage() {
   const [counties, setCounties] = useState<CountyRecord[] | null>(null);
   const [indicators, setIndicators] = useState<IndicatorRecord[]>([]);
-  const [facilities, setFacilities] = useState<FacilitiesGeoJSON | null>(null);
   const [boundaries, setBoundaries] = useState<GeoJSON.FeatureCollection | null>(null);
   const [selectedCountyCode, setSelectedCountyCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -27,9 +26,8 @@ export default function HomePage() {
   useEffect(() => {
     async function load() {
       try {
-        const [countiesRes, facilitiesRes, indicators, boundariesRes] = await Promise.all([
+        const [countiesRes, indicators, boundariesRes] = await Promise.all([
           fetchCounties(),
-          fetchFacilities(),
           fetchIndicators(),
           fetch("/data/boundaries/counties.geojson").then(async (r) => {
             if (!r.ok) throw new Error(`Boundaries fetch failed: ${r.status}`);
@@ -39,9 +37,8 @@ export default function HomePage() {
         if (!Array.isArray(countiesRes.counties)) throw new Error("Counties data is not an array");
         if (!boundariesRes || !boundariesRes.features) throw new Error("Boundaries data missing features");
         setCounties(countiesRes.counties);
-        setFacilities(facilitiesRes.geojson);
         setBoundaries(boundariesRes);
-        setDataFreshness(countiesRes.source === "snapshot" || facilitiesRes.source === "snapshot" ? "snapshot" : "live");
+        setDataFreshness(countiesRes.source === "snapshot" ? "snapshot" : "live");
         setIndicators(indicators);
         setLoaded(true);
       } catch (e: any) {
@@ -92,7 +89,7 @@ export default function HomePage() {
     setSelectedCountyCode(countyCode);
   }, []);
 
-  const totalFacilities = facilities?.features?.length ?? 0;
+  const totalFacilities = indicators.reduce((sum, i) => sum + i.facility_count, 0);
   const highPriorityCounties = counties ? counties.filter(c => (countyScores[c.id] ?? 0) >= 0.5).length : 0;
 
   return (
@@ -131,11 +128,10 @@ export default function HomePage() {
 
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          {boundaries && facilities ? (
+          {boundaries ? (
             <MapErrorBoundary>
               <MapView
                 boundaries={boundaries}
-                facilityPoints={facilities as unknown as GeoJSON.FeatureCollection}
                 countyScores={countyScores}
                 countyNames={countyNames}
                 onCountyClick={handleCountySelect}
@@ -170,7 +166,6 @@ export default function HomePage() {
             <CountyDetails
               county={selectedCounty}
               indicators={indicators}
-              facilities={facilities}
             />
           ) : (
             <div className="rounded-xl border border-neutral-200 bg-white p-8 text-center text-sm text-neutral-400">

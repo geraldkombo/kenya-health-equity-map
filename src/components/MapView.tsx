@@ -5,7 +5,6 @@ import maplibregl from "maplibre-gl";
 
 interface MapViewProps {
   boundaries: GeoJSON.FeatureCollection;
-  facilityPoints: GeoJSON.FeatureCollection;
   countyScores: Record<string, number>;
   countyNames: Record<string, string>;
   onCountyClick: (countyCode: string) => void;
@@ -26,7 +25,6 @@ function buildMatchExpression(countyScores: Record<string, number>): any[] {
 
 export default function MapView({
   boundaries,
-  facilityPoints,
   countyScores,
   countyNames,
   onCountyClick,
@@ -111,73 +109,6 @@ export default function MapView({
             "line-width": 1.5,
             "line-opacity": 0.8,
           },
-        });
-
-        map.addSource("facilities", {
-          type: "geojson",
-          data: facilityPoints as any,
-        });
-
-        map.addLayer({
-          id: "facilities-points",
-          type: "circle",
-          source: "facilities",
-          paint: {
-            "circle-radius": 5,
-            "circle-color": "#1c1917",
-            "circle-stroke-width": 2,
-            "circle-stroke-color": "#fff",
-            "circle-opacity": 0.85,
-          },
-        });
-
-        map.addLayer({
-          id: "facilities-labels",
-          type: "symbol",
-          source: "facilities",
-          layout: {
-            "text-field": ["get", "F_NAME"],
-            "text-size": 10,
-            "text-offset": [0, -1.5],
-            "text-anchor": "bottom",
-            "text-optional": true,
-          },
-          paint: {
-            "text-color": "#44403c",
-            "text-halo-color": "#fff",
-            "text-halo-width": 1.5,
-          },
-        });
-
-        map.on("click", "facilities-points", (e) => {
-          if (!e.features || !e.features[0]) return;
-          const props = e.features[0].properties;
-          const name = props.F_NAME || "Unknown facility";
-          const agency = props.AGENCY || "";
-          const district = props.DIST || "";
-          const division = props.DIVISION || "";
-          const agencyLabel = ({ MOH: "Ministry of Health", MISS: "Mission", LA: "Local Authority", NGO: "NGO" } as Record<string, string>)[agency] || agency;
-          const html = `
-            <div style="font-family:system-ui;min-width:180px">
-              <div style="font-weight:600;font-size:14px;color:#1c1917">${name}</div>
-              ${agency ? `<div style="font-size:12px;color:#78716c;margin-top:2px">${agencyLabel}</div>` : ""}
-              ${district ? `<div style="font-size:12px;color:#78716c;margin-top:1px">District: ${district}</div>` : ""}
-              ${division ? `<div style="font-size:12px;color:#a8a29e;margin-top:1px">Division: ${division}</div>` : ""}
-            </div>
-          `;
-          if (popupRef.current) popupRef.current.remove();
-          popupRef.current = new maplibregl.Popup({ closeButton: true, closeOnClick: false, offset: 10 })
-            .setLngLat(e.lngLat)
-            .setHTML(html)
-            .addTo(map);
-        });
-
-        map.on("mouseenter", "facilities-points", () => {
-          map.getCanvas().style.cursor = "pointer";
-        });
-
-        map.on("mouseleave", "facilities-points", () => {
-          map.getCanvas().style.cursor = "";
         });
 
         map.on("click", "counties-fill", (e) => {

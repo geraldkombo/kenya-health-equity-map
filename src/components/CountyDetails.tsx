@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import type { CountyRecord, IndicatorRecord, FacilitiesGeoJSON } from "@/lib/adapters";
+import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
 import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
 import { normalizeCounty } from "@/lib/normalize";
 import Link from "next/link";
@@ -9,10 +9,9 @@ import Link from "next/link";
 interface CountyDetailsProps {
   county: CountyRecord;
   indicators: IndicatorRecord[];
-  facilities: FacilitiesGeoJSON | null;
 }
 
-export default function CountyDetails({ county, indicators, facilities }: CountyDetailsProps) {
+export default function CountyDetails({ county, indicators }: CountyDetailsProps) {
   const indicator = indicators.find((i) => i.county_code === county.id);
 
   const score = useMemo(() => {
@@ -38,11 +37,6 @@ export default function CountyDetails({ county, indicators, facilities }: County
         : `This county's priority score is driven by multiple factors: ${score.drivers.map((d) => d.toLowerCase().replace(/^is /, "")).join("; ")}.`
       : "All indicator proxies are within typical national range."
     : null;
-
-  const facilityCountInCounty = useMemo(() => {
-    if (!facilities) return "N/A";
-    return facilities.features.filter((f) => true).length;
-  }, [facilities]);
 
   return (
     <div className="rounded-xl border border-neutral-200 bg-white p-5">
