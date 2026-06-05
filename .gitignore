@@ -1,0 +1,11 @@
+node_modules
+.next
+*.local
+.env
+.env.local
+.env.*.local
+!.env.example
+netlify/functions/node_modules
+coverage
+playwright-report
+test-results

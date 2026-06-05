@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "meta": {
+    "fetched_at": "2026-01-15T00:00:00.000Z",
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org",
+        "license": "ODbL",
+        "note": "Fallback snapshot. Queried via Overpass API for health facilities in Nairobi."
+      }
+    ]
+  },
+  "features": [
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.75,-1.33]},"properties":{"name":"Karen Medical Centre","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.76,-1.32]},"properties":{"name":"Karen Hospital","amenity":"hospital"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.77,-1.315]},"properties":{"name":"Langata Health Centre","amenity":"health_centre"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.8,-1.27]},"properties":{"name":"Kilimani Medical Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.81,-1.265]},"properties":{"name":"Westlands Health Centre","amenity":"health_centre"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.795,-1.3]},"properties":{"name":"Kibera Community Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.8,-1.305]},"properties":{"name":"Kibera Health Centre","amenity":"health_centre"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.85,-1.25]},"properties":{"name":"Mathare Hospital","amenity":"hospital"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.855,-1.245]},"properties":{"name":"Mathare Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.89,-1.255]},"properties":{"name":"Dandora Health Centre","amenity":"health_centre"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.895,-1.25]},"properties":{"name":"Dandora Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.9,-1.2]},"properties":{"name":"Kasarani Health Centre","amenity":"health_centre"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.905,-1.205]},"properties":{"name":"Kasarani Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.815,-1.24]},"properties":{"name":"Parklands Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.82,-1.235]},"properties":{"name":"Parklands Medical Centre","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.93,-1.3]},"properties":{"name":"Embakasi Health Centre","amenity":"health_centre"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.935,-1.305]},"properties":{"name":"Embakasi Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.74,-1.34]},"properties":{"name":"Langata Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.78,-1.27]},"properties":{"name":"Westlands Medical","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.79,-1.275]},"properties":{"name":"Nairobi West Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.83,-1.23]},"properties":{"name":"Kianda Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.86,-1.23]},"properties":{"name":"Mwiki Health Centre","amenity":"health_centre"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.87,-1.22]},"properties":{"name":"Ruaraka Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.88,-1.21]},"properties":{"name":"Kasarani Maternity","amenity":"hospital"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.815,-1.315]},"properties":{"name":"Otiende Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.825,-1.31]},"properties":{"name":"Woodley Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.83,-1.28]},"properties":{"name":"Hurlingham Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.75,-1.35]},"properties":{"name":"Mbagathi Hospital","amenity":"hospital"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.825,-1.295]},"properties":{"name":"Nairobi South Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.9,-1.26]},"properties":{"name":"Embakasi Medical Centre","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.92,-1.23]},"properties":{"name":"Komarock Clinic","amenity":"clinic"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.94,-1.22]},"properties":{"name":"Makadara Health Centre","amenity":"health_centre"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[36.83,-1.26]},"properties":{"name":"Muthangari Clinic","amenity":"clinic"}}
+  ]
+}

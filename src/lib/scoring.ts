@@ -1,0 +1,67 @@
+export interface PGSWeights {
+  accessibility: number;
+  populationPressure: number;
+  vulnerability: number;
+}
+
+export const DEFAULT_WEIGHTS: PGSWeights = {
+  accessibility: 0.4,
+  populationPressure: 0.3,
+  vulnerability: 0.3,
+};
+
+export interface WardScore {
+  wardCode: string;
+  pgs: number;
+  components: {
+    travelTime: number;
+    poverty: number;
+    populationPressure: number;
+    facilityDensity: number;
+  };
+  drivers: string[];
+}
+
+export function computePGS(
+  wardCode: string,
+  norm: {
+    travelTime: number;
+    poverty: number;
+    populationPressure: number;
+    facilityDensity: number;
+  },
+  weights: PGSWeights = DEFAULT_WEIGHTS,
+): WardScore {
+  const accessibility = norm.travelTime * 0.6 + norm.facilityDensity * 0.4;
+  const vulnerability = norm.poverty;
+  const popPressure = norm.populationPressure;
+
+  const pgs =
+    accessibility * weights.accessibility +
+    vulnerability * weights.vulnerability +
+    popPressure * weights.populationPressure;
+
+  const drivers: string[] = [];
+  if (norm.travelTime > 0.7) {
+    drivers.push("Long travel time proxy is in the top 30% of wards");
+  }
+  if (norm.facilityDensity > 0.7) {
+    drivers.push("Facility density proxy is below county median");
+  }
+  if (norm.poverty > 0.7) {
+    drivers.push("Poverty proxy is in the top 30% of wards");
+  }
+  if (norm.populationPressure > 0.7) {
+    drivers.push("Population pressure is in the top 30% of wards");
+  }
+  if (norm.travelTime <= 0.7 && norm.facilityDensity <= 0.7 && norm.poverty <= 0.7 && norm.populationPressure <= 0.7) {
+    drivers.push("All indicator proxies are within typical county range");
+  }
+
+  return {
+    wardCode,
+    pgs: Math.round(pgs * 100) / 100,
+    components: norm,
+    drivers,
+  };
+}
