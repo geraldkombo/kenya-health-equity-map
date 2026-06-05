@@ -66,8 +66,7 @@ export default function MapView({
           ],
         },
         center: [37.9, 0.5],
-        zoom: 6,
-        maxBounds: [[33, -5], [42, 5]],
+        zoom: 5.2,
       });
     } catch (e) {
       console.error("Map initialization error:", e);
