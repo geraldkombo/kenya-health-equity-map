@@ -11,14 +11,20 @@ export async function fetchCounties(): Promise<{ counties: CountyRecord[]; sourc
   }
 }
 
+function cleanFacilities(raw: any): FacilitiesGeoJSON {
+  const fc = raw.geojson ?? raw;
+  if (!fc || !fc.features) return fc;
+  return { ...fc, features: fc.features.filter((f: any) => f?.geometry?.type === "Point") };
+}
+
 export async function fetchFacilities(): Promise<{ geojson: FacilitiesGeoJSON; source: "live" | "snapshot" }> {
   try {
     const res = await fetch("/api/facilities");
     const data = await res.json();
-    return { geojson: data.geojson ?? data, source: "live" };
+    return { geojson: cleanFacilities(data), source: "live" };
   } catch {
     const snap = await fetch("/data/snapshots/facilities.json").then((r) => r.json());
-    return { geojson: snap, source: "snapshot" };
+    return { geojson: cleanFacilities(snap), source: "snapshot" };
   }
 }
 

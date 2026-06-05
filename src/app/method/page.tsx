@@ -111,8 +111,8 @@ export default function MethodPage() {
               Real-world deployment requires comprehensive MFL data.
             </li>
             <li>
-              <strong>Spatial granularity:</strong> County-level analysis masks within-county disparities.
-              Sub-county analysis would provide a more granular picture.
+              <strong>Spatial granularity:</strong>               County-level analysis masks within-county disparities.
+              Finer-resolution data would enable more granular analysis.
             </li>
             <li>
               <strong>No quality dimension:</strong> The score does not capture facility capacity, staffing, drug

@@ -33,7 +33,9 @@ export default function CountyDetails({ county, indicators, facilities }: County
 
   const narrative = score
     ? score.drivers.length > 0
-      ? `This county's assessed priority score is driven by ${score.drivers[0].toLowerCase()}.`
+      ? score.drivers.length === 1
+        ? `This county's priority score is driven by ${score.drivers[0].toLowerCase().replace(/^is /, "")}.`
+        : `This county's priority score is driven by multiple factors: ${score.drivers.map((d) => d.toLowerCase().replace(/^is /, "")).join("; ")}.`
       : "All indicator proxies are within typical national range."
     : null;
 

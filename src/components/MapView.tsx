@@ -136,7 +136,7 @@ export default function MapView({
           type: "symbol",
           source: "facilities",
           layout: {
-            "text-field": ["get", "name"],
+            "text-field": ["get", "F_NAME"],
             "text-size": 10,
             "text-offset": [0, -1.5],
             "text-anchor": "bottom",
@@ -147,6 +147,37 @@ export default function MapView({
             "text-halo-color": "#fff",
             "text-halo-width": 1.5,
           },
+        });
+
+        map.on("click", "facilities-points", (e) => {
+          if (!e.features || !e.features[0]) return;
+          const props = e.features[0].properties;
+          const name = props.F_NAME || "Unknown facility";
+          const agency = props.AGENCY || "";
+          const district = props.DIST || "";
+          const division = props.DIVISION || "";
+          const agencyLabel = ({ MOH: "Ministry of Health", MISS: "Mission", LA: "Local Authority", NGO: "NGO" } as Record<string, string>)[agency] || agency;
+          const html = `
+            <div style="font-family:system-ui;min-width:180px">
+              <div style="font-weight:600;font-size:14px;color:#1c1917">${name}</div>
+              ${agency ? `<div style="font-size:12px;color:#78716c;margin-top:2px">${agencyLabel}</div>` : ""}
+              ${district ? `<div style="font-size:12px;color:#78716c;margin-top:1px">District: ${district}</div>` : ""}
+              ${division ? `<div style="font-size:12px;color:#a8a29e;margin-top:1px">Division: ${division}</div>` : ""}
+            </div>
+          `;
+          if (popupRef.current) popupRef.current.remove();
+          popupRef.current = new maplibregl.Popup({ closeButton: true, closeOnClick: false, offset: 10 })
+            .setLngLat(e.lngLat)
+            .setHTML(html)
+            .addTo(map);
+        });
+
+        map.on("mouseenter", "facilities-points", () => {
+          map.getCanvas().style.cursor = "pointer";
+        });
+
+        map.on("mouseleave", "facilities-points", () => {
+          map.getCanvas().style.cursor = "";
         });
 
         map.on("click", "counties-fill", (e) => {
