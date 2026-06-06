@@ -4,10 +4,15 @@ import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Kenya Health Equity Map",
-  description: "A map-first civic intelligence platform visualising health-access inequities across Kenya's 47 counties using transparent open data.",
+  description:
+    "A map-first civic intelligence platform visualising health-access inequities across Kenya's 47 counties using transparent open data.",
   openGraph: {
     title: "Kenya Health Equity Map",
-    description: "Visualise health-access inequities across Kenya's 47 counties using transparent open data.",
+    description:
+      "Visualise health-access inequities across Kenya's 47 counties using transparent open data.",
+    url: "https://kenya-health-equity.netlify.app",
+    locale: "en_KE",
+    siteName: "Kenya Health Equity Map",
   },
   robots: { index: true, follow: true },
 };
@@ -15,7 +20,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="antialiased">
-      <body className="min-h-[100svh] bg-neutral-50 text-neutral-900">
+      <body className="min-h-[100svh] bg-stone-50 text-stone-800">
         <Header />
         <main>{children}</main>
       </body>

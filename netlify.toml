@@ -4,7 +4,7 @@
   functions = "netlify/functions"
 
 [build.environment]
-  SITE_URL = "https://uhcke-247.netlify.app"
+  SITE_URL = "https://kenya-health-equity.netlify.app"
 
 [dev]
   framework = "next"

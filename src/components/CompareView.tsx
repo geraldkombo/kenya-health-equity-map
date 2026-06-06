@@ -11,6 +11,13 @@ interface CompareViewProps {
   indicators: IndicatorRecord[];
 }
 
+function pgsBadge(pgs: number): string {
+  if (pgs >= 0.7) return "text-stone-50 bg-[#78350F]";
+  if (pgs >= 0.5) return "text-white bg-[#EA580C]";
+  if (pgs >= 0.3) return "text-stone-800 bg-[#F59E0B]";
+  return "text-stone-800 bg-[#FDE68A]";
+}
+
 export default function CompareView({ countyA, countyB, indicators }: CompareViewProps) {
   const stats = useMemo(() => {
     const iA = indicators.find((i) => i.county_code === countyA.id);
@@ -38,38 +45,38 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
           const s = county.id === countyA.id ? stats.sA : stats.sB;
           const ind = county.id === countyA.id ? stats.iA : stats.iB;
           return (
-            <div key={county.id} className="rounded-xl border border-neutral-200 bg-white p-5">
-              <h3 className="font-semibold text-neutral-900">{county.name}</h3>
-              <p className="text-sm text-neutral-500">County</p>
+            <div key={county.id} className="rounded-xl border border-stone-200 bg-white p-5 transition-all duration-200 ease-in-out hover:shadow-md">
+              <h3 className="font-bold text-stone-800">{county.name}</h3>
+              <p className="text-sm text-stone-500">County</p>
               {s && (
-                <div className="mt-3">
-                  <div className="text-3xl font-bold text-neutral-900">{(s.pgs * 100).toFixed(0)}</div>
-                  <div className="text-xs text-neutral-400">Priority Gap Score</div>
+                <div className={`mt-3 inline-block rounded-lg px-3 py-1.5 ${pgsBadge(s.pgs)}`}>
+                  <span className="text-xl font-bold">{(s.pgs * 100).toFixed(0)}</span>
+                  <span className="ml-1 text-xs font-medium opacity-80">PGS</span>
                 </div>
               )}
               {ind && (
-                <div className="mt-4 space-y-2 text-sm text-neutral-700">
-                  <div className="flex justify-between border-b border-neutral-100 pb-1">
-                    <span>Population</span>
-                    <span className="font-medium">{ind.population.toLocaleString()}</span>
+                <div className="mt-4 space-y-2 text-sm text-stone-700">
+                  <div className="flex justify-between border-b border-stone-100 pb-1">
+                    <span className="text-stone-500">Population</span>
+                    <span className="font-medium text-stone-700">{ind.population.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between border-b border-neutral-100 pb-1">
-                    <span>Poverty proxy</span>
-                    <span className="font-medium">{ind.poverty_proxy}%</span>
+                  <div className="flex justify-between border-b border-stone-100 pb-1">
+                    <span className="text-stone-500">Poverty proxy</span>
+                    <span className="font-medium text-stone-700">{ind.poverty_proxy}%</span>
                   </div>
-                  <div className="flex justify-between border-b border-neutral-100 pb-1">
-                    <span>Travel time proxy</span>
-                    <span className="font-medium">{ind.travel_time_to_facility_proxy} min</span>
+                  <div className="flex justify-between border-b border-stone-100 pb-1">
+                    <span className="text-stone-500">Travel time proxy</span>
+                    <span className="font-medium text-stone-700">{ind.travel_time_to_facility_proxy}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Facility density</span>
-                    <span className="font-medium">{ind.facility_density_proxy} /km2</span>
+                    <span className="text-stone-500">Facility density</span>
+                    <span className="font-medium text-stone-700">{ind.facility_density_proxy}</span>
                   </div>
                 </div>
               )}
               {s && (
-                <div className="mt-3 text-xs text-neutral-500">
-                  <strong>Drivers:</strong> {s.drivers.slice(0, 2).join("; ") || "All indicators within range"}
+                <div className="mt-3 text-xs text-stone-500 leading-5">
+                  <strong className="text-stone-600">Drivers:</strong> {s.drivers.slice(0, 2).join("; ") || "All indicators within range"}
                 </div>
               )}
             </div>
@@ -77,7 +84,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
         })}
       </div>
       {narrative && (
-        <div className="mt-4 rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-sm leading-6 text-neutral-700" role="note">
+        <div className="mt-4 rounded-xl border border-stone-200 bg-stone-50 p-4 text-sm leading-6 text-stone-700" role="note">
           <strong>Comparison summary:</strong> {narrative}
         </div>
       )}

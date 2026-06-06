@@ -1,6 +1,6 @@
 import type { Handler } from "@netlify/functions";
 
-const BASE_URL = process.env.SITE_URL || "https://uhcke.netlify.app";
+const BASE_URL = process.env.SITE_URL || "https://kenya-health-equity.netlify.app";
 
 export const handler: Handler = async () => {
   try {

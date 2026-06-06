@@ -20,7 +20,6 @@ export default function HomePage() {
   const [boundaries, setBoundaries] = useState<GeoJSON.FeatureCollection | null>(null);
   const [selectedCountyCode, setSelectedCountyCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [dataFreshness, setDataFreshness] = useState<"live" | "snapshot" | null>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -38,7 +37,6 @@ export default function HomePage() {
         if (!boundariesRes || !boundariesRes.features) throw new Error("Boundaries data missing features");
         setCounties(countiesRes.counties);
         setBoundaries(boundariesRes);
-        setDataFreshness(countiesRes.source === "snapshot" ? "snapshot" : "live");
         setIndicators(indicators);
         setLoaded(true);
       } catch (e: any) {
@@ -82,12 +80,6 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
-      {dataFreshness === "snapshot" && (
-        <div className="mb-4 rounded-lg bg-warm-50 border border-warm-200 px-4 py-3 text-sm text-warm-800" role="alert">
-          Using cached snapshot data. Live API endpoints were unavailable.
-        </div>
-      )}
-
       {error && (
         <div className="mb-6 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700" role="alert">
           {error}
@@ -104,8 +96,8 @@ export default function HomePage() {
       )}
 
       <div className="mb-6">
-        <h1 className="text-xl font-semibold tracking-tight text-neutral-900">Kenya Health Equity Map</h1>
-        <p className="mt-1 text-sm text-neutral-500">
+        <h1 className="text-xl font-bold tracking-tight text-stone-800">Kenya Health Equity Map</h1>
+        <p className="mt-1 text-sm text-stone-500">
           Explore health access inequities across Kenya&apos;s 47 counties. Hover the map to see scores, click a county for details.
         </p>
       </div>
@@ -127,25 +119,25 @@ export default function HomePage() {
               />
             </MapErrorBoundary>
           ) : (
-            <div className="flex h-[400px] items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-sm text-neutral-500">
+            <div className="flex h-[400px] items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-sm text-stone-500">
               Loading map data...
             </div>
           )}
 
-          <div className="mt-4 flex items-center gap-4 text-xs text-neutral-500">
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-stone-500">
             <span className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-[#22c55e]"></span> Low (below 0.30)
+              <span className="inline-block h-3 w-3 rounded-sm bg-[#FDE68A]"></span> Low (&lt;0.30)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-[#eab308]"></span> Medium (0.30&ndash;0.49)
+              <span className="inline-block h-3 w-3 rounded-sm bg-[#F59E0B]"></span> Medium (0.30&ndash;0.49)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-[#f97316]"></span> High (0.50&ndash;0.69)
+              <span className="inline-block h-3 w-3 rounded-sm bg-[#EA580C]"></span> High (0.50&ndash;0.69)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-[#dc2626]"></span> Critical (0.70+)
+              <span className="inline-block h-3 w-3 rounded-sm bg-[#78350F]"></span> Critical (0.70+)
             </span>
-            <span className="ml-auto text-neutral-400">Priority Gap Score (PGS)</span>
+            <span className="ml-auto text-stone-400">Priority Gap Score (PGS)</span>
           </div>
         </div>
 
@@ -156,7 +148,7 @@ export default function HomePage() {
               indicators={indicators}
             />
           ) : (
-            <div className="rounded-xl border border-neutral-200 bg-white p-8 text-center text-sm text-neutral-400">
+            <div className="rounded-xl border border-stone-200 bg-white p-8 text-center text-sm text-stone-400">
               Click a county on the map to see details.
             </div>
           )}
@@ -164,23 +156,23 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="mt-8 border-t border-neutral-200 pt-6">
+      <div className="mt-8 border-t border-stone-200 pt-6">
         <div className="flex flex-wrap gap-3">
           <a
             href="/brief?county=1"
-            className="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 transition-colors"
+            className="rounded-lg border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
           >
             View sample brief
           </a>
           <a
             href="/method"
-            className="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 transition-colors"
+            className="rounded-lg border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
           >
             View methodology
           </a>
           <a
             href="/compare"
-            className="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 transition-colors"
+            className="rounded-lg border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
           >
             Compare counties
           </a>

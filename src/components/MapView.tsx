@@ -12,15 +12,23 @@ interface MapViewProps {
 }
 
 function getPGSColor(pgs: number): string {
-  if (pgs >= 0.7) return "#dc2626";
-  if (pgs >= 0.5) return "#f97316";
-  if (pgs >= 0.3) return "#eab308";
-  return "#22c55e";
+  if (pgs >= 0.7) return "#78350F";
+  if (pgs >= 0.5) return "#EA580C";
+  if (pgs >= 0.3) return "#F59E0B";
+  return "#FDE68A";
 }
 
 function buildMatchExpression(countyScores: Record<string, number>): any[] {
   const entries = Object.entries(countyScores).flatMap(([k, v]) => [Number(k), getPGSColor(v)]);
-  return ["match", ["get", "county_code"], ...entries, "#e7e5e4"];
+  return ["match", ["get", "county_code"], ...entries, "#E7E5E4"];
+}
+
+interface HoverInfo {
+  countyCode: string;
+  countyName: string;
+  pgs: number | undefined;
+  x: number;
+  y: number;
 }
 
 export default function MapView({
@@ -32,9 +40,9 @@ export default function MapView({
 }: MapViewProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const popupRef = useRef<maplibregl.Popup | null>(null);
   const [ready, setReady] = useState(false);
   const [hasError, setError] = useState(false);
+  const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null);
 
   const formatScore = useCallback((pgs: number) => `${(pgs * 100).toFixed(0)}`, []);
 
@@ -48,18 +56,19 @@ export default function MapView({
         style: {
           version: 8,
           sources: {
-            "osm-tiles": {
+            "carto-positron": {
               type: "raster",
-              tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+              tiles: ["https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"],
               tileSize: 256,
-              attribution: "&copy; OpenStreetMap contributors",
+              attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
             },
           },
           layers: [
             {
-              id: "osm-tiles-layer",
+              id: "base-map",
               type: "raster",
-              source: "osm-tiles",
+              source: "carto-positron",
               minzoom: 0,
               maxzoom: 19,
             },
@@ -91,11 +100,11 @@ export default function MapView({
             "fill-color": [
               "case",
               ["boolean", ["==", ["get", "county_code"], Number(selectedCountyCode ?? "0")], false],
-              "#a3e635",
+              "#16A34A",
               buildMatchExpression(countyScores),
             ] as any,
-            "fill-opacity": 0.65,
-            "fill-outline-color": "#78716c",
+            "fill-opacity": 0.85,
+            "fill-outline-color": "#FFFFFF",
           },
         });
 
@@ -104,9 +113,9 @@ export default function MapView({
           type: "line",
           source: "counties",
           paint: {
-            "line-color": "#44403c",
-            "line-width": 1.5,
-            "line-opacity": 0.8,
+            "line-color": "#FFFFFF",
+            "line-width": 1,
+            "line-opacity": 1,
           },
         });
 
@@ -117,46 +126,29 @@ export default function MapView({
           }
         });
 
-        map.on("mouseenter", "counties-fill", (e) => {
+        map.on("mousemove", "counties-fill", (e) => {
           map.getCanvas().style.cursor = "pointer";
           if (e.features && e.features[0]?.properties) {
             const props = e.features[0].properties;
             const code = String(props.county_code);
-            const name = props.county_name || "Unknown";
-            const score = countyScores[code];
-            const scoreLabel = score !== undefined ? `PGS: ${formatScore(score)}` : "No data";
-            const color = score !== undefined ? getPGSColor(score) : "#e7e5e4";
-            const html = `
-              <div style="font-family:system-ui;min-width:120px">
-                <div style="font-weight:600;font-size:14px;color:#1c1917">${name}</div>
-                <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
-                  <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:${color}"></span>
-                  <span style="font-size:13px;color:#57534e">${scoreLabel}</span>
-                </div>
-              </div>
-            `;
-            if (popupRef.current) popupRef.current.remove();
-            popupRef.current = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 10 })
-              .setLngLat(e.lngLat)
-              .setHTML(html)
-              .addTo(map);
+            setHoverInfo({
+              countyCode: code,
+              countyName: props.county_name || "Unknown",
+              pgs: countyScores[code],
+              x: e.point.x,
+              y: e.point.y,
+            });
           }
         });
 
         map.on("mouseleave", "counties-fill", () => {
           map.getCanvas().style.cursor = "";
-          if (popupRef.current) {
-            popupRef.current.remove();
-            popupRef.current = null;
-          }
+          setHoverInfo(null);
         });
 
         map.addControl(new maplibregl.NavigationControl(), "bottom-right");
 
-        map.fitBounds(
-          [[33.5, -5], [42.5, 5]],
-          { padding: 40, duration: 0 }
-        );
+        map.fitBounds([[33.5, -5], [42.5, 5]], { padding: 40, duration: 0 });
 
         setReady(true);
       } catch (e) {
@@ -183,7 +175,7 @@ export default function MapView({
       map.setPaintProperty("counties-fill", "fill-color", [
         "case",
         ["boolean", ["==", ["get", "county_code"], Number(selectedCountyCode ?? "0")], false],
-        "#a3e635",
+        "#16A34A",
         buildMatchExpression(countyScores),
       ] as any);
     } catch (e) {
@@ -191,15 +183,47 @@ export default function MapView({
     }
   }, [countyScores, selectedCountyCode, boundaries]);
 
+  const pgsLabel = hoverInfo?.pgs !== undefined ? `${formatScore(hoverInfo.pgs)}` : null;
+  const pgsColor = hoverInfo?.pgs !== undefined ? getPGSColor(hoverInfo.pgs) : null;
+
   return (
-    <div className="relative min-h-[400px] w-full overflow-hidden rounded-xl border border-neutral-200 shadow-sm">
-      <div ref={containerRef} className="h-[500px] w-full md:h-[600px]" aria-label="Map of Kenya counties with health equity data" role="application" />
+    <div className="relative min-h-[400px] w-full overflow-hidden rounded-xl border border-stone-200 shadow-sm">
+      <div
+        ref={containerRef}
+        className="h-[500px] w-full md:h-[600px]"
+        aria-label="Map of Kenya counties with health equity data"
+        role="application"
+        tabIndex={0}
+      />
+      {hoverInfo && (
+        <div
+          className="pointer-events-none absolute z-50 rounded-lg border border-stone-200 bg-white p-3 shadow-lg"
+          style={{ left: Math.min(hoverInfo.x + 16, window.innerWidth - 200), top: hoverInfo.y + 16 }}
+          role="tooltip"
+          aria-live="polite"
+        >
+          <div className="flex items-center gap-2">
+            {pgsColor && (
+              <span
+                className="inline-block h-3 w-3 flex-shrink-0 rounded-sm"
+                style={{ backgroundColor: pgsColor }}
+              />
+            )}
+            <span className="font-semibold text-stone-800">{hoverInfo.countyName}</span>
+          </div>
+          {pgsLabel && (
+            <p className="mt-1 text-sm text-stone-500">
+              PGS: <span className="font-medium text-stone-700">{pgsLabel}</span>
+            </p>
+          )}
+        </div>
+      )}
       {hasError ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-neutral-50 text-sm text-neutral-500">
+        <div className="absolute inset-0 flex items-center justify-center bg-stone-50 text-sm text-stone-500">
           Map render error. Check console for details.
         </div>
       ) : !ready ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-neutral-50 text-sm text-neutral-500">
+        <div className="absolute inset-0 flex items-center justify-center bg-stone-50 text-sm text-stone-500">
           Loading map...
         </div>
       ) : null}

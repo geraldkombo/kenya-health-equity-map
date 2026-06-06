@@ -6,20 +6,20 @@ export default function HowToUse() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="rounded-xl border border-neutral-200 bg-white">
+    <div className="rounded-xl border border-stone-200 bg-white transition-all duration-200 ease-in-out hover:shadow-sm">
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between px-5 py-3 text-left text-sm font-semibold text-neutral-800"
+        className="flex w-full items-center justify-between px-5 py-3 text-left text-sm font-semibold text-stone-800"
         aria-expanded={open}
         aria-controls="how-to-use-content"
       >
         How to use this map
-        <span className={`transition-transform ${open ? "rotate-180" : ""}`} aria-hidden="true">
+        <span className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden="true">
           ▾
         </span>
       </button>
       {open && (
-        <div id="how-to-use-content" className="border-t border-neutral-100 px-5 py-4 text-sm leading-6 text-neutral-600">
+        <div id="how-to-use-content" className="border-t border-stone-100 px-5 py-4 text-sm leading-6 text-stone-600">
           <ul className="list-disc space-y-2 pl-5">
             <li>
               <strong>Hover</strong> over a county to see its name and Priority Gap Score.
@@ -33,7 +33,6 @@ export default function HowToUse() {
             <li>
               Use the <strong>Brief</strong> button on a selected county to generate a printable one-page summary.
             </li>
-
           </ul>
         </div>
       )}

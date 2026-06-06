@@ -1,5 +1,5 @@
 {
-  "name": "nairobi-health-equity-map-functions",
+  "name": "kenya-health-equity-map-functions",
   "private": true,
   "dependencies": {
     "@netlify/functions": "3.1.2"
