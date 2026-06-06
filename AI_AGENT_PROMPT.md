@@ -8,9 +8,9 @@ Take this project from its current state to a complete, production-grade, instit
 
 Map-first civic intelligence platform that visualises health access inequities across Kenya's 47 counties using transparent open data. Built with Next.js 15 (static export), MapLibre GL JS, Tailwind CSS, and Zod.
 
-**Production URL:** `https://ke-health-equity.netlify.app`
+**Production URL:** `https://kenya-equity.netlify.app`
 
-**Critical: Give it the best name possible.** `ke-health-equity` is a placeholder. Choose the best name autonomously — Netlify subdomain or custom domain, whatever you judge most authoritative and memorable. Must project institutional credibility for government and development stakeholders.
+**Critical: Give it the best name possible.** `kenya-equity` is a placeholder. Choose the best name autonomously — Netlify subdomain or custom domain, whatever you judge most authoritative and memorable. Must project institutional credibility for government and development stakeholders.
 
 ### Architecture
 
@@ -197,5 +197,5 @@ After each change:
 
 - **Netlify token**: `nfp_vaFgTwyn4sDj1LaZEuDf1stxaUCzaqZ86f7f`
 - **Netlify site ID**: `9bf4da5c-326a-400e-8bb3-5548fc58994e`
-- **Production URL**: `https://ke-health-equity.netlify.app`
+- **Production URL**: `https://kenya-equity.netlify.app`
 - **KMHFR API**: `https://api.kmhfr.health.go.ke/api/facilities/facilities/` — contact `helpdesk@nphl.go.ke` for credentials

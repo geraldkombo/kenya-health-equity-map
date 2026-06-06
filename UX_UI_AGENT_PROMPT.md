@@ -1,6 +1,6 @@
 # UX/UI Agent: Kenya Health Equity Map — Best Netlify UX/UI Possible
 
-**Give it the best name possible.** `ke-health-equity` is a placeholder. Choose the best name autonomously — Netlify subdomain or custom domain, whatever you judge most authoritative and memorable. Must project institutional credibility for government and development stakeholders.
+**Give it the best name possible.** `kenya-equity` is a placeholder. Choose the best name autonomously — Netlify subdomain or custom domain, whatever you judge most authoritative and memorable. Must project institutional credibility for government and development stakeholders.
 
 ## Funding Qualification
 
@@ -29,7 +29,7 @@ Make this the best possible Netlify-deployed experience. Leverage everything the
 ## Netlify-specific
 
 - **Deploy Previews**: Every branch push gets a unique preview URL. Use this for stakeholder review before merging to production
-- **Branch subdomains**: `staging.ke-health-equity.netlify.app` for UAT, `production` for live
+- **Branch subdomains**: `staging.kenya-equity.netlify.app` for UAT, `production` for live
 - **Split Testing**: Run A/B tests on PGS weighting schemes or UI layouts — Netlify handles traffic splitting natively
 - **Netlify Forms**: Collect feedback from stakeholders via a form on `/feedback` — no backend needed, submissions go to Netlify dashboard or email
 - **Edge Functions**: Personalise the landing page message based on visitor geography (geolocation via `Context.geo`) — e.g., "Welcome, visitor from [county]" with that county pre-selected on the map

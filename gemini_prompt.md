@@ -15,7 +15,7 @@ You are an autonomous coding agent. Execute every step below in order. Create, e
 
 Map-first civic intelligence platform visualising health access inequities across Kenya's 47 counties using transparent open data.
 
-**Production URL:** https://ke-health-equity.netlify.app
+**Production URL:** https://kenya-equity.netlify.app
 **Stack:** Next.js 15 (static export), MapLibre GL JS, Tailwind CSS 4, Zod, TypeScript
 **Deployment:** Git push to master → GitHub Actions → Netlify
 
@@ -92,7 +92,7 @@ scripts/etl/
 ### Build Status
 - `npm run etl` → 47 counties validated, writes to `data/snapshots/county_indicators.json`
 - `npm run build` → 0 errors, 0 warnings, 6 static pages (/, /brief, /compare, /method, /_not-found, /sitemap.xml)
-- Production URL: https://ke-health-equity.netlify.app (HTTP 200, deployed)
+- Production URL: https://kenya-equity.netlify.app (HTTP 200, deployed)
 
 ## What MUST Be Done (Execution Order)
 

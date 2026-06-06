@@ -173,7 +173,7 @@ export default function DUAPage() {
             <p className="font-mono">
               Kenya Health Equity Map. (2026).
               <em> Map-first civic intelligence platform for health equity across Kenya&apos;s 47 counties.</em>
-              Nairobi, Kenya. Retrieved from https://ke-health-equity.netlify.app
+              Nairobi, Kenya.               Retrieved from https://kenya-equity.netlify.app
             </p>
           </div>
           <p className="mt-3 text-xs leading-5 text-stone-500">
