@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState, useCallback } from "react";
+import Link from "next/link";
 import CountyDetails from "@/components/CountyDetails";
 import HowToUse from "@/components/HowToUse";
 import SourcesPanel from "@/components/SourcesPanel";
@@ -163,24 +164,24 @@ export default function HomePage() {
 
       <div className="mt-8 border-t border-stone-200 pt-6">
         <div className="flex flex-wrap gap-3">
-          <a
+          <Link
             href="/brief?county=1"
             className="rounded-lg border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
           >
             View sample brief
-          </a>
-          <a
+          </Link>
+          <Link
             href="/method"
             className="rounded-lg border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
           >
             View methodology
-          </a>
-          <a
+          </Link>
+          <Link
             href="/compare"
             className="rounded-lg border border-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
           >
             Compare counties
-          </a>
+          </Link>
         </div>
       </div>
       <div className="mt-6 border-t border-stone-100 pt-4 pb-2">
