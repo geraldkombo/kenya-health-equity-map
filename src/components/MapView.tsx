@@ -234,7 +234,7 @@ export default function MapView({
       ) : null}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 flex items-center justify-between px-3 py-1.5">
         <a
-          href="https://www.knbs.or.ke/gis-boundary-files/"
+          href="https://www.knbs.or.ke/census/"
           target="_blank"
           rel="noreferrer"
           className="pointer-events-auto text-[9px] text-stone-400 hover:text-stone-600 underline underline-offset-2"
@@ -242,7 +242,7 @@ export default function MapView({
           KNBS boundaries
         </a>
         <a
-          href="https://geoportal.icpac.net/layers/geonode:kenya_health_facilities"
+          href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail"
           target="_blank"
           rel="noreferrer"
           className="pointer-events-auto text-[9px] text-stone-400 hover:text-stone-600 underline underline-offset-2"

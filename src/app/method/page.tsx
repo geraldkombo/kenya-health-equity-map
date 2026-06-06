@@ -60,12 +60,12 @@ export default function MethodPage() {
           <h2 className="text-base font-semibold text-stone-800">Travel Time Modelling</h2>
           <p className="mt-3 text-sm leading-6 text-stone-700">
             Average travel time is derived from cost and distance spatial modelling algorithms
-            (<a href="https://kemri-wellcome.org/programmes/geographic-access/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KEMRI-Wellcome Trust</a>
+            (<a href="https://kemri-wellcome.org/press-release-launch-of-comprehensive-public-health-facility-inventory-for-sub-saharan-africa/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KEMRI-Wellcome Trust</a>
             {" / "}
             <a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">AccessMod</a>
             {" "}methodology). It does not rely on straight-line Euclidean distance.
             Instead, it calculates the lowest cost path by simulating a combined transport model, factoring
-            in walking speeds across varied land cover (<a href="https://worldcover.esa.int/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">ESA WorldCover</a>)
+            in walking speeds across varied land cover (<a href="https://esa-worldcover.org/en" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">ESA WorldCover</a>)
 and topography, combined with motorized and manual transport travel speeds along officially mapped primary,
 secondary, and rural road networks (<a href="https://www.openstreetmap.org/relation/192798" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">OSM Kenya</a>).
           </p>
@@ -112,7 +112,7 @@ secondary, and rural road networks (<a href="https://www.openstreetmap.org/relat
               </p>
               <p className="mt-1 text-[10px] leading-4 text-stone-400">
                 Sources:{" "}
-                <a href="https://geoportal.icpac.net/layers/geonode:kenya_health_facilities" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI Health Facilities</a>
+                <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI Health Facilities</a>
                 {" · "}
                 <a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">WHO AccessMod travel time model</a>
                 {" · "}
@@ -127,7 +127,7 @@ secondary, and rural road networks (<a href="https://www.openstreetmap.org/relat
               </p>
               <p className="mt-1 text-[10px] leading-4 text-stone-400">
                 Sources:{" "}
-                <a href="https://www.knbs.or.ke/kihbs-2015-16/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16 county poverty estimates</a>
+                <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16 county poverty estimates</a>
                 {" · "}
                 <a href="https://databank.worldbank.org/source/kenya-poverty-and-equity" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">World Bank Kenya poverty data</a>
               </p>
@@ -140,7 +140,7 @@ secondary, and rural road networks (<a href="https://www.openstreetmap.org/relat
               </p>
               <p className="mt-1 text-[10px] leading-4 text-stone-400">
                 Source:{" "}
-                <a href="https://www.knbs.or.ke/census-2019/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Kenya Population and Housing Census</a>
+                <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Kenya Population and Housing Census</a>
               </p>
             </div>
           </div>
@@ -180,14 +180,14 @@ secondary, and rural road networks (<a href="https://www.openstreetmap.org/relat
           <h2 className="text-base font-semibold text-stone-800">Why These Proxies?</h2>
           <p className="mt-3 text-sm leading-6 text-stone-700">
             Travel time and facility density are well-established spatial access measures in health geography
-            (<a href="https://kemri-wellcome.org/programmes/geographic-access/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KEMRI/Wellcome Trust</a>).
+            (<a href="https://kemri-wellcome.org/press-release-launch-of-comprehensive-public-health-facility-inventory-for-sub-saharan-africa/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KEMRI/Wellcome Trust</a>).
             Population proxies for demand pressure, and poverty proxies for vulnerability, are standard in
             equity-focussed health planning
-            (<a href="https://www.knbs.or.ke/kihbs-2015-16/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KIHBS</a>,
-            <a href="https://www.knbs.or.ke/census-2019/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KNBS Census</a>).
+            (<a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KIHBS</a>,
+            <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KNBS Census</a>).
             These were chosen because they can be derived from open data sources
             without requiring access to restricted health information systems. Travel time methodology follows the
-            <a href="https://kemri-wellcome.org/programmes/geographic-access/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900"> KEMRI-Wellcome Trust</a>
+            <a href="https://kemri-wellcome.org/press-release-launch-of-comprehensive-public-health-facility-inventory-for-sub-saharan-africa/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900"> KEMRI-Wellcome Trust</a>
             {" / "}
             <a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">AccessMod</a>
             {" "}combined transport network model, ensuring spatial access estimates

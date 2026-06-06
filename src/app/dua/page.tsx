@@ -61,7 +61,7 @@ export default function DUAPage() {
               <tbody>
                 <SourceRow
                   name="KNBS 2019 Census (Population)"
-                  url="https://www.knbs.or.ke/census-2019/"
+                  url="https://www.knbs.or.ke/census/"
                   license="Open Data"
                   accessDate="2026-06-05"
                 />
@@ -79,7 +79,7 @@ export default function DUAPage() {
                 />
                 <SourceRow
                   name="ICPAC/KEMRI Health Facilities"
-                  url="https://geoportal.icpac.net/layers/geonode:kenya_health_facilities"
+                  url="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail"
                   license="CC-BY-4.0"
                   accessDate="2026-06-05"
                 />
@@ -91,7 +91,7 @@ export default function DUAPage() {
                 />
                 <SourceRow
                   name="KNBS GIS Boundary Files"
-                  url="https://www.knbs.or.ke/gis-boundary-files/"
+                  url="https://www.knbs.or.ke/census/"
                   license="Open Data"
                   accessDate="2026-06-05"
                 />
@@ -109,7 +109,7 @@ export default function DUAPage() {
                 />
                 <SourceRow
                   name="ESA WorldCover Land Cover"
-                  url="https://worldcover.esa.int/"
+                  url="https://esa-worldcover.org/en"
                   license="CC-BY-4.0"
                   accessDate="2026-06-05"
                 />

@@ -48,7 +48,7 @@ export const REAL_SOURCES: Record<string, SourceEntry[]> = {
     },
     {
       name: "KNBS GIS Boundary Files",
-      url: "https://www.knbs.or.ke/gis-boundary-files/",
+      url: "https://www.knbs.or.ke/census/",
       license: "Open Data",
       licenseUrl: "https://www.knbs.or.ke/terms-of-use/",
       note: "KNBS publishes official administrative boundary shapefiles for counties, sub-counties, and wards. These are the authoritative source for spatial joins and aggregation.",
@@ -72,7 +72,7 @@ export const REAL_SOURCES: Record<string, SourceEntry[]> = {
     },
     {
       name: "ICPAC GeoPortal, Kenya Health Facilities",
-      url: "https://geoportal.icpac.net/layers/geonode:kenya_health_facilities",
+      url: "https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail",
       license: "CC-BY-4.0",
       licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
       note: "Point dataset of 200+ health facilities compiled by ICPAC and KEMRI/Wellcome Trust. Includes hospitals, health centres, and dispensaries with location coordinates, ownership, and service type.",
@@ -80,7 +80,7 @@ export const REAL_SOURCES: Record<string, SourceEntry[]> = {
     },
     {
       name: "KEMRI/Wellcome Trust, Geographic Access Research",
-      url: "https://kemri-wellcome.org/programmes/geographic-access/",
+      url: "https://kemri-wellcome.org/press-release-launch-of-comprehensive-public-health-facility-inventory-for-sub-saharan-africa/",
       license: "Research",
       note: "Research programme producing travel time accessibility surfaces using cost and distance modelling. Raw friction GeoTIFFs available upon request accompanying published papers.",
       type: "research",
@@ -144,7 +144,7 @@ export const REAL_SOURCES: Record<string, SourceEntry[]> = {
     },
     {
       name: "ESA WorldCover, Land Cover Friction Surface",
-      url: "https://worldcover.esa.int/",
+      url: "https://esa-worldcover.org/en",
       license: "CC-BY-4.0",
       licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
       note: "10 m resolution satellite derived land cover map from the European Space Agency. Used to assign off road walking speeds (bare land, grassland, shrub, forest, water) in the cost and distance model.",
