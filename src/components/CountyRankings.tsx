@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
 import { normalizeCounty } from "@/lib/normalize";
 import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
+import { matchCountyName } from "@/lib/county-names";
 
 interface CountyRankingsProps {
   counties: CountyRecord[];
@@ -46,7 +47,7 @@ export default function CountyRankings({ counties, indicators, onCountyClick }: 
     if (!counties || indicators.length === 0) return [];
     return counties
       .map((c) => {
-        const ind = indicators.find((i) => i.county_name.toLowerCase() === c.name.toLowerCase());
+        const ind = indicators.find((i) => matchCountyName(i.county_name, c.name));
         if (!ind) return { id: c.id, name: c.name, score: 0 };
         const norm = normalizeCounty(ind);
         const { pgs } = computePGS(c.id, norm, DEFAULT_WEIGHTS);

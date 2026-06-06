@@ -12,6 +12,7 @@ import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
 import { normalizeCounty } from "@/lib/normalize";
 import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
 import { fetchCounties, fetchIndicators, dataUrl } from "@/lib/data-fetch";
+import { matchCountyName } from "@/lib/county-names";
 import MapErrorBoundary from "@/components/MapErrorBoundary";
 
 const MapView = dynamic(() => import("@/components/MapView"), { ssr: false });
@@ -57,7 +58,7 @@ export default function HomePage() {
     if (!counties || indicators.length === 0) return {};
     const scores: Record<string, number> = {};
     for (const county of counties) {
-      const ind = indicators.find((i) => i.county_name.toLowerCase() === county.name.toLowerCase());
+      const ind = indicators.find((i) => matchCountyName(i.county_name, county.name));
       if (ind) {
         const norm = normalizeCounty(ind);
         scores[county.id] = computePGS(county.id, norm, DEFAULT_WEIGHTS).pgs;

@@ -5,7 +5,12 @@ export function sanitizeCountyName(name: string): string {
     .replace(/['\u2019]/g, "")
     .replace(/[-/]/g, " ")
     .replace(" CITY", "")
+    .replace(/\s+/g, " ")
     .trim();
+}
+
+export function matchCountyName(a: string, b: string): boolean {
+  return sanitizeCountyName(a) === sanitizeCountyName(b);
 }
 
 /** Convert "UASIN GISHU" to "uasin-gishu" for URL-safe IDs. */

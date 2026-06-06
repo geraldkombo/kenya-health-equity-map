@@ -145,10 +145,10 @@
   },
   {
     "county_code": "tharaka-nithi",
-    "county_name": "Tharaka   Nithi",
+    "county_name": "Tharaka Nithi",
     "population": 393177,
-    "facility_count": 0,
-    "facility_density_proxy": 0,
+    "facility_count": 116,
+    "facility_density_proxy": 2.95,
     "poverty_proxy": 45.2,
     "travel_time_to_facility_proxy": 100,
     "immunization_coverage": 62.9,

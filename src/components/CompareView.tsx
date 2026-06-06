@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
 import { normalizeCounty } from "@/lib/normalize";
 import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
+import { matchCountyName } from "@/lib/county-names";
 
 interface CompareViewProps {
   countyA: CountyRecord;
@@ -20,8 +21,8 @@ function pgsBadge(pgs: number): string {
 
 export default function CompareView({ countyA, countyB, indicators }: CompareViewProps) {
   const stats = useMemo(() => {
-    const iA = indicators.find((i) => i.county_name.toLowerCase() === countyA.name.toLowerCase());
-    const iB = indicators.find((i) => i.county_name.toLowerCase() === countyB.name.toLowerCase());
+    const iA = indicators.find((i) => matchCountyName(i.county_name, countyA.name));
+    const iB = indicators.find((i) => matchCountyName(i.county_name, countyB.name));
 
     const sA = iA ? computePGS(countyA.id, normalizeCounty(iA), DEFAULT_WEIGHTS) : null;
     const sB = iB ? computePGS(countyB.id, normalizeCounty(iB), DEFAULT_WEIGHTS) : null;

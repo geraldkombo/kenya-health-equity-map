@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
 import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
 import { normalizeCounty } from "@/lib/normalize";
+import { matchCountyName } from "@/lib/county-names";
 import Link from "next/link";
 
 interface CountyDetailsProps {
@@ -53,7 +54,7 @@ function ProgressBar({ label, value, max, invert, info }: { label: string; value
 }
 
 export default function CountyDetails({ county, indicators }: CountyDetailsProps) {
-  const indicator = indicators.find((i) => i.county_name.toLowerCase() === county.name.toLowerCase());
+  const indicator = indicators.find((i) => matchCountyName(i.county_name, county.name));
 
   const score = useMemo(() => {
     if (!indicator) return null;
@@ -76,7 +77,7 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
       [...indicators].sort((a, b) => (a[field] as number) - (b[field] as number));
     const pctRank = (field: keyof IndicatorRecord) => {
       const arr = sorted(field);
-      const idx = arr.findIndex((i) => i.county_name.toLowerCase() === county.name.toLowerCase());
+      const idx = arr.findIndex((i) => matchCountyName(i.county_name, county.name));
       return idx >= 0 ? Math.round((idx / arr.length) * 100) : null;
     };
     return {

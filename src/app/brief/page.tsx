@@ -8,6 +8,7 @@ import { normalizeCounty } from "@/lib/normalize";
 import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
 import type { IndicatorRecord, CountyRecord } from "@/lib/adapters";
 import { fetchCounties, fetchIndicators } from "@/lib/data-fetch";
+import { matchCountyName } from "@/lib/county-names";
 
 function DriverBar({ label, value, color }: { label: string; value: number; color: string }) {
   const pct = Math.min(100, Math.round(value * 100));
@@ -247,7 +248,7 @@ function BriefContent() {
 
   const indicator = useMemo(() => {
     if (!selected) return null;
-    return indicators.find((i) => i.county_name.toLowerCase() === selected.name.toLowerCase()) ?? null;
+    return indicators.find((i) => matchCountyName(i.county_name, selected.name)) ?? null;
   }, [selected, indicators]);
 
   const nationalAvg = useMemo(() => {
