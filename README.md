@@ -1,7 +1,6 @@
 # Kenya Health Equity Map
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-# Kenya Health Equity Map
 
 Maps health access inequity across Kenya's 47 counties.
 
@@ -23,7 +22,7 @@ Maps health access inequity across Kenya's 47 counties.
 - **Frontend:** Next.js 15 static export + MapLibre GL JS + Tailwind CSS 4
 - **Data Pipeline:** Zod-validated ETL scripts in `scripts/etl/`
 - **Backend:** Zero runtime backend — all data is static JSON at build time
-- **Deployment:** GitHub Actions → Netlify
+- **Deployment:** GitHub Actions → GitHub Pages
 
 ## Quick Start
 
