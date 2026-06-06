@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
 import { normalizeCounty } from "@/lib/normalize";
-import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
+import { computePGS, DEFAULT_WEIGHTS, getPGSColor } from "@/lib/scoring";
 import { matchCountyName } from "@/lib/county-names";
 
 interface CountyRankingsProps {
@@ -60,10 +60,7 @@ export default function CountyRankings({ counties, indicators, onCountyClick }: 
   const bottom5 = rankings.slice(-5).reverse();
 
   function scoreColor(s: number): string {
-    if (s >= 70) return "#78350F";
-    if (s >= 50) return "#EA580C";
-    if (s >= 30) return "#F59E0B";
-    return "#FDE68A";
+    return getPGSColor(s);
   }
 
   if (rankings.length === 0) {

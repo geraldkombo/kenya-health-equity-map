@@ -22,6 +22,29 @@ export interface CountyScore {
   drivers: string[];
 }
 
+const PGS_COLORS = {
+  low: "#FFF7BC",
+  medium: "#FEC44F",
+  high: "#D95F0E",
+  critical: "#8C2D04",
+} as const;
+
+export function getPGSColor(pgs: number): string {
+  if (pgs >= 70) return PGS_COLORS.critical;
+  if (pgs >= 50) return PGS_COLORS.high;
+  if (pgs >= 30) return PGS_COLORS.medium;
+  return PGS_COLORS.low;
+}
+
+export function getPGSBadgeClass(pgs: number): string {
+  if (pgs >= 70) return "text-stone-50 bg-[#8C2D04]";
+  if (pgs >= 50) return "text-white bg-[#D95F0E]";
+  if (pgs >= 30) return "text-stone-800 bg-[#FEC44F]";
+  return "text-stone-800 bg-[#FFF7BC]";
+}
+
+export { PGS_COLORS };
+
 export function computePGS(
   countyCode: string,
   norm: {

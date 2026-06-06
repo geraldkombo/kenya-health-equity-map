@@ -3,20 +3,13 @@
 import { useMemo } from "react";
 import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
 import { normalizeCounty } from "@/lib/normalize";
-import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
+import { computePGS, DEFAULT_WEIGHTS, getPGSBadgeClass } from "@/lib/scoring";
 import { matchCountyName } from "@/lib/county-names";
 
 interface CompareViewProps {
   countyA: CountyRecord;
   countyB: CountyRecord;
   indicators: IndicatorRecord[];
-}
-
-function pgsBadge(pgs: number): string {
-  if (pgs >= 70) return "text-stone-50 bg-[#78350F]";
-  if (pgs >= 50) return "text-white bg-[#EA580C]";
-  if (pgs >= 30) return "text-stone-800 bg-[#F59E0B]";
-  return "text-stone-800 bg-[#FDE68A]";
 }
 
 export default function CompareView({ countyA, countyB, indicators }: CompareViewProps) {
@@ -50,7 +43,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
               <h3 className="font-bold text-stone-800">{county.name}</h3>
               <p className="text-sm text-stone-500">County</p>
               {s && (
-                <div className={`mt-3 inline-block rounded-lg px-3 py-1.5 ${pgsBadge(s.pgs)}`}>
+                <div className={`mt-3 inline-block rounded-lg px-3 py-1.5 ${getPGSBadgeClass(s.pgs)}`}>
                   <span className="text-xl font-bold">{s.pgs}</span>
                   <span className="ml-1 text-xs font-medium opacity-80">PGS</span>
                 </div>

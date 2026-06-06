@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
-import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
+import { computePGS, DEFAULT_WEIGHTS, getPGSBadgeClass } from "@/lib/scoring";
 import { normalizeCounty } from "@/lib/normalize";
 import { matchCountyName } from "@/lib/county-names";
 import Link from "next/link";
@@ -113,12 +113,7 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
     return lines;
   }, [comparisons, indicator, nationalAvg]);
 
-  const pgsClass = score
-    ? score.pgs >= 70 ? "text-stone-50 bg-[#78350F]"
-      : score.pgs >= 50 ? "text-white bg-[#EA580C]"
-      : score.pgs >= 30 ? "text-stone-800 bg-[#F59E0B]"
-      : "text-stone-800 bg-[#FDE68A]"
-    : "";
+  const pgsClass = score ? getPGSBadgeClass(score.pgs) : "";
 
   return (
     <div className="rounded-xl border border-stone-200 bg-white p-5 transition-all duration-200 ease-in-out hover:shadow-md">

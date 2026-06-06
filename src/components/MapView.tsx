@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import maplibregl from "maplibre-gl";
+import { getPGSColor } from "@/lib/scoring";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -11,13 +12,6 @@ interface MapViewProps {
   countyNames: Record<string, string>;
   onCountyClick: (countyCode: string) => void;
   selectedCountyCode: string | null;
-}
-
-function getPGSColor(pgs: number): string {
-  if (pgs >= 70) return "#78350F";
-  if (pgs >= 50) return "#EA580C";
-  if (pgs >= 30) return "#F59E0B";
-  return "#FDE68A";
 }
 
 function buildMatchExpression(countyScores: Record<string, number>): any[] {

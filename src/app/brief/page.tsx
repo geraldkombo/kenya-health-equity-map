@@ -1,11 +1,11 @@
 ﻿"use client";
 
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useMemo, useState, useEffect, useRef, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useReactToPrint } from "react-to-print";
 import { normalizeCounty } from "@/lib/normalize";
-import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
+import { computePGS, DEFAULT_WEIGHTS, getPGSColor } from "@/lib/scoring";
 import type { IndicatorRecord, CountyRecord } from "@/lib/adapters";
 import { fetchCounties, fetchIndicators } from "@/lib/data-fetch";
 import { matchCountyName } from "@/lib/county-names";
@@ -95,7 +95,7 @@ function PrintableBrief({
             <h1 className="text-3xl font-bold tracking-tight text-stone-900">{county.name}</h1>
             <p className="mt-1 text-sm text-stone-500">County, Kenya &middot; Generated {today}</p>
           </div>
-          <div className="flex flex-col items-center rounded-lg px-4 py-2" style={{ backgroundColor: score.pgs >= 70 ? "#78350F" : score.pgs >= 50 ? "#EA580C" : score.pgs >= 30 ? "#F59E0B" : "#FDE68A" }}>
+          <div className="flex flex-col items-center rounded-lg px-4 py-2" style={{ backgroundColor: getPGSColor(score.pgs) }}>
             <span className="text-2xl font-bold tracking-tight" style={{ color: score.pgs >= 50 ? "white" : "#292524" }}>
               {score.pgs}
             </span>
@@ -131,9 +131,9 @@ function PrintableBrief({
         <h2 className="text-xs font-bold uppercase tracking-widest text-stone-500">Driver Decomposition</h2>
         <p className="mt-1 text-[11px] text-stone-400">Component contribution to the composite Priority Gap Score</p>
         <div className="mt-4 space-y-4">
-          <DriverBar label="Accessibility (travel time + facility density)" value={hasAccessibility ? accessibility : 0} color="#78350F" />
-          <DriverBar label="Vulnerability (poverty proxy)" value={hasVulnerability ? norm.poverty : 0} color="#EA580C" />
-          <DriverBar label="Population pressure" value={hasPopPressure ? norm.populationPressure : 0} color="#F59E0B" />
+          <DriverBar label="Accessibility (travel time + facility density)" value={hasAccessibility ? accessibility : 0} color="#8C2D04" />
+          <DriverBar label="Vulnerability (poverty proxy)" value={hasVulnerability ? norm.poverty : 0} color="#D95F0E" />
+          <DriverBar label="Population pressure" value={hasPopPressure ? norm.populationPressure : 0} color="#FEC44F" />
         </div>
       </div>
 

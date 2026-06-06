@@ -14,6 +14,7 @@ import { computePGS, DEFAULT_WEIGHTS } from "@/lib/scoring";
 import { fetchCounties, fetchIndicators, dataUrl } from "@/lib/data-fetch";
 import { matchCountyName } from "@/lib/county-names";
 import MapErrorBoundary from "@/components/MapErrorBoundary";
+import SearchBar from "@/components/SearchBar";
 
 const MapView = dynamic(() => import("@/components/MapView"), { ssr: false });
 
@@ -105,8 +106,17 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="mb-6">
+      <div className="mb-4">
         <HowToUse />
+      </div>
+
+      <div className="mb-6 max-w-sm">
+        {counties && (
+          <SearchBar
+            counties={counties.map((c) => ({ id: c.id, name: c.name, code: c.id }))}
+            onSelect={handleCountySelect}
+          />
+        )}
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
@@ -129,16 +139,16 @@ export default function HomePage() {
 
           <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-stone-500">
             <span className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-[#FDE68A]"></span> Low (&lt;30)
+              <span className="inline-block h-3 w-3 rounded-sm bg-[#FFF7BC]"></span> Low (&lt;30)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-[#F59E0B]"></span> Medium (30 to 49)
+              <span className="inline-block h-3 w-3 rounded-sm bg-[#FEC44F]"></span> Medium (30 to 49)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-[#EA580C]"></span> High (50 to 69)
+              <span className="inline-block h-3 w-3 rounded-sm bg-[#D95F0E]"></span> High (50 to 69)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="inline-block h-3 w-3 rounded-sm bg-[#78350F]"></span> Critical (70+)
+              <span className="inline-block h-3 w-3 rounded-sm bg-[#8C2D04]"></span> Critical (70+)
             </span>
             <span className="ml-auto text-stone-400">Priority Gap Score (PGS)</span>
           </div>

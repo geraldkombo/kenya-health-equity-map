@@ -36,10 +36,10 @@
   --color-warm-800: #9A3412;
   --color-warm-900: #7C2D12;
 
-  --color-pgs-low: #FDE68A;
-  --color-pgs-medium: #F59E0B;
-  --color-pgs-high: #EA580C;
-  --color-pgs-critical: #78350F;
+  --color-pgs-low: #FFF7BC;
+  --color-pgs-medium: #FEC44F;
+  --color-pgs-high: #D95F0E;
+  --color-pgs-critical: #8C2D04;
 
   --font-sans: "Geist", "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "Geist Mono", "JetBrains Mono", monospace;
