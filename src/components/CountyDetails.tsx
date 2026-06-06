@@ -16,19 +16,9 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
 
   const score = useMemo(() => {
     if (!indicator) return null;
-    const allTravel = indicators.map((i) => i.travel_time_to_facility_proxy);
-    const allPoverty = indicators.map((i) => i.poverty_proxy);
-    const allPop = indicators.map((i) => i.population);
-    const allDensity = indicators.map((i) => i.facility_density_proxy);
-
-    const norm = normalizeCounty(indicator, {
-      travelTimeRange: [Math.min(...allTravel), Math.max(...allTravel)],
-      povertyRange: [Math.min(...allPoverty), Math.max(...allPoverty)],
-      populationRange: [Math.min(...allPop), Math.max(...allPop)],
-      facilityDensityRange: [Math.min(...allDensity), Math.max(...allDensity)],
-    });
+    const norm = normalizeCounty(indicator);
     return computePGS(county.id, norm, DEFAULT_WEIGHTS);
-  }, [indicator, indicators, county.id]);
+  }, [indicator, county.id]);
 
   const narrative = score
     ? score.drivers.length > 0

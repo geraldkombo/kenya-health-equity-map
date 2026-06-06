@@ -12,6 +12,8 @@
     "dev": "node -e \"if(!require('fs').existsSync('./public/data')){require('fs').cpSync('./data','./public/data',{recursive:true})}\" && next dev",
     "build": "next build",
     "start": "npx serve out",
+    "etl:build": "tsx scripts/etl/build-snapshots.ts",
+    "etl": "npm run etl:build",
     "lint": "next lint",
     "format": "prettier --write .",
     "test:e2e": "playwright test",

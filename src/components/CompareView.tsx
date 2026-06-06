@@ -13,23 +13,11 @@ interface CompareViewProps {
 
 export default function CompareView({ countyA, countyB, indicators }: CompareViewProps) {
   const stats = useMemo(() => {
-    const allTravel = indicators.map((i) => i.travel_time_to_facility_proxy);
-    const allPoverty = indicators.map((i) => i.poverty_proxy);
-    const allPop = indicators.map((i) => i.population);
-    const allDensity = indicators.map((i) => i.facility_density_proxy);
-
-    const nationalStats = {
-      travelTimeRange: [Math.min(...allTravel), Math.max(...allTravel)] as [number, number],
-      povertyRange: [Math.min(...allPoverty), Math.max(...allPoverty)] as [number, number],
-      populationRange: [Math.min(...allPop), Math.max(...allPop)] as [number, number],
-      facilityDensityRange: [Math.min(...allDensity), Math.max(...allDensity)] as [number, number],
-    };
-
     const iA = indicators.find((i) => i.county_code === countyA.id);
     const iB = indicators.find((i) => i.county_code === countyB.id);
 
-    const sA = iA ? computePGS(countyA.id, normalizeCounty(iA, nationalStats), DEFAULT_WEIGHTS) : null;
-    const sB = iB ? computePGS(countyB.id, normalizeCounty(iB, nationalStats), DEFAULT_WEIGHTS) : null;
+    const sA = iA ? computePGS(countyA.id, normalizeCounty(iA), DEFAULT_WEIGHTS) : null;
+    const sB = iB ? computePGS(countyB.id, normalizeCounty(iB), DEFAULT_WEIGHTS) : null;
 
     return { sA, sB, iA, iB };
   }, [countyA, countyB, indicators]);

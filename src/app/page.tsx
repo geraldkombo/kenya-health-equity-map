@@ -55,23 +55,11 @@ export default function HomePage() {
 
   const countyScores = useMemo(() => {
     if (!counties || indicators.length === 0) return {};
-    const allTravel = indicators.map((i) => i.travel_time_to_facility_proxy);
-    const allPoverty = indicators.map((i) => i.poverty_proxy);
-    const allPop = indicators.map((i) => i.population);
-    const allDensity = indicators.map((i) => i.facility_density_proxy);
-
-    const stats = {
-      travelTimeRange: [Math.min(...allTravel), Math.max(...allTravel)] as [number, number],
-      povertyRange: [Math.min(...allPoverty), Math.max(...allPoverty)] as [number, number],
-      populationRange: [Math.min(...allPop), Math.max(...allPop)] as [number, number],
-      facilityDensityRange: [Math.min(...allDensity), Math.max(...allDensity)] as [number, number],
-    };
-
     const scores: Record<string, number> = {};
     for (const county of counties) {
       const ind = indicators.find((i) => i.county_code === county.id);
       if (ind) {
-        const norm = normalizeCounty(ind, stats);
+        const norm = normalizeCounty(ind);
         scores[county.id] = computePGS(county.id, norm, DEFAULT_WEIGHTS).pgs;
       }
     }

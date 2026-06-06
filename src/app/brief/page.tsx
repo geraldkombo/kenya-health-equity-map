@@ -55,19 +55,10 @@ function BriefContent() {
   }, [selected, indicators]);
 
   const score = useMemo(() => {
-    if (!selected || indicator === null || indicators.length === 0) return null;
-    const allTravel = indicators.map((i) => i.travel_time_to_facility_proxy);
-    const allPoverty = indicators.map((i) => i.poverty_proxy);
-    const allPop = indicators.map((i) => i.population);
-    const allDensity = indicators.map((i) => i.facility_density_proxy);
-    const norm = normalizeCounty(indicator, {
-      travelTimeRange: [Math.min(...allTravel), Math.max(...allTravel)],
-      povertyRange: [Math.min(...allPoverty), Math.max(...allPoverty)],
-      populationRange: [Math.min(...allPop), Math.max(...allPop)],
-      facilityDensityRange: [Math.min(...allDensity), Math.max(...allDensity)],
-    });
+    if (!selected || indicator === null) return null;
+    const norm = normalizeCounty(indicator);
     return computePGS(selected.id, norm, DEFAULT_WEIGHTS);
-  }, [selected, indicator, indicators]);
+  }, [selected, indicator]);
 
   const today = new Date().toISOString().slice(0, 10);
 

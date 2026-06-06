@@ -1,14 +1,14 @@
 import type { CountyRecord, IndicatorRecord, FacilitiesGeoJSON } from "@/lib/adapters";
 
+async function loadJSON<T>(path: string): Promise<T> {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
+  return res.json();
+}
+
 export async function fetchCounties(): Promise<{ counties: CountyRecord[]; source: "live" | "snapshot" }> {
-  try {
-    const res = await fetch("/api/wards");
-    const data = await res.json();
-    return { counties: data.counties ?? data, source: "live" };
-  } catch {
-    const snap = await fetch("/data/snapshots/counties.json").then((r) => r.json());
-    return { counties: snap, source: "snapshot" };
-  }
+  const data = await loadJSON<CountyRecord[]>("/data/snapshots/counties.json");
+  return { counties: data, source: "live" };
 }
 
 function cleanFacilities(raw: any): FacilitiesGeoJSON {
@@ -18,39 +18,11 @@ function cleanFacilities(raw: any): FacilitiesGeoJSON {
 }
 
 export async function fetchFacilities(): Promise<{ geojson: FacilitiesGeoJSON; source: "live" | "snapshot" }> {
-  try {
-    const res = await fetch("/api/facilities");
-    const data = await res.json();
-    return { geojson: cleanFacilities(data), source: "live" };
-  } catch {
-    const snap = await fetch("/data/snapshots/facilities.json").then((r) => r.json());
-    return { geojson: cleanFacilities(snap), source: "snapshot" };
-  }
-}
-
-function parseIndicator(record: any): IndicatorRecord {
-  return {
-    county_code: String(record.county_code),
-    county_name: String(record.county_name ?? ""),
-    population: Number(record.population),
-    poverty_proxy: Number(record.poverty_proxy),
-    facility_count: Number(record.facility_count),
-    facility_density_proxy: Number(record.facility_density_proxy),
-    travel_time_to_facility_proxy: Number(record.travel_time_to_facility_proxy),
-    immunization_coverage: Number(record.immunization_coverage ?? 0),
-    skilled_birth_attendance: Number(record.skilled_birth_attendance ?? 0),
-    updated_at: String(record.updated_at ?? ""),
-  };
+  const data = await loadJSON<any>("/data/snapshots/facilities.json");
+  return { geojson: cleanFacilities(data), source: "live" };
 }
 
 export async function fetchIndicators(): Promise<IndicatorRecord[]> {
-  try {
-    const res = await fetch("/api/indicators");
-    if (!res.ok) throw new Error(`Indicators API error: ${res.status}`);
-    const data = await res.json();
-    return data.map(parseIndicator);
-  } catch {
-    const snap = await fetch("/data/snapshots/indicator_records.json").then((r) => r.json());
-    return snap.map(parseIndicator);
-  }
+  const data = await loadJSON<IndicatorRecord[]>("/data/snapshots/county_indicators.json");
+  return data;
 }

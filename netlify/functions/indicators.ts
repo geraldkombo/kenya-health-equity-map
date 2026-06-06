@@ -4,7 +4,7 @@ const BASE_URL = process.env.SITE_URL || "https://uhcke.netlify.app";
 
 export const handler: Handler = async () => {
   try {
-    const res = await fetch(`${BASE_URL}/data/snapshots/indicator_records.json`);
+    const res = await fetch(`${BASE_URL}/data/snapshots/county_indicators.json`);
     const data = await res.json();
     return {
       statusCode: 200,
