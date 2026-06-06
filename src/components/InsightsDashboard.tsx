@@ -26,7 +26,7 @@ export default function InsightsDashboard({ countyCount, facilityCount, highPrio
         <div className="text-xs text-stone-400">mapped</div>
       </div>
       <div className="rounded-xl border border-stone-200 bg-white p-4 transition-all duration-200 ease-in-out hover:shadow-md">
-        <div className="text-xs font-semibold uppercase tracking-wider text-stone-500">Pop. proxy</div>
+        <div className="text-xs font-semibold uppercase tracking-wider text-stone-500">Population</div>
         <div className="mt-1 text-2xl font-bold text-stone-800">{totalPop.toLocaleString()}</div>
         <div className="text-xs text-stone-400">residents</div>
       </div>

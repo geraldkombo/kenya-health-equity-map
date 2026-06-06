@@ -29,7 +29,7 @@ export default function WeightsControl({ weights, onChange }: WeightsControlProp
     <div className="rounded-xl border border-neutral-200 bg-white p-5">
       <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-500">PGS Weights (Research mode)</h3>
       <p className="mt-1 text-xs text-neutral-400">
-        Adjust how each factor contributes to the Priority Gap Score. Weights are auto-normalized.
+        Adjust how each factor contributes to the Priority Gap Score. Weights are automatically adjusted to add up to 100%.
       </p>
       <div className="mt-4 space-y-4">
         {(Object.keys(DEFAULT_WEIGHTS) as (keyof PGSWeights)[]).map((key) => (

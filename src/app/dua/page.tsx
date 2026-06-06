@@ -173,7 +173,7 @@ export default function DUAPage() {
         <section className="rounded-xl border border-stone-200 bg-white p-6">
           <h2 className="text-base font-semibold text-stone-800">Clinical Data Disclaimer</h2>
           <p className="mt-3 text-sm leading-6 text-stone-700">
-            This platform uses proxy indicators to assess health access inequity. It does not measure
+            This platform uses indirect measures to assess gaps in health access. It does not measure
             clinical outcomes, quality of care, or health service readiness. For clinical health data,
             refer to the
             <a href="https://hiskenya.org/" target="_blank" rel="noreferrer" className="text-[#EA580C] underline underline-offset-2 ml-1">Kenya Health Information System (KHIS)</a>

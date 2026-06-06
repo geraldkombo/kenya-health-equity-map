@@ -52,18 +52,18 @@ function PrintableBrief({
     );
 
     if (pct > natPct + 10) {
-      parts.push(`${county.name} registers a Priority Gap Score of ${pct}/100, notably above the national composite of ${natPct}/100.`);
+      parts.push(`${county.name} registers a Priority Gap Score of ${pct}/100, notably above the national average of ${natPct}/100.`);
     } else if (pct < natPct - 10) {
-      parts.push(`${county.name} registers a Priority Gap Score of ${pct}/100, below the national composite of ${natPct}/100, indicating comparatively lower infrastructure pressure.`);
+      parts.push(`${county.name} registers a Priority Gap Score of ${pct}/100, below the national average of ${natPct}/100, meaning less pressure on health infrastructure.`);
     } else {
-      parts.push(`${county.name} registers a Priority Gap Score of ${pct}/100, broadly consistent with the national composite of ${natPct}/100.`);
+      parts.push(`${county.name} registers a Priority Gap Score of ${pct}/100, broadly in line with the national average of ${natPct}/100.`);
     }
 
     if (norm.travelTime > 0.6) {
       parts.push(`Travel time to the nearest health facility is elevated at ${indicator.travel_time_to_facility_proxy} minutes, suggesting geographic access constraints in peripheral wards.`);
     }
     if (norm.poverty > 0.6) {
-      parts.push(`The poverty proxy stands at ${indicator.poverty_proxy}%, exceeding the national county average of ${nationalAvg.poverty.toFixed(1)}%.`);
+      parts.push(`The poverty rate is ${indicator.poverty_proxy}%, above the national county average of ${nationalAvg.poverty.toFixed(1)}%.`);
     }
     if (indicator.facility_count < nationalAvg.facilities) {
       parts.push(`With ${indicator.facility_count} mapped facilities against a national county average of ${nationalAvg.facilities.toFixed(1)}, facility density remains a limiting factor.`);
@@ -73,7 +73,7 @@ function PrintableBrief({
     }
 
     if (parts.length === 1) {
-      parts.push("All indicator proxies are within typical national range relative to peer counties.");
+      parts.push("All measures are within the typical national range.");
     }
 
     return parts.join(" ");
@@ -127,10 +127,10 @@ function PrintableBrief({
       {/* ── Driver Decomposition ── */}
       <div className="driver-section break-inside-avoid rounded-lg border border-stone-200 p-5 print:border-black">
         <h2 className="text-xs font-bold uppercase tracking-widest text-stone-500">Driver Decomposition</h2>
-        <p className="mt-1 text-[11px] text-stone-400">Component contribution to the composite Priority Gap Score</p>
+        <p className="mt-1 text-[11px] text-stone-400">How each part adds to the final Priority Gap Score</p>
         <div className="mt-4 space-y-4">
           <DriverBar label="Accessibility (travel time + facility density)" value={hasAccessibility ? accessibility : 0} color="#8C2D04" />
-          <DriverBar label="Vulnerability (poverty proxy)" value={hasVulnerability ? norm.poverty : 0} color="#D95F0E" />
+          <DriverBar label="Vulnerability (poverty rate)" value={hasVulnerability ? norm.poverty : 0} color="#D95F0E" />
           <DriverBar label="Population pressure" value={hasPopPressure ? norm.populationPressure : 0} color="#FEC44F" />
         </div>
       </div>
@@ -148,7 +148,7 @@ function PrintableBrief({
             <span className="font-semibold text-stone-900">{Math.round(nationalAvg.population).toLocaleString()}</span>
           </div>
           <div className="flex items-center justify-between border-b border-stone-100 pb-2 print:border-stone-300">
-            <span className="text-stone-500">Poverty proxy</span>
+            <span className="text-stone-500">Poverty rate</span>
             <span className="font-semibold text-stone-900">{indicator.poverty_proxy}%</span>
           </div>
           <div className="flex items-center justify-between border-b border-stone-100 pb-2 print:border-stone-300">
@@ -164,7 +164,7 @@ function PrintableBrief({
             <span className="font-semibold text-stone-900">{nationalAvg.facilities.toFixed(1)}</span>
           </div>
           <div className="flex items-center justify-between border-b border-stone-100 pb-2 print:border-stone-300">
-            <span className="text-stone-500">Travel time proxy</span>
+            <span className="text-stone-500">Travel time</span>
             <span className="font-semibold text-stone-900">{indicator.travel_time_to_facility_proxy} min</span>
           </div>
           <div className="flex items-center justify-between border-b border-stone-100 pb-2 print:border-stone-300">
@@ -176,7 +176,7 @@ function PrintableBrief({
           Travel time and facility density modelled via cost and distance proximity analysis
           (<a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">WHO AccessMod</a>;
           <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI facilities</a>).
-          Poverty proxy from{" "}
+          Poverty data from{" "}
           <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16 county poverty estimates</a>.
           Population from{" "}
           <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>.

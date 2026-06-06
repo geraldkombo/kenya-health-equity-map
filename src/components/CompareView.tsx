@@ -55,11 +55,11 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                     <span className="font-medium text-stone-700">{ind.population.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between border-b border-stone-100 pb-1">
-                    <span className="text-stone-500">Poverty proxy</span>
+                    <span className="text-stone-500">Poverty rate</span>
                     <span className="font-medium text-stone-700">{ind.poverty_proxy}%</span>
                   </div>
                   <div className="flex justify-between border-b border-stone-100 pb-1">
-                    <span className="text-stone-500">Travel time proxy</span>
+                    <span className="text-stone-500">Travel time</span>
                     <span className="font-medium text-stone-700">{ind.travel_time_to_facility_proxy}</span>
                   </div>
                   <div className="flex justify-between">
