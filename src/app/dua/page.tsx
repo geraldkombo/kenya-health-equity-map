@@ -5,15 +5,14 @@ export const metadata = {
   description: "Data sources, licenses, attribution requirements, and citation guidelines for the Kenya Health Equity Map.",
 };
 
-function SourceRow({ name, url, license, accessDate }: { name: string; url: string; license: string; accessDate: string }) {
+function SourceRow({ name, url, license }: { name: string; url: string; license: string }) {
   return (
     <tr className="border-b border-stone-100 text-sm">
       <td className="py-2.5 pr-4 text-stone-800 font-medium">{name}</td>
       <td className="py-2.5 pr-4">
         <a href={url} target="_blank" rel="noreferrer" className="text-[#EA580C] underline underline-offset-2 break-all">{url}</a>
       </td>
-      <td className="py-2.5 pr-4 text-stone-600">{license}</td>
-      <td className="py-2.5 text-stone-500 whitespace-nowrap">{accessDate}</td>
+      <td className="py-2.5 text-stone-600">{license}</td>
     </tr>
   );
 }
@@ -54,8 +53,7 @@ export default function DUAPage() {
                 <tr className="border-b border-stone-200 text-xs font-semibold uppercase tracking-wider text-stone-500">
                   <th className="pb-2 pr-4 text-left">Dataset</th>
                   <th className="pb-2 pr-4 text-left">Source URL</th>
-                  <th className="pb-2 pr-4 text-left">License</th>
-                  <th className="pb-2 text-left">Accessed</th>
+                  <th className="pb-2 text-left">License</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,73 +61,61 @@ export default function DUAPage() {
                   name="KNBS 2019 Census (Population)"
                   url="https://www.knbs.or.ke/census/"
                   license="Open Data"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="KDHS 2022 (Poverty Estimates)"
                   url="https://dhsprogram.com/data/dataset/Kenya_Standard-DHS_2022.cfm"
                   license="Restricted (registered use)"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="KMHFR Facility Registry"
                   url="https://kmhfr.health.go.ke/"
                   license="Open Data"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="ICPAC/KEMRI Health Facilities"
                   url="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail"
                   license="CC-BY-4.0"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="IEBC County Boundaries"
                   url="https://github.com/tigawanna/kenya_wards_geojson_data"
                   license="CC-BY-4.0"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="KNBS GIS Boundary Files"
                   url="https://www.knbs.or.ke/census/"
                   license="Open Data"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="OCHA HDX Kenya Population"
                   url="https://data.humdata.org/dataset/kenya-population-statistics"
                   license="CC-BY-4.0"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="OSM Kenya Road Network"
                   url="https://www.openstreetmap.org/relation/192798"
                   license="ODbL-1.0"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="ESA WorldCover Land Cover"
                   url="https://esa-worldcover.org/en"
                   license="CC-BY-4.0"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="WHO AccessMod"
                   url="https://www.accessmod.org"
                   license="GPL-3.0"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="World Bank Kenya Poverty Data"
-                  url="https://databank.worldbank.org/source/kenya-poverty-and-equity"
+                  url="https://pip.worldbank.org/country-profiles/KEN"
                   license="CC-BY-4.0"
-                  accessDate="2026-06-05"
                 />
                 <SourceRow
                   name="Geofabrik Kenya OSM Extract"
                   url="https://download.geofabrik.de/africa/kenya.html"
                   license="ODbL-1.0"
-                  accessDate="2026-06-05"
                 />
               </tbody>
             </table>
@@ -171,15 +157,15 @@ export default function DUAPage() {
           <h2 className="text-base font-semibold text-stone-800">Suggested Citation</h2>
           <div className="mt-4 rounded-lg bg-[#FDE68A] p-5 text-sm leading-6 text-stone-800">
             <p className="font-mono">
-              Kenya Health Equity Map. (2026).
+              Kenya Health Equity Map.
               <em> Map-first civic intelligence platform for health equity across Kenya&apos;s 47 counties.</em>
-              Nairobi, Kenya.               Retrieved from https://kenya-equity.netlify.app
+              Nairobi, Kenya.               Retrieved from https://geraldkombo.github.io/kenya-health-equity-map/
             </p>
           </div>
           <p className="mt-3 text-xs leading-5 text-stone-500">
-            For county-specific briefs, include the county name, PGS score, generation date, and a
+              For county-specific briefs, include the county name, PGS score, and a
             list of source datasets used. Example: &ldquo;Turkana County Brief, Kenya Health Equity Map,
-            generated 2026-06-06. Sources: KNBS 2019 Census, KIHBS 2015/16, ICPAC/KEMRI Health Facilities.&rdquo;
+            Sources: KNBS 2019 Census, KIHBS 2015/16, ICPAC/KEMRI Health Facilities.&rdquo;
           </p>
         </section>
 

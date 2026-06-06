@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kenya-health-equity-map.netlify.app"),
+  metadataBase: new URL("https://geraldkombo.github.io/kenya-health-equity-map"),
   title: {
     default: "Kenya Health Equity Map",
     template: "%s | Kenya Health Equity Map",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Kenya Health Equity Map",
     description:
       "Visualise health-access inequities across Kenya's 47 counties using transparent open data.",
-    url: "https://kenya-health-equity-map.netlify.app",
+    url: "https://geraldkombo.github.io/kenya-health-equity-map",
     locale: "en_KE",
     siteName: "Kenya Health Equity Map",
     type: "website",

@@ -32,12 +32,10 @@ function PrintableBrief({
   county,
   indicator,
   nationalAvg,
-  today,
 }: {
   county: CountyRecord;
   indicator: IndicatorRecord;
   nationalAvg: { population: number; poverty: number; facilities: number; travelTime: number; populationPressure: number };
-  today: string;
 }) {
   const norm = normalizeCounty(indicator);
   const score = computePGS(county.id, norm, DEFAULT_WEIGHTS);
@@ -93,7 +91,7 @@ function PrintableBrief({
         <div className="mt-2 flex items-end justify-between">
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-stone-900">{county.name}</h1>
-            <p className="mt-1 text-sm text-stone-500">County, Kenya &middot; Generated {today}</p>
+            <p className="mt-1 text-sm text-stone-500">County, Kenya</p>
           </div>
           <div className="flex flex-col items-center rounded-lg px-4 py-2" style={{ backgroundColor: getPGSColor(score.pgs) }}>
             <span className="text-2xl font-bold tracking-tight" style={{ color: score.pgs >= 50 ? "white" : "#292524" }}>
@@ -204,8 +202,8 @@ and topography, combined with motorized and manual transport travel along primar
 road networks (<a href="https://www.openstreetmap.org/relation/192798" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-800">OSM Kenya</a>).
         </p>
         <p className="mt-2 text-[10px] leading-5 text-stone-400">
-          Suggested citation: Kenya Health Equity Map, <a href="https://kenya-health-equity-map.netlify.app" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">kenya-health-equity-map.netlify.app</a>.
-          {county.name} County Brief, generated {today}. Sources:{" "}
+          Suggested citation: Kenya Health Equity Map, <a href="https://geraldkombo.github.io/kenya-health-equity-map/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">geraldkombo.github.io/kenya-health-equity-map</a>.
+          {county.name} County Brief. Sources:{" "}
           <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>;
           <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>;
           <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI Health Facilities</a>.
@@ -264,8 +262,6 @@ function BriefContent() {
       }, 0) / indicators.length,
     };
   }, [indicators]);
-
-  const today = new Date().toISOString().slice(0, 10);
 
   const handlePrint = useReactToPrint({
     contentRef: printRef,
@@ -326,14 +322,13 @@ function BriefContent() {
               county={selected}
               indicator={indicator}
               nationalAvg={nationalAvg}
-              today={today}
             />
           </div>
         )}
 
         {/* ── Print footer (screen only) ── */}
         <p className="mt-8 text-center text-[10px] text-stone-300 print:hidden">
-          kenya-health-equity-map.netlify.app
+          geraldkombo.github.io/kenya-health-equity-map
         </p>
       </div>
     </div>

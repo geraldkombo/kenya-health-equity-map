@@ -111,7 +111,7 @@ export const REAL_SOURCES: Record<string, SourceEntry[]> = {
     },
     {
       name: "World Bank, Kenya Poverty and Equity Data",
-      url: "https://databank.worldbank.org/source/kenya-poverty-and-equity",
+      url: "https://pip.worldbank.org/country-profiles/KEN",
       license: "CC-BY-4.0",
       licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
       note: "Cross validated poverty estimates for Kenya counties. Used as a reference check against KDHS wealth quintile data.",

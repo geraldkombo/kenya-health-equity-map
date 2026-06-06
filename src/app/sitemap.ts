@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.SITE_URL || "https://kenya-health-equity-map.netlify.app";
+  const baseUrl = process.env.SITE_URL || "https://geraldkombo.github.io/kenya-health-equity-map";
   const lastMod = new Date("2026-06-05");
   return [
     { url: baseUrl, lastModified: lastMod, changeFrequency: "weekly", priority: 1 },

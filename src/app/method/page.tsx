@@ -129,7 +129,7 @@ secondary, and rural road networks (<a href="https://www.openstreetmap.org/relat
                 Sources:{" "}
                 <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16 county poverty estimates</a>
                 {" · "}
-                <a href="https://databank.worldbank.org/source/kenya-poverty-and-equity" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">World Bank Kenya poverty data</a>
+                <a href="https://pip.worldbank.org/country-profiles/KEN" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">World Bank Kenya poverty data</a>
               </p>
             </div>
             <div className="border-l-4 border-[#F59E0B] pl-4">
