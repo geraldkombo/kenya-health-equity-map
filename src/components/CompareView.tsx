@@ -26,10 +26,10 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
   const narrative = useMemo(() => {
     if (!stats.sA || !stats.sB) return null;
     const diff = stats.sA.pgs - stats.sB.pgs;
-    if (Math.abs(diff) < 1) return "Both counties have a similar assessed priority level.";
+    if (Math.abs(diff) < 1) return "Both counties face a similar level of need.";
     const higher = diff > 0 ? countyA.name : countyB.name;
     const lower = diff > 0 ? countyB.name : countyA.name;
-    return `${higher} is assessed as higher priority than ${lower}.`;
+    return `${higher} has more urgent need for health resources than ${lower}.`;
   }, [stats, countyA.name, countyB.name]);
 
   return (
@@ -70,7 +70,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
               )}
               {s && (
                 <div className="mt-3 text-xs text-stone-500 leading-5">
-                  <strong className="text-stone-600">Drivers:</strong> {s.drivers.slice(0, 2).join("; ") || "All indicators within range"}
+                  <strong className="text-stone-600">Why:</strong> {s.drivers.slice(0, 2).join("; ") || "All measures within normal range"}
                 </div>
               )}
             </div>
@@ -79,7 +79,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
       </div>
       {narrative && (
         <div className="mt-4 rounded-xl border border-stone-200 bg-stone-50 p-4 text-sm leading-6 text-stone-700" role="note">
-          <strong>Comparison summary:</strong> {narrative}
+          <strong>What this means:</strong> {narrative}
         </div>
       )}
     </div>

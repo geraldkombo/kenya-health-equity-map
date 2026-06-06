@@ -18,7 +18,7 @@ export default function SourcesPanel({
   return (
     <div className="rounded-xl border border-stone-200 bg-white p-5">
       <details>
-        <summary className="cursor-pointer text-sm font-semibold text-stone-800 select-none">Data sources and provenance</summary>
+        <summary className="cursor-pointer text-sm font-semibold text-stone-800 select-none">Data sources</summary>
         <p className="mt-2 text-xs leading-5 text-stone-500">
           All data is sourced from official Kenyan open data repositories and international research programmes.
         </p>

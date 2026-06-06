@@ -25,7 +25,7 @@ export default function HowToUse() {
               <strong>Hover</strong> over a county to see its name and Priority Gap Score.
             </li>
             <li>
-              <strong>Click</strong> a county to open its details panel with key facts, drivers, and data provenance.
+              <strong>Click</strong> a county to open its details panel with key facts, drivers.
             </li>
             <li>
               Use the <strong>Compare</strong> page to place two counties side by side.

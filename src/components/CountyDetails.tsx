@@ -92,23 +92,23 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
     if (!comparisons || !indicator || !nationalAvg) return [];
     const lines: string[] = [];
     if (comparisons.travelTime !== null && comparisons.travelTime >= 70) {
-      lines.push(`Travel time is longer than ${comparisons.travelTime}% of counties, indicating poor physical access to health facilities.`);
+      lines.push(`Travel time is longer than ${comparisons.travelTime}% of counties — people take too long to reach a clinic.`);
     }
     if (comparisons.poverty !== null && comparisons.poverty >= 70) {
-      lines.push(`Poverty proxy ranks above ${comparisons.poverty}% of counties, pointing to higher socioeconomic vulnerability.`);
+      lines.push(`Poverty is higher than ${comparisons.poverty}% of counties — many families struggle to afford care.`);
     }
     if (comparisons.population !== null) {
       if (comparisons.population >= 80) {
-        lines.push(`Population is higher than ${comparisons.population}% of counties, placing greater demand on health services.`);
+        lines.push(`Population is bigger than ${comparisons.population}% of counties — more people competing for the same health services.`);
       } else if (comparisons.population <= 20) {
-        lines.push(`Population is lower than ${100 - comparisons.population}% of counties; demand pressure is relatively low.`);
+        lines.push(`Population is smaller than ${100 - comparisons.population}% of counties — less pressure on health services.`);
       }
     }
     if (comparisons.facilityDensity !== null && comparisons.facilityDensity <= 20) {
-      lines.push(`Facility density is lower than ${100 - comparisons.facilityDensity}% of counties, meaning fewer health facilities per person.`);
+      lines.push(`Fewer clinics per person than ${100 - comparisons.facilityDensity}% of counties — not enough facilities to go around.`);
     }
     if (lines.length === 0) {
-      lines.push("All indicator proxies are within typical national range relative to other counties.");
+      lines.push("All measures are within the normal range compared to other counties.");
     }
     return lines;
   }, [comparisons, indicator, nationalAvg]);
@@ -143,12 +143,12 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
 
       {indicator && nationalAvg && (
         <div className="mt-5 space-y-3 border-t border-stone-100 pt-4">
-          <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-500">Component breakdown</h4>
-          <ProgressBar label="Travel time proxy" value={indicator.travel_time_to_facility_proxy} max={100} />
-          <ProgressBar label="Poverty proxy" value={indicator.poverty_proxy} max={100} />
-          <ProgressBar label="Population pressure" value={indicator.population / Math.max(indicator.facility_count, 1)} max={10000} />
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-500">Score breakdown</h4>
+          <ProgressBar label="Travel time" value={indicator.travel_time_to_facility_proxy} max={100} />
+          <ProgressBar label="Poverty rate" value={indicator.poverty_proxy} max={100} />
+          <ProgressBar label="People per facility" value={indicator.population / Math.max(indicator.facility_count, 1)} max={10000} />
           <ProgressBar
-            label="Facility density"
+            label="Facilities per 10K people"
             value={(Math.max(indicator.facility_count, 1) / indicator.population) * 10000}
             max={4}
             invert

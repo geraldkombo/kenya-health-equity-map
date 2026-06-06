@@ -68,19 +68,19 @@ export function computePGS(
 
   const drivers: string[] = [];
   if (norm.travelTime > 0.7) {
-    drivers.push("Long travel time proxy is in the top 30% of counties");
+    drivers.push("People here travel longer to reach a clinic than 70% of other counties");
   }
   if (norm.facilityDensity > 0.7) {
-    drivers.push("Facility density proxy is below national median");
+    drivers.push("Fewer health facilities per person compared to other counties");
   }
   if (norm.poverty > 0.7) {
-    drivers.push("Poverty proxy is in the top 30% of counties");
+    drivers.push("Poverty rate is higher than 70% of counties — harder for families to afford care");
   }
   if (norm.populationPressure > 0.7) {
-    drivers.push("Population pressure is in the top 30% of counties");
+    drivers.push("More people sharing each health facility than 70% of counties");
   }
   if (norm.travelTime <= 0.7 && norm.facilityDensity <= 0.7 && norm.poverty <= 0.7 && norm.populationPressure <= 0.7) {
-    drivers.push("All indicator proxies are within typical county range");
+    drivers.push("All measures are within the normal range compared to other counties");
   }
 
   return {
