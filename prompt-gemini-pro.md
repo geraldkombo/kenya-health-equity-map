@@ -98,6 +98,17 @@ The review panel are community health advocates, AMREF/PEPFAR/Global Fund progra
 - National: 29% ANC first trimester, 21/1,000 neonatal mortality
 - 1,699 facilities mapped (~10% of estimated 17,400+)
 
+## Compare Print Report - Must Be Clean One-Page Document
+
+The "Print advocacy report" button on /compare must produce a single A4 page that looks like a professional standalone report, not a screenshot of the compare tool.
+
+**Rules:**
+- Hide all UI labels in print: "National inequity spectrum", "PGS", "County", "Key drivers of inequity", "Advocacy takeaway" headings, icons, and any methodology/UI framing text
+- Show only: county names with scores, the spectrum bar (no label), the four indicator rows per county, driver bullet points (no heading), and the advocacy call-to-action paragraph (no heading, just the text with border)
+- Spectrum bar must show county markers with scores directly on the bar
+- No "Configure Comparison", no sources panel, no navigation, no print button itself
+- Use print: prefix Tailwind classes to hide/show elements. Never hide data - only hide UI chrome
+
 ## Verification
 
 After every change: `npm run build` - must exit with 0 errors.

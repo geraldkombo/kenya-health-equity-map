@@ -41,7 +41,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
       {/* National inequity spectrum */}
       {stats.sA && stats.sB && (
         <div className="mb-6 rounded-xl border border-stone-200 bg-white p-4 shadow-sm print:mb-2 print:border-black print:p-2">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-stone-600 print:text-[9px]">National inequity spectrum (0-100)</h3>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-stone-600 print:hidden">National inequity spectrum (0-100)</h3>
           <div className="relative mt-3 h-8 w-full rounded-lg bg-gradient-to-r from-[#FFF7BC] via-[#FEC44F] via-[#D95F0E] to-[#8C2D04] shadow-inner print:mt-1 print:h-4">
             <div
               className="absolute -top-1 flex -translate-x-1/2 flex-col items-center transition-all duration-500"
@@ -79,12 +79,12 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
               <div className="flex items-start justify-between border-b border-stone-100 bg-stone-50 p-4 print:p-1.5">
                 <div>
                   <h3 className="text-lg font-bold text-stone-900 print:text-sm">{county.name}</h3>
-                  <p className="text-xs text-stone-500 uppercase tracking-wide print:text-[9px]">County</p>
+                  <p className="text-xs text-stone-500 uppercase tracking-wide print:hidden">County</p>
                 </div>
                 {s && (
                   <div className={`rounded-lg px-3 py-1.5 text-center font-bold ${getPGSBadgeClass(s.pgs)} print:px-1.5 print:py-0.5`}>
                     <span className="text-xl print:text-sm">{s.pgs}</span>
-                    <span className="ml-1 text-xs font-normal opacity-80 print:text-[9px]">PGS</span>
+                    <span className="ml-1 text-xs font-normal opacity-80 print:hidden">PGS</span>
                   </div>
                 )}
               </div>
@@ -116,7 +116,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                   </ul>
                   {s && s.drivers.length > 0 && (
                     <div className="mt-4 rounded-lg bg-stone-50 p-3 print:mt-1 print:p-1.5">
-                      <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-stone-600 print:text-[9px] print:mb-0.5">
+                      <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-stone-600 print:hidden">
                         Key drivers of inequity
                       </p>
                       <ul className="list-disc pl-4 text-xs leading-5 text-stone-700 print:text-[9px] print:leading-4 print:pl-3">
@@ -136,7 +136,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
 
       {equityNote && (
         <div className="mt-6 rounded-r-lg border-l-4 border-red-600 bg-red-50 p-5 shadow-sm print:mt-2 print:p-2" role="note">
-          <h4 className="flex items-center gap-2 text-sm font-bold text-red-900 print:text-[10px]">
+          <h4 className="flex items-center gap-2 text-sm font-bold text-red-900 print:hidden">
             <svg className="h-4 w-4 print:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
