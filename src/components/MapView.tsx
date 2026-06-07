@@ -70,6 +70,11 @@ export default function MapView({
         },
         center: [37.9, 0.5],
         zoom: 5.2,
+        maxBounds: [
+          [31.0, -5.5],
+          [43.0, 6.0],
+        ],
+        cooperativeGestures: true,
       });
     } catch (e) {
       console.error("Map initialization error:", e);
