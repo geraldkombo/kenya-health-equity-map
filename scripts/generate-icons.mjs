@@ -20,7 +20,7 @@ function chunk(type, data) {
   return Buffer.concat([len, t, data, crcBuf]);
 }
 
-function createPNG(width, height, r, g, b) {
+function createPNG(width, height) {
   const sig = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
   const ihdr = Buffer.alloc(13);
   ihdr.writeUInt32BE(width, 0);
@@ -31,14 +31,20 @@ function createPNG(width, height, r, g, b) {
   ihdr[11] = 0; // filter
   ihdr[12] = 0; // interlace
 
+  const hThird = Math.round(height / 3);
   const raw = Buffer.alloc(height * (1 + width * 3));
   for (let y = 0; y < height; y++) {
     raw[y * (1 + width * 3)] = 0; // filter byte
+    const color = y < hThird ? [0, 0, 0]         // black
+      : y < hThird + 4 ? [187, 0, 0]              // red
+      : y < height - hThird - 4 ? [0, 128, 0]     // green
+      : y < height - hThird ? [187, 0, 0]         // red
+      : [0, 0, 0];                                // black
     for (let x = 0; x < width; x++) {
       const off = y * (1 + width * 3) + 1 + x * 3;
-      raw[off] = r;
-      raw[off + 1] = g;
-      raw[off + 2] = b;
+      raw[off] = color[0];
+      raw[off + 1] = color[1];
+      raw[off + 2] = color[2];
     }
   }
   const compressed = deflateSync(raw);
@@ -49,7 +55,7 @@ const sizes = [192, 512];
 const base = resolve(process.cwd(), "public", "icons");
 
 for (const size of sizes) {
-  const png = createPNG(size, size, 0x78, 0x35, 0x0f);
+  const png = createPNG(size, size);
   writeFileSync(resolve(base, `icon-${size}.png`), png);
   console.log(`Generated icon-${size}.png (${size}x${size})`);
 }
