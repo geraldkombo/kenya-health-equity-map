@@ -175,7 +175,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
       </div>
 
       {selA && selB && selA.id !== selB.id ? (
-        <div className="mt-6">
+        <div className="mt-6 print:mt-2">
           <CompareView countyA={selA} countyB={selB} indicators={indicators} />
         </div>
       ) : (
@@ -184,7 +184,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
         </div>
       )}
 
-      <div className="hidden print:block text-center text-lg font-bold text-stone-900 mb-4">
+      <div className="hidden print:block text-center text-sm font-bold text-stone-900 mb-2">
         County Comparison Report - {selA?.name} vs {selB?.name}
       </div>
 
