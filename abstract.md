@@ -1,5 +1,7 @@
 ﻿# From Data to Demand: A Community-Owned Platform for Health Equity Monitoring Across Kenya's 47 Counties
 
+*Gerald Kombo — Independent Scholar | Kenya Health Equity Map (2026) — Spatial Health Equity & Community-Led Monitoring Systems*
+
 ## Sub-theme 2: Digital Health and Evidence Generation Through Community-Led Monitoring
 
 ---
@@ -17,3 +19,6 @@ Community-led monitoring needs evidence that communities can own, understand, an
 **Complements existing investments.** Kenya has professionalized 107,000 Community Health Promoters under the eCHIS digital platform, deployed CLM tools like iMonitor across multiple counties, and invested in facility-level dashboards through programs such as THRIVE and M-JALI. This platform adds the spatial evidence layer these systems need - infrastructure gap data that transforms service delivery feedback into targeted infrastructure advocacy.
 
 **A living baseline for community action.** The current map draws on 1,699 community-mapped health facilities, representing approximately 10% of Kenya's estimated total. The gap is vividly illustrated by Elgeyo-Marakwet County, where the official Master Facility List records 129 health facilities but OpenStreetMap reflects fewer than 20, rendering the majority digitally invisible for spatial planning and civil society auditing. Every unmapped clinic is an invitation: communities can crowdsource missing facility coordinates into OpenStreetMap and strengthen the evidence base that informs their own advocacy. The map functions as a starting point that communities own, expand, and use to advocate collaboratively for equitable, data-driven resource allocation.
+
+**Platform URL:** https://geraldkombo.github.io/kenya-health-equity-map/
+**Contact:** cssabstracts@amref.org

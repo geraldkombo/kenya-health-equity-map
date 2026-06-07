@@ -1,5 +1,7 @@
 ﻿# The Kenya Health Equity Map: Community Evidence for Health Justice
 
+*Gerald Kombo — Independent Scholar | Kenya Health Equity Map (2026) — Spatial Health Equity & Community-Led Monitoring Systems*
+
 ## Sub-theme 2: Digital Health and Evidence Generation Through Community-Led Monitoring
 
 ---
@@ -142,4 +144,5 @@ The Kenya Health Equity Map demonstrates that digital health tools serve Communi
 | Health Equity Platform | This work | 2026 | Open source |
 
 **Platform URL:** https://geraldkombo.github.io/kenya-health-equity-map/
+**Author:** Gerald Kombo — Independent Scholar | Kenya Health Equity Map (2026)
 **Contact:** cssabstracts@amref.org
