@@ -4,6 +4,8 @@ This is the **Kenya Health Equity Map** — a fully offline-capable digital tool
 
 **Live site:** https://geraldkombo.github.io/kenya-health-equity-map/
 **GitHub:** https://github.com/geraldkombo/kenya-health-equity-map
+**Abstract:** https://github.com/geraldkombo/kenya-health-equity-map/blob/master/abstract.md
+**Submission:** https://github.com/geraldkombo/kenya-health-equity-map/blob/master/submission.md
 **Date:** June 2026
 
 ---
@@ -88,6 +90,8 @@ The review panel are **not developers**. They are:
 ## What to Do: Implement These Changes Directly
 
 **Do not write a plan. Do not suggest. Do not ask for approval. Edit the code and make it happen.** Run `npm run build` after every change to verify it compiles.
+
+**This also applies to `abstract.md` and `submission.md`** — update them directly if the messaging, data points, or alignment can be strengthened. Both live in the repo root and are submission documents for the CSS Forum.
 
 ### 1. Home Page — Reframe as CLM Advocacy Tool
 
