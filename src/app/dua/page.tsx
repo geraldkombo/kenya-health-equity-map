@@ -187,32 +187,35 @@ export default function DUAPage() {
           <h2 className="text-base font-semibold text-stone-800">Contribute & Share</h2>
           <div className="mt-4 space-y-5 text-sm leading-6 text-stone-700">
             <div>
-              <strong className="text-stone-800">Add a missing health facility</strong>
+              <strong className="text-stone-800">Adding a missing health facility</strong>
               <p className="mt-1">
-                This map draws facility locations from OpenStreetMap (OSM), a free and open
-                global map anyone can edit. To add a missing clinic or hospital:
+                Facility location data is sourced from OpenStreetMap (OSM), a free and openly
+                editable global geographic database. Users wishing to contribute a missing
+                health facility may do so through the following process:
               </p>
               <ol className="mt-2 list-inside list-decimal space-y-1 pl-1">
-                <li>Visit <a href="https://www.openstreetmap.org" target="_blank" rel="noreferrer" className="text-[#EA580C] underline underline-offset-2">openstreetmap.org</a> and create a free account.</li>
-                <li>Zoom to the facility location and click <strong>Edit</strong>.</li>
-                <li>Place a node and tag it with the facility name and type (hospital, clinic, dispensary, etc.).</li>
-                <li>Save your changes — the facility will appear on this map after the next data refresh.</li>
+                <li>Register a free account at <a href="https://www.openstreetmap.org" target="_blank" rel="noreferrer" className="text-[#EA580C] underline underline-offset-2">openstreetmap.org</a>.</li>
+                <li>Navigate to the facility location and select the <strong>Edit</strong> function.</li>
+                <li>Place a node and assign the appropriate tags — facility name, type (hospital, clinic, dispensary), and operational status.</li>
+                <li>Submit your changes. The facility will appear on this platform following the next scheduled data refresh.</li>
               </ol>
               <p className="mt-2 text-xs text-amber-700">
-                <strong>Accuracy matters:</strong> Only add facilities you have personally visited
-                or can verify from official sources. Do not add planned, demolished, or rumoured
-                facilities — misinformation harms the communities who rely on this data.
+                <strong>Data integrity requirement:</strong> Only facilities confirmed through
+                physical inspection or verifiable official sources should be submitted. Entries
+                based on unverified reports, planned construction, or outdated references
+                compromise the reliability of this platform for the communities and stakeholders
+                who depend on it for planning and advocacy.
               </p>
             </div>
             <div>
-              <strong className="text-stone-800">Share a county profile on WhatsApp</strong>
+              <strong className="text-stone-800">Sharing a county profile on WhatsApp</strong>
               <p className="mt-1">
-                From the main map, tap any county to open its detail panel. Use the
-                <strong> Share </strong> button to copy the county profile link, or take a
-                screenshot showing the county name, Priority Gap Score, and key indicators.
-                Paste the link or image into WhatsApp with a short message explaining what
-                the data shows. Recipients can open the link directly on any device — no
-                login or app required.
+                From the main map, select a county to open its detail panel. Use the
+                <strong> Share </strong> function to copy the county profile URL, or capture a
+                screenshot displaying the county name, Priority Gap Score, and relevant indicators.
+                The URL or image may be shared via WhatsApp with accompanying context about the
+                data presented. Recipients can access the link on any device without requiring an
+                account or application installation.
               </p>
             </div>
           </div>
