@@ -176,7 +176,8 @@ function PrintableBrief({
             {" "}If your local clinic is missing from this map, you can report it directly to
             OpenStreetMap at www.openstreetmap.org/note/new#map=6/0.5/38.0 - just drop a pin and describe the
             facility. No account needed. Every addition strengthens the evidence base for all
-            communities.
+            communities. Or send the facility name and location via WhatsApp to
+            <a href="https://wa.me/254706813068" target="_blank" rel="noreferrer" className="text-emerald-600 underline underline-offset-2 ml-1">+254 706 813 068</a>.
           </strong>
         </p>
         <p className="mt-2 text-[10px] leading-5 text-stone-400">

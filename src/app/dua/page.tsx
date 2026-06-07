@@ -182,6 +182,18 @@ export default function DUAPage() {
           </p>
         </section>
 
+        <div className="rounded-xl border border-stone-200 bg-white p-6 text-center">
+          <p className="text-sm text-stone-500">Questions or data corrections?</p>
+          <a
+            href="https://wa.me/254706813068"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
+
         <div className="text-xs text-stone-400 text-center">
           <Link href="/" className="text-[#EA580C] underline underline-offset-2">&larr; Return to map</Link>
         </div>

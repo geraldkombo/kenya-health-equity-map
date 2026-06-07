@@ -46,6 +46,17 @@ export default function SourcesPanel({
             );
           })}
         </div>
+        <p className="mt-3 text-xs text-stone-400">
+          Questions or data corrections?{" "}
+          <a
+            href="https://wa.me/254706813068"
+            target="_blank"
+            rel="noreferrer"
+            className="text-emerald-600 underline underline-offset-2 hover:text-emerald-700"
+          >
+            Chat on WhatsApp
+          </a>
+        </p>
       </details>
     </div>
   );
