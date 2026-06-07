@@ -23,15 +23,6 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
     return { sA, sB, iA, iB };
   }, [countyA, countyB, indicators]);
 
-  const narrative = useMemo(() => {
-    if (!stats.sA || !stats.sB) return null;
-    const diff = stats.sA.pgs - stats.sB.pgs;
-    if (Math.abs(diff) < 1) return "Both counties face a similar level of need.";
-    const higher = diff > 0 ? countyA.name : countyB.name;
-    const lower = diff > 0 ? countyB.name : countyA.name;
-    return null;
-  }, [stats, countyA.name, countyB.name]);
-
   const equityNote = useMemo(() => {
     if (!stats.sA || !stats.sB) return null;
     const diff = stats.sA.pgs - stats.sB.pgs;
@@ -42,60 +33,125 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
     return { higher: h, lower: l, diff: d };
   }, [stats, countyA, countyB]);
 
+  const pgsA = stats.sA?.pgs ?? 0;
+  const pgsB = stats.sB?.pgs ?? 0;
+
   return (
     <div>
+      {/* National inequity spectrum */}
+      {stats.sA && stats.sB && (
+        <div className="mb-6 rounded-xl border border-stone-200 bg-white p-4 shadow-sm print:border-black">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-stone-600">National inequity spectrum (0-100)</h3>
+          <div className="relative mt-3 h-8 w-full rounded-lg bg-gradient-to-r from-[#FFF7BC] via-[#FEC44F] via-[#D95F0E] to-[#8C2D04] shadow-inner">
+            <div
+              className="absolute -top-1 flex -translate-x-1/2 flex-col items-center transition-all duration-500"
+              style={{ left: `${Math.min(Math.max(pgsA, 0), 100)}%` }}
+            >
+              <span className="rounded bg-stone-900 px-1.5 py-0.5 text-[10px] font-bold text-white shadow">
+                {countyA.name} ({pgsA})
+              </span>
+              <div className="mt-0.5 h-2 w-2 rotate-45 bg-stone-900" />
+            </div>
+            <div
+              className="absolute -bottom-1 flex -translate-x-1/2 flex-col items-center transition-all duration-500"
+              style={{ left: `${Math.min(Math.max(pgsB, 0), 100)}%` }}
+            >
+              <div className="mb-0.5 h-2 w-2 rotate-45 bg-blue-700" />
+              <span className="rounded bg-blue-700 px-1.5 py-0.5 text-[10px] font-bold text-white shadow">
+                {countyB.name} ({pgsB})
+              </span>
+            </div>
+          </div>
+          <div className="mt-2 flex justify-between text-[10px] text-stone-400">
+            <span>Low (0)</span>
+            <span>Critical (70+)</span>
+          </div>
+        </div>
+      )}
+
       <div className="grid gap-6 md:grid-cols-2">
-        {[countyA, countyB].map((county) => {
+        {[countyA, countyB].map((county, idx) => {
           const s = county.id === countyA.id ? stats.sA : stats.sB;
           const ind = county.id === countyA.id ? stats.iA : stats.iB;
+          const borderColor = idx === 0 ? "border-l-stone-900" : "border-l-blue-700";
           return (
-            <div key={county.id} className="rounded-xl border border-stone-200 bg-white p-5 transition-all duration-200 ease-in-out hover:shadow-md">
-              <h3 className="font-bold text-stone-800">{county.name}</h3>
-              <p className="text-sm text-stone-500">County</p>
-              {s && (
-                <div className={`mt-3 inline-block rounded-lg px-3 py-1.5 ${getPGSBadgeClass(s.pgs)}`}>
-                  <span className="text-xl font-bold">{s.pgs}</span>
-                  <span className="ml-1 text-xs font-medium opacity-80">PGS</span>
+            <div key={county.id} className={`rounded-xl border border-stone-200 bg-white shadow-sm ${borderColor} border-l-4`}>
+              <div className="flex items-start justify-between border-b border-stone-100 bg-stone-50 p-4">
+                <div>
+                  <h3 className="text-lg font-bold text-stone-900">{county.name}</h3>
+                  <p className="text-xs text-stone-500 uppercase tracking-wide">County</p>
                 </div>
-              )}
+                {s && (
+                  <div className={`rounded-lg px-3 py-1.5 text-center font-bold ${getPGSBadgeClass(s.pgs)}`}>
+                    <span className="text-xl">{s.pgs}</span>
+                    <span className="ml-1 text-xs font-normal opacity-80">PGS</span>
+                  </div>
+                )}
+              </div>
               {ind && (
-                <div className="mt-4 space-y-2 text-sm text-stone-700">
-                  <div className="flex justify-between border-b border-stone-100 pb-1">
-                    <span className="text-stone-500">Population</span>
-                    <span className="font-medium text-stone-700">{ind.population.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between border-b border-stone-100 pb-1">
-                    <span className="text-stone-500">Poverty rate</span>
-                    <span className="font-medium text-stone-700">{ind.poverty_proxy}%</span>
-                  </div>
-                  <div className="flex justify-between border-b border-stone-100 pb-1">
-                    <span className="text-stone-500">Travel time</span>
-                    <span className="font-medium text-stone-700">{ind.travel_time_to_facility_proxy}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">Facility density</span>
-                    <span className="font-medium text-stone-700">{ind.facility_density_proxy}</span>
-                  </div>
-                </div>
-              )}
-              {s && (
-                <div className="mt-3 text-xs text-stone-500 leading-5">
-                  <strong className="text-stone-600">Why:</strong> {s.drivers.slice(0, 2).join("; ") || "All measures within normal range"}
+                <div className="p-4">
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex justify-between border-b border-stone-100 py-1.5">
+                      <span className="text-stone-500">Population</span>
+                      <span className="font-semibold text-stone-900">{ind.population.toLocaleString()}</span>
+                    </li>
+                    <li className="flex justify-between border-b border-stone-100 py-1.5">
+                      <span className="text-stone-500">Poverty rate</span>
+                      <span className="font-semibold text-stone-900">{ind.poverty_proxy}%</span>
+                    </li>
+                    <li className="flex justify-between border-b border-stone-100 py-1.5">
+                      <span className="text-stone-500">Travel time to clinic</span>
+                      <span className="font-semibold text-stone-900">
+                        {ind.travel_time_to_facility_proxy}{" "}
+                        <span className="text-xs font-normal text-stone-500">minutes</span>
+                      </span>
+                    </li>
+                    <li className="flex justify-between border-b border-stone-100 py-1.5">
+                      <span className="text-stone-500">Facility density</span>
+                      <span className="font-semibold text-stone-900">
+                        {ind.facility_density_proxy.toFixed(2)}{" "}
+                        <span className="text-xs font-normal text-stone-500">per 10k people</span>
+                      </span>
+                    </li>
+                  </ul>
+                  {s && s.drivers.length > 0 && (
+                    <div className="mt-4 rounded-lg bg-stone-50 p-3">
+                      <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-stone-600">
+                        Key drivers of inequity
+                      </p>
+                      <ul className="list-disc pl-4 text-xs leading-5 text-stone-700">
+                        {s.drivers.map((d, i) => (
+                          <li key={i}>{d}</li>
+                        ))}
+                        {s.drivers.length === 0 && <li>All measures within normal range</li>}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
           );
         })}
       </div>
-      {narrative && (
-        <div className="mt-4 rounded-xl border border-stone-200 bg-stone-50 p-4 text-sm leading-6 text-stone-700" role="note">
-          <strong>What this means:</strong> {narrative}
-        </div>
-      )}
+
       {equityNote && (
-        <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900 shadow-sm" role="note">
-          <p className="font-semibold">This {equityNote.diff}-point gap means communities in <strong>{equityNote.higher.name}</strong> face significantly more barriers to care than those in <strong>{equityNote.lower.name}</strong>.</p>
-          <p className="mt-2 font-medium">Use this comparison in your advocacy to demand equitable resource distribution from the national and county governments.</p>
+        <div className="mt-6 rounded-r-lg border-l-4 border-red-600 bg-red-50 p-5 shadow-sm" role="note">
+          <h4 className="flex items-center gap-2 text-sm font-bold text-red-900">
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            Advocacy takeaway
+          </h4>
+          <p className="mt-1 text-sm leading-relaxed text-red-800">
+            The <strong>{equityNote.diff}-point gap</strong> reveals a stark systemic disparity. Communities in{" "}
+            <strong>{equityNote.higher.name}</strong> face significantly more barriers to basic care, enduring longer
+            travel times and severely under-resourced facilities compared to{" "}
+            <strong>{equityNote.lower.name}</strong>.
+          </p>
+          <div className="mt-3 border-t border-red-200 pt-3 text-xs font-semibold text-red-900">
+            Use this direct comparison in your community-led monitoring to demand equitable resource allocation from
+            national and county health executives.
+          </div>
         </div>
       )}
     </div>

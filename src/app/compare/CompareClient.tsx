@@ -10,6 +10,56 @@ interface CompareClientProps {
   indicators: any[];
 }
 
+const NEIGHBORS: Record<string, string[]> = {
+  MOMBASA: ["KWALE", "KILIFI"],
+  KWALE: ["MOMBASA", "KILIFI"],
+  KILIFI: ["KWALE", "MOMBASA", "TANA RIVER"],
+  "TANA RIVER": ["KILIFI", "LAMU", "GARISSA", "KITUI"],
+  LAMU: ["TANA RIVER", "GARISSA"],
+  "TAITA TAVETA": ["KWALE", "KILIFI", "MAKUENI"],
+  GARISSA: ["TANA RIVER", "LAMU", "WAJIR", "ISIOLO"],
+  WAJIR: ["GARISSA", "MANDERA", "MARSABIT", "ISIOLO"],
+  MANDERA: ["WAJIR", "MARSABIT"],
+  MARSABIT: ["WAJIR", "MANDERA", "ISIOLO", "SAMBURU"],
+  ISIOLO: ["MARSABIT", "WAJIR", "GARISSA", "KITUI", "MERU", "SAMBURU"],
+  MERU: ["ISIOLO", "THARAKA NITHI", "NYERI", "KIRINYAGA", "EMBU"],
+  "THARAKA NITHI": ["MERU", "EMBU", "KITUI"],
+  EMBU: ["THARAKA NITHI", "MERU", "KIRINYAGA", "MACHAKOS", "KITUI"],
+  KITUI: ["TANA RIVER", "EMBU", "MACHAKOS", "MAKUENI"],
+  MACHAKOS: ["KITUI", "EMBU", "MAKUENI", "KAJIADO", "NAIROBI", "KIAMBU"],
+  MAKUENI: ["KITUI", "MACHAKOS", "KAJIADO", "TAITA TAVETA"],
+  NYERI: ["MERU", "KIRINYAGA", "NYANDARUA", "NAKURU", "LAIKIPIA"],
+  KIRINYAGA: ["MERU", "EMBU", "NYERI", "MURANGA"],
+  MURANGA: ["KIRINYAGA", "KIAMBU", "NYANDARUA"],
+  KIAMBU: ["NAIROBI", "MACHAKOS", "MURANGA", "NYANDARUA", "NAKURU"],
+  NAIROBI: ["KIAMBU", "MACHAKOS", "KAJIADO"],
+  KAJIADO: ["MACHAKOS", "MAKUENI", "TAITA TAVETA", "NAROK"],
+  NYANDARUA: ["NYERI", "MURANGA", "KIAMBU", "NAKURU"],
+  NAKURU: ["NYANDARUA", "KIAMBU", "LAIKIPIA", "BARINGO", "KERICHO", "NANDI"],
+  LAIKIPIA: ["NYERI", "NAKURU", "SAMBURU", "ISIOLO"],
+  SAMBURU: ["MARSABIT", "ISIOLO", "LAIKIPIA", "BARINGO", "WEST POKOT", "TURKANA"],
+  BARINGO: ["NAKURU", "LAIKIPIA", "SAMBURU", "WEST POKOT"],
+  "WEST POKOT": ["SAMBURU", "TURKANA", "TRANS NZOIA", "ELGEYO MARAKWET"],
+  TURKANA: ["MARSABIT", "SAMBURU", "WEST POKOT"],
+  "ELGEYO MARAKWET": ["BARINGO", "WEST POKOT", "TRANS NZOIA", "UASIN GISHU"],
+  "TRANS NZOIA": ["WEST POKOT", "ELGEYO MARAKWET", "UASIN GISHU", "BUNGOMA"],
+  "UASIN GISHU": ["ELGEYO MARAKWET", "TRANS NZOIA", "NANDI"],
+  NANDI: ["NAKURU", "KERICHO", "UASIN GISHU"],
+  KERICHO: ["NAKURU", "NANDI", "BOMET", "NAROK"],
+  BOMET: ["KERICHO", "NAROK"],
+  NAROK: ["KAJIADO", "KERICHO", "BOMET", "MIGORI"],
+  "HOMA BAY": ["MIGORI", "KISUMU", "SIAYA"],
+  MIGORI: ["NAROK", "HOMA BAY", "KISII"],
+  KISUMU: ["HOMA BAY", "SIAYA", "VIHIGA"],
+  SIAYA: ["HOMA BAY", "KISUMU", "VIHIGA"],
+  VIHIGA: ["KISUMU", "SIAYA", "KAKAMEGA"],
+  KAKAMEGA: ["VIHIGA", "BUSIA", "BUNGOMA"],
+  BUSIA: ["KAKAMEGA", "BUNGOMA"],
+  BUNGOMA: ["KAKAMEGA", "BUSIA", "TRANS NZOIA"],
+  KISII: ["MIGORI", "NYAMIRA"],
+  NYAMIRA: ["KISII"],
+};
+
 export default function CompareClient({ counties, indicators }: CompareClientProps) {
   const [countyA, setCountyA] = useState("");
   const [countyB, setCountyB] = useState("");
@@ -17,9 +67,29 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
   const selA = useMemo(() => counties.find((c) => c.id === countyA) ?? null, [counties, countyA]);
   const selB = useMemo(() => counties.find((c) => c.id === countyB) ?? null, [counties, countyB]);
 
+  const suggestedNeighbors = useMemo(() => {
+    if (!selA) return [];
+    const neighborNames = NEIGHBORS[selA.name.toUpperCase()] || [];
+    return counties.filter((c) => neighborNames.includes(c.name.toUpperCase()) && c.id !== countyB);
+  }, [selA, counties, countyB]);
+
+  const handlePrint = () => window.print();
+
   return (
     <>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm text-stone-500">Select two counties to compare their equity indicators side by side.</p>
+        {selA && selB && (
+          <button
+            onClick={handlePrint}
+            className="inline-flex items-center gap-2 rounded-lg bg-[#EA580C] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#C04A0A] print:hidden"
+          >
+            Print advocacy report
+          </button>
+        )}
+      </div>
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="county-a" className="mb-1 block text-sm font-medium text-stone-700">
             First county
@@ -53,6 +123,24 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
               <option key={c.id} value={c.id} disabled={c.id === countyA}>{c.name}</option>
             ))}
           </select>
+          {selA && !selB && suggestedNeighbors.length > 0 && (
+            <div className="mt-2">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-stone-500">
+                Suggested neighboring counties
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {suggestedNeighbors.map((n) => (
+                  <button
+                    key={n.id}
+                    onClick={() => setCountyB(n.id)}
+                    className="rounded-md bg-orange-100 px-2 py-1 text-[11px] font-medium text-orange-800 transition-colors hover:bg-orange-200"
+                  >
+                    + {n.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

@@ -208,21 +208,21 @@ export default function HomePage() {
 
       <details ref={clmRef} className="mt-6 rounded-xl border border-stone-200 bg-white transition-all hover:shadow-sm">
         <summary className="flex cursor-pointer items-center justify-between px-5 py-3 text-sm font-semibold text-stone-800 select-none">
-          How communities are using this map
+          How advocates can use this data
           <span className="text-stone-400 transition-transform duration-200">▾</span>
         </summary>
         <div className="border-t border-stone-100 px-5 py-4 text-sm leading-6 text-stone-700">
           <div className="flex gap-4">
             <span className="mt-0.5 text-lg">📊</span>
-            <p><strong>Turkana:</strong> A local CBO uses the map to show the county government exactly where facilities are missing, validating their lived experience during budget hearings.</p>
+            <p><strong>Infrastructure Advocacy (e.g., Turkana):</strong> Local CBOs can use the visual gap in mapped facilities to validate their lived experience and demand targeted infrastructure during county budget hearings.</p>
           </div>
           <div className="mt-4 flex gap-4">
             <span className="mt-0.5 text-lg">🤱</span>
-            <p><strong>Mandera:</strong> A peer network tracks the 50% home birth rate against clinic access barriers to advocate for emergency transport infrastructure.</p>
+            <p><strong>Maternal Health (e.g., Mandera):</strong> Peer networks can contrast the county&apos;s 50% home birth rate against physical clinic access barriers to advocate for emergency transport funds.</p>
           </div>
           <div className="mt-4 flex gap-4">
             <span className="mt-0.5 text-lg">💰</span>
-            <p><strong>Tana River:</strong> A women&apos;s advocacy group uses the 72.5% poverty baseline to argue against out-of-pocket maternal health fees at local dispensaries.</p>
+            <p><strong>Financial Protection (e.g., Tana River):</strong> Women&apos;s advocacy groups can leverage the 72.5% poverty baseline to argue against out-of-pocket maternal health fees at local dispensaries.</p>
           </div>
         </div>
       </details>
