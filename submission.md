@@ -1,8 +1,6 @@
 ﻿# The Kenya Health Equity Map: Community Evidence for Health Justice
 
-## Marketplace Exhibition - 3rd CSS Knowledge Dissemination Forum
 ## Sub-theme 2: Digital Health and Evidence Generation Through Community-Led Monitoring
-**Date:** 23-25 June 2026 | **Venue:** Lake Naivasha Resort
 
 ---
 
@@ -154,7 +152,3 @@ The platform is live at **https://geraldkombo.github.io/kenya-health-equity-map/
 
 **Platform URL:** https://geraldkombo.github.io/kenya-health-equity-map/
 **Contact:** cssabstracts@amref.org
-
----
-
-*Exhibition presented at the 3rd CSS Knowledge Dissemination Forum, Lake Naivasha Resort, 23-25 June 2026.*

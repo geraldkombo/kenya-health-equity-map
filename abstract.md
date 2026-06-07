@@ -1,8 +1,6 @@
 ﻿# From Data to Demand: A Community-Owned Platform for Health Equity Monitoring Across Kenya's 47 Counties
 
-## Abstract Submission - 3rd CSS Knowledge Dissemination Forum
 ## Sub-theme 2: Digital Health and Evidence Generation Through Community-Led Monitoring
-**Date:** 23-25 June 2026 | **Venue:** Lake Naivasha Resort
 
 ---
 
