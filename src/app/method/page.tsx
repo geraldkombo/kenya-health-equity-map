@@ -109,29 +109,34 @@ export default function MethodPage() {
           </p>
           <div className="mt-4 rounded-sm bg-white p-5 text-stone-900">
             <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900">
-              How communities can improve this data
+              How to report a missing clinic
             </h3>
-            <ul className="mt-2 list-disc pl-5 space-y-1.5 text-sm text-stone-700">
+            <ol className="mt-2 list-decimal pl-5 space-y-2 text-sm text-stone-700">
               <li>
-                Identify and report unmapped local clinics and dispensaries that are not yet visible
-                to county planners.
+                Tap the button below. It opens a map of your area on OpenStreetMap.
               </li>
               <li>
-                Crowdsource new facility coordinates using simple mobile devices to amplify
-                ground-level knowledge.
+                Click or tap the exact location where the missing clinic or dispensary is situated.
+                A pin will drop on the map.
               </li>
               <li>
-                Challenge official travel time estimates based on real-world, lived experience
-                during rainy seasons or road degradation.
+                In the text box, paste this message (or write your own):
+                <div className="mt-1 rounded bg-stone-100 p-2 text-xs font-mono text-stone-600 select-all">
+                  Missing health facility: [clinic name]. This facility serves our community but is not on the map. Please add it. Location verified by community health workers.
+                </div>
               </li>
-            </ul>
+              <li>
+                Click &quot;Add Note&quot; - your report is now visible to the volunteer community that
+                maintains the map. No account needed.
+              </li>
+            </ol>
             <a
-              href="https://www.openstreetmap.org/fixthemap"
+              href="https://www.openstreetmap.org/note/new"
               target="_blank"
               rel="noreferrer"
               className="mt-4 inline-flex items-center rounded-lg bg-amber-700 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-800 transition-colors"
             >
-              Report a missing facility
+              Report a missing facility on OpenStreetMap
             </a>
           </div>
         </section>

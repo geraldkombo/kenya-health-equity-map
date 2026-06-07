@@ -84,7 +84,7 @@ The review panel are community health advocates, AMREF/PEPFAR/Global Fund progra
 
 6. **Language audit** - No "Next.js", "SSG", "MapLibre", "Overpass API", "Zod", "Fuse.js", "composite index", "normalisation", "proxy indicators" in user-facing text. Replace with: "simple score", "travel time", "poverty rate", "facilities per 10,000 people".
 
-7. **Every unmapped clinic is an invitation** - Wherever limitations are mentioned, frame them as community action opportunities ("If your clinic is not on this map, you can add it to OpenStreetMap").
+7. **Every unmapped clinic is an invitation** - Wherever limitations are mentioned, frame them as community action opportunities. The "Report a missing facility" link must go to `https://www.openstreetmap.org/note/new` (not `/fixthemap`), and must include step-by-step instructions: "Click the map where the clinic is, paste this sample message, click Add Note. No account needed." Provide a copy-ready sample message in a monospace box. Never just link to a generic OSM page - the user must know exactly what to do when they get there.
 
 8. **Data consistency** - Tana River poverty = 72.5%. Nairobi PGS = 40. Turkana PGS = 92. Elgeyo-Marakwet = 1 facility / 454,000 people. Mandera = 50% home births. These must be identical in abstract.md, submission.md, and the live app.
 

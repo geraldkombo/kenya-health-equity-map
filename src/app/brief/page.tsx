@@ -135,13 +135,15 @@ function PrintableBrief({
         </h2>
         <p className="mt-2 text-[11px] leading-6 text-stone-600 text-justify">
           This brief acts as a transparent, open-data baseline for advocacy. It quantifies physical
-          access barriers utilizing travel time estimates and validated facility mapping. It does
+          access barriers using travel time estimates and validated facility mapping. It does
           not measure clinical quality or staff capacity. Because facility data relies on the current
           OpenStreetMap/ICPAC baseline of 1,699 community-mapped facilities, unmapped rural
           dispensaries may not be reflected.
           <strong className="text-amber-900">
-            {" "}We invite local advocates to crowdsource missing facilities and correct official
-            records to combat data marginalization.
+            {" "}If your local clinic is missing from this map, you can report it directly to
+            OpenStreetMap at www.openstreetmap.org/note/new - just drop a pin and describe the
+            facility. No account needed. Every addition strengthens the evidence base for all
+            communities.
           </strong>
         </p>
         <p className="mt-2 text-[10px] leading-5 text-stone-400">
