@@ -27,7 +27,7 @@ export default function WeightsControl({ weights, onChange }: WeightsControlProp
 
   return (
     <div className="rounded-xl border border-neutral-200 bg-white p-5">
-      <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-500">PGS Weights (Research mode)</h3>
+      <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-500">Priority Gap Score Weights (Research mode)</h3>
       <p className="mt-1 text-xs text-neutral-400">
         Adjust how each factor contributes to the Priority Gap Score. Weights are automatically adjusted to add up to 100%.
       </p>

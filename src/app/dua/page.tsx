@@ -165,7 +165,7 @@ export default function DUAPage() {
             </p>
           </div>
           <p className="mt-3 text-xs leading-5 text-stone-500">
-              For county-specific briefs, include the county name, PGS score, and a
+              For county-specific briefs, include the county name, Priority Gap Score, and a
             list of source datasets used. Example: &ldquo;Turkana County Brief, Kenya Health Equity Map,
             Sources: KNBS 2019 Census, KIHBS 2015/16, ICPAC/KEMRI Health Facilities.&rdquo;
           </p>
