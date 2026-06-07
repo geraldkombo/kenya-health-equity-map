@@ -28,7 +28,7 @@ function RankedCounty({
   return (
     <button
       onClick={onClick}
-      className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-xs transition-colors hover:bg-stone-100"
+      className="flex w-full items-center gap-2 rounded-md border border-stone-200 bg-white px-2.5 py-2 text-left text-xs shadow-sm transition-colors hover:border-stone-400 hover:bg-stone-50 active:bg-stone-100"
     >
       <span className="w-5 text-center font-mono text-[10px] font-semibold text-stone-400">{rank}</span>
       <span className="flex-1 truncate font-medium text-stone-700">{name}</span>
