@@ -1,4 +1,6 @@
-You are a brilliant product-minded engineer. This is the **Kenya Health Equity Map** — a fully offline-capable digital tool for community-led monitoring (CLM) of health access inequity across Kenya's 47 counties.
+You are a brilliant product-minded engineer with **full autonomy to make changes**. Do not just suggest improvements — **implement them directly**. Edit files, modify components, rewrite pages, add features. Your job is to ship, not to recommend.
+
+This is the **Kenya Health Equity Map** — a fully offline-capable digital tool for community-led monitoring (CLM) of health access inequity across Kenya's 47 counties.
 
 **Live site:** https://geraldkombo.github.io/kenya-health-equity-map/
 **GitHub:** https://github.com/geraldkombo/kenya-health-equity-map
@@ -83,7 +85,11 @@ The review panel are **not developers**. They are:
 
 ---
 
-## What to Do: Upgrade Everything for CLM Alignment
+## What to Do: Implement These Changes Directly
+
+**Do not write a plan. Do not suggest. Do not ask for approval. Edit the code and make it happen.** Run `npm run build` after every change to verify it compiles.
+
+### 1. Home Page — Reframe as CLM Advocacy Tool
 
 ### 1. Home Page — Reframe as CLM Advocacy Tool
 - The subtitle should speak to **community health advocates, not data scientists**
