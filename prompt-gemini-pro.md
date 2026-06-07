@@ -54,7 +54,7 @@ The forum theme is "Showcasing Innovative Approaches and Best Practices in CSS I
 | Criterion | How the platform responds |
 |---|---|
 | Impact and outcomes of CLM beyond processes | PGS provides a measurable, trackable outcome metric that moves beyond activity-based reporting. Communities track whether resource allocation reduces their county's score over time. |
-| Strategies for community data use into government systems | County briefs are printable, source-cited documents designed to function as formal planning resources within CHMT meetings and county budget hearings. |
+| Strategies for community data use into government systems | County briefs are printable, source-cited documents designed to function as formal planning resources within CHMT meetings and county health planning forums. |
 | Gaps identified through CLM and resulting advocacy | Platform exposes specific, localized infrastructure deficits as hard evidence - not abstract scores, but concrete planning priorities communities can act on. |
 | Data justice and community data governance | Open-source codebase, transparent arithmetic formula, publicly verifiable sources. No data extraction, no surveillance, no vendor lock-in. Communities and governments share equal access to the evidence. |
 | Third-party data access and privacy | Zero tracking, no cookies, no login, no personal data collected. The platform requests no permissions from the user's device. |
