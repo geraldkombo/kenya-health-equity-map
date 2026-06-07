@@ -70,8 +70,8 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
   const suggestedNeighbors = useMemo(() => {
     if (!selA) return [];
     const neighborNames = NEIGHBORS[selA.name.toUpperCase()] || [];
-    return counties.filter((c) => neighborNames.includes(c.name.toUpperCase()) && c.id !== countyB);
-  }, [selA, counties, countyB]);
+    return counties.filter((c) => neighborNames.includes(c.name.toUpperCase()));
+  }, [selA, counties]);
 
   const handlePrint = () => window.print();
 
@@ -89,65 +89,81 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
         )}
       </div>
 
-      <div className="mt-4 grid gap-4 sm:grid-cols-2">
-        <div>
-          <label htmlFor="county-a" className="mb-1 block text-sm font-medium text-stone-700">
-            First county
-          </label>
-          <select
-            id="county-a"
-            value={countyA}
-            onChange={(e) => { setCountyA(e.target.value); if (e.target.value === countyB) setCountyB(""); }}
-            className="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 focus:border-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-200"
-            aria-label="Select first county"
-          >
-            <option value="">Choose a county...</option>
-            {counties.map((c) => (
-              <option key={c.id} value={c.id} disabled={c.id === countyB}>{c.name}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="county-b" className="mb-1 block text-sm font-medium text-stone-700">
-            Second county
-          </label>
-          <select
-            id="county-b"
-            value={countyB}
-            onChange={(e) => { setCountyB(e.target.value); if (e.target.value === countyA) setCountyA(""); }}
-            className="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 focus:border-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-200"
-            aria-label="Select second county"
-          >
-            <option value="">Choose a county...</option>
-            {counties.map((c) => (
-              <option key={c.id} value={c.id} disabled={c.id === countyA}>{c.name}</option>
-            ))}
-          </select>
-          {selA && suggestedNeighbors.length > 0 && (
-            <div className="mt-2">
-              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-stone-500">
-                Suggested neighboring counties (click to swap comparison)
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {suggestedNeighbors.map((n) => {
-                  const isActive = selB?.id === n.id;
-                  return (
-                    <button
-                      key={n.id}
-                      onClick={() => setCountyB(n.id)}
-                      className={`rounded-md px-2.5 py-1.5 text-[11px] font-medium shadow-sm transition-all ${
-                        isActive
-                          ? "bg-amber-900 font-bold text-white ring-2 ring-orange-500"
-                          : "bg-orange-100 text-orange-800 hover:bg-orange-200"
-                      }`}
-                    >
-                      {isActive ? "Comparing " : "+ "}{n.name}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+      {/* Selectors */}
+      <div className="mt-4 rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-sm print:hidden">
+        <div className="mb-4 flex items-center justify-between border-b border-stone-200 pb-3">
+          <h2 className="text-sm font-bold uppercase tracking-wide text-stone-700">
+            Configure Comparison
+          </h2>
+          {(countyA || countyB) && (
+            <button
+              onClick={() => { setCountyA(""); setCountyB(""); }}
+              className="inline-flex items-center gap-1.5 rounded-md border border-stone-300 bg-white px-3 py-1.5 text-xs font-bold text-stone-700 shadow-sm transition-colors hover:bg-stone-100"
+            >
+              <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Reset Selection
+            </button>
           )}
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label className="mb-2 block text-sm font-semibold text-stone-700">
+              Select Primary County
+            </label>
+            <select
+              value={countyA}
+              onChange={(e) => { setCountyA(e.target.value); setCountyB(""); }}
+              className="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 shadow-sm focus:border-stone-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            >
+              <option value="">-- Choose a County --</option>
+              {counties.map((c) => (
+                <option key={c.id} value={c.id}>{c.name}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="mb-2 block text-sm font-semibold text-stone-700">
+              Select Comparison County
+            </label>
+            <select
+              value={countyB}
+              onChange={(e) => setCountyB(e.target.value)}
+              disabled={!countyA}
+              className="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 shadow-sm focus:border-stone-400 focus:outline-none focus:ring-2 focus:ring-orange-500 disabled:opacity-50"
+            >
+              <option value="">-- Choose a County --</option>
+              {counties.filter((c) => c.id !== countyA).map((c) => (
+                <option key={c.id} value={c.id}>{c.name}</option>
+              ))}
+            </select>
+            {selA && suggestedNeighbors.length > 0 && (
+              <div className="mt-3">
+                <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wide text-stone-500">
+                  Suggested neighboring counties:
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {suggestedNeighbors.map((n) => {
+                    const isActive = selB?.id === n.id;
+                    return (
+                      <button
+                        key={n.id}
+                        onClick={() => setCountyB(n.id)}
+                        className={`rounded-md px-2.5 py-1.5 text-[11px] font-medium shadow-sm transition-all ${
+                          isActive
+                            ? "bg-amber-900 font-bold text-white ring-2 ring-orange-500"
+                            : "bg-orange-100 text-orange-800 hover:bg-orange-200"
+                        }`}
+                      >
+                        {isActive ? "Comparing " : "+ "}{n.name}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
