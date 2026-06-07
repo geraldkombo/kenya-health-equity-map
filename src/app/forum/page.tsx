@@ -39,32 +39,62 @@ export default function ForumLanding() {
         <div className="space-y-3">
           <Link
             href="/brief?county=turkana"
-            className="flex w-full items-center justify-between rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
+            className="flex w-full flex-col gap-1 rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
           >
-            <span className="font-bold">Turkana County</span>
-            <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
-              PGS: 92
-            </span>
+            <div className="flex items-center justify-between">
+              <span className="font-bold">Turkana County</span>
+              <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
+                PGS: 92
+              </span>
+            </div>
+            <p className="text-xs leading-relaxed text-orange-200">
+              Physical access barrier. 42.6% hardcore poverty, 47% home births to nearest clinic travel exceeds 90 minutes.
+            </p>
           </Link>
 
           <Link
             href="/brief?county=mandera"
-            className="flex w-full items-center justify-between rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
+            className="flex w-full flex-col gap-1 rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
           >
-            <span className="font-bold">Mandera County</span>
-            <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
-              PGS: 91
-            </span>
+            <div className="flex items-center justify-between">
+              <span className="font-bold">Mandera County</span>
+              <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
+                PGS: 91
+              </span>
+            </div>
+            <p className="text-xs leading-relaxed text-orange-200">
+              Geographic isolation. 50% home births, among the highest nationally. Border region with severe infrastructure deficits.
+            </p>
           </Link>
 
           <Link
             href="/brief?county=tana-river"
-            className="flex w-full items-center justify-between rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
+            className="flex w-full flex-col gap-1 rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
           >
-            <span className="font-bold">Tana River County</span>
-            <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
-              PGS: 89
-            </span>
+            <div className="flex items-center justify-between">
+              <span className="font-bold">Tana River County</span>
+              <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
+                PGS: 89
+              </span>
+            </div>
+            <p className="text-xs leading-relaxed text-orange-200">
+              Economic vulnerability driver. 72.5% poverty, 11.35% Rural Access Index, repeated climate shocks destroying crops and incomes.
+            </p>
+          </Link>
+
+          <Link
+            href="/brief?county=elgeyo-marakwet"
+            className="flex w-full flex-col gap-1 rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold">Elgeyo-Marakwet County</span>
+              <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
+                129 facilities
+              </span>
+            </div>
+            <p className="text-xs leading-relaxed text-orange-200">
+              Mapping gap demonstration. 129 facilities in official records, fewer than 20 on OpenStreetMap. 30% stunting, 56% skilled birth attendance.
+            </p>
           </Link>
         </div>
 

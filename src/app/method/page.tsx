@@ -103,6 +103,13 @@ export default function MethodPage() {
             registered facilities. Therefore, the calculated accessibility scores represent a strict
             minimum baseline of healthcare availability.
           </p>
+          <p className="mt-3 text-sm leading-6 text-stone-100">
+            <strong className="text-orange-300">Example:</strong> Elgeyo-Marakwet County has
+            approximately 129 health facilities in the official Kenya Master Health Facility List,
+            but fewer than 20 are mapped on OpenStreetMap. This creates an artificial population
+            pressure showing 1 mapped facility per 454,000 people. The gap between official records
+            and community mapping is precisely where CLM action is needed.
+          </p>
           <p className="mt-4 text-sm font-medium text-orange-200">
             We view this limitation not as a flaw, but as a direct opportunity for Community-Led
             Monitoring.

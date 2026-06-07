@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useMemo, useState, useCallback, useRef } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
 import CountyDetails from "@/components/CountyDetails";
 import HowToUse from "@/components/HowToUse";
@@ -26,7 +26,6 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [offlineBanner, setOfflineBanner] = useState(false);
-  const clmRef = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
     async function load() {
@@ -205,27 +204,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-
-      <details ref={clmRef} className="mt-6 rounded-xl border border-stone-200 bg-white transition-all hover:shadow-sm">
-        <summary className="flex cursor-pointer items-center justify-between px-5 py-3 text-sm font-semibold text-stone-800 select-none">
-          How advocates can use this data
-          <span className="text-stone-400 transition-transform duration-200">▾</span>
-        </summary>
-        <div className="border-t border-stone-100 px-5 py-4 text-sm leading-6 text-stone-700">
-          <div className="flex gap-4">
-            <span className="mt-0.5 text-lg">📊</span>
-            <p><strong>Infrastructure Advocacy (e.g., Turkana):</strong> Local CBOs can use the visual gap in mapped facilities to validate their lived experience and demand targeted infrastructure during county budget hearings.</p>
-          </div>
-          <div className="mt-4 flex gap-4">
-            <span className="mt-0.5 text-lg">🤱</span>
-            <p><strong>Maternal Health (e.g., Mandera):</strong> Peer networks can contrast the county&apos;s 50% home birth rate against physical clinic access barriers to advocate for emergency transport funds.</p>
-          </div>
-          <div className="mt-4 flex gap-4">
-            <span className="mt-0.5 text-lg">💰</span>
-            <p><strong>Financial Protection (e.g., Tana River):</strong> Women&apos;s advocacy groups can leverage the 72.5% poverty baseline to argue against out-of-pocket maternal health fees at local dispensaries.</p>
-          </div>
-        </div>
-      </details>
 
       <div className="mt-6 border-t border-stone-200 pt-6">
         <div className="flex flex-wrap gap-3">

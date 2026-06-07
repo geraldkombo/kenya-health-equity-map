@@ -60,10 +60,37 @@ function PrintableBrief({
           poverty rate of {indicator.poverty_proxy}%. Furthermore, with only{" "}
           {indicator.facility_count} validated facilities mapped against a vast geography, facility
           density remains a critical limiting factor for decentralized care. These indicators are
-          derived from open-data baselines (KNBS 2019 Census, KIHBS 2015/16, OpenStreetMap/ICPAC
+          derived from open-data baselines (KNBS 2019 Census, KIHBS, OpenStreetMap/ICPAC
           facility inventory) and provide a verifiable, transparent starting point for community-led
           advocacy.
         </p>
+        {county.name === "Turkana" && (
+          <div className="mt-3 rounded-sm border-l-4 border-orange-600 bg-orange-50 p-3 text-xs leading-6 text-stone-700">
+            <strong>Community context:</strong> Turkana has a 42.6% hardcore poverty rate -
+            the highest nationally, encompassing over 745,000 individuals. 42% of women aged 15-49
+            report having experienced physical violence, compounding barriers to safe reproductive
+            health access. Nomadic populations face near-impassable distances across 77,000 sq km of
+            arid terrain.
+          </div>
+        )}
+        {county.name === "Tana River" && (
+          <div className="mt-3 rounded-sm border-l-4 border-orange-600 bg-orange-50 p-3 text-xs leading-6 text-stone-700">
+            <strong>Community context:</strong> Tana River has a Rural Access Index of just 11.35%
+            and a banking access rate of only 8.6%. In late 2023, excessive rains destroyed over
+            9,568 acres of crops, causing maize yields to fall 50% and green gram yields 71% below
+            long-term averages. Food prices surged 36% above average, depleting household ability to
+            afford delivery costs.
+          </div>
+        )}
+        {county.name === "Elgeyo Marakwet" && (
+          <div className="mt-3 rounded-sm border-l-4 border-orange-600 bg-orange-50 p-3 text-xs leading-6 text-stone-700">
+            <strong>Community context:</strong> The official Kenya Master Health Facility List
+            records approximately 129 health facilities in this county, but fewer than 20 are mapped
+            on OpenStreetMap. This mapping gap results in an artificial score of 1 facility per
+            454,000 people. The county reports a 30% stunting rate among children under five and
+            skilled birth attendance of only 56%.
+          </div>
+        )}
       </section>
 
       {/* Key Infrastructure Indicators */}
@@ -100,31 +127,37 @@ function PrintableBrief({
         <h2 className="text-sm font-bold text-orange-700 uppercase tracking-widest mb-4">
           Community Advocacy Focus Areas
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="border-l-4 border-orange-600 bg-gray-50 p-4 rounded-r-sm shadow-sm">
-            <h3 className="font-bold text-amber-900 text-sm">CHMT Consultations</h3>
-            <p className="text-xs text-gray-700 mt-1">
-              Highlights specific facility gap metrics to actively support resource allocation demands for underserved wards.
-            </p>
-          </div>
-          <div className="border-l-4 border-orange-600 bg-gray-50 p-4 rounded-r-sm shadow-sm">
-            <h3 className="font-bold text-amber-900 text-sm">Health Budget Hearings</h3>
-            <p className="text-xs text-gray-700 mt-1">
-              Supplies quantifiable infrastructure data to strengthen community requests for localized facility funding.
-            </p>
-          </div>
-          <div className="border-l-4 border-orange-600 bg-gray-50 p-4 rounded-r-sm shadow-sm">
-            <h3 className="font-bold text-amber-900 text-sm">Access Accountability</h3>
-            <p className="text-xs text-gray-700 mt-1">
-              Establishes a transparent baseline for tracking whether physical travel times and clinic capacities improve year over year.
-            </p>
-          </div>
-          <div className="border-l-4 border-orange-600 bg-gray-50 p-4 rounded-r-sm shadow-sm">
-            <h3 className="font-bold text-amber-900 text-sm">Peer Network Coordination</h3>
-            <p className="text-xs text-gray-700 mt-1">
-              Facilitates evidence-sharing among regional groups to align joint advocacy for maternal and primary care improvements.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {(
+            [
+              {
+                key: "infrastructure",
+                label: "Infrastructure Access",
+                desc: norm.travelTime > 0.6
+                  ? `Travel time of ${indicator.travel_time_to_facility_proxy} minutes exceeds most counties. Use this metric to advocate for mobile clinics, ambulance services, or a new dispensary in the underserved ward.`
+                  : `With ${indicator.travel_time_to_facility_proxy} minute average travel time, use this baseline to monitor whether new road or transport investments reduce access barriers over time.`,
+              },
+              {
+                key: "financial",
+                label: "Financial Protection",
+                desc: norm.poverty > 0.6
+                  ? `A ${indicator.poverty_proxy}% poverty rate means most families cannot absorb out-of-pocket delivery costs. Present this data at county budget hearings to advocate for waived maternal health fees.`
+                  : `At ${indicator.poverty_proxy}% poverty, financial barriers still affect access. Use this figure to argue for subsidized transport or supply vouchers for expectant mothers.`,
+              },
+              {
+                key: "capacity",
+                label: "Facility Capacity",
+                desc: norm.populationPressure > 0.6 || norm.facilityDensity > 0.6
+                  ? `${indicator.facility_count} mapped facilities serve ${indicator.population.toLocaleString()} people. Leverage this ratio to demand staffing increases, drug supply allocations, and infrastructure upgrades.`
+                  : `${indicator.facility_count} mapped facilities serve this county. Community mapping can expand this count - report missing clinics to OpenStreetMap to strengthen the evidence base.`,
+              },
+            ] satisfies { key: string; label: string; desc: string }[]
+          ).map((item) => (
+            <div key={item.key} className="border-l-4 border-orange-600 bg-gray-50 p-4 rounded-r-sm shadow-sm">
+              <h3 className="font-bold text-amber-900 text-sm">{item.label}</h3>
+              <p className="text-xs text-gray-700 mt-1">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 

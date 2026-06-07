@@ -1,10 +1,15 @@
-﻿# Kenya Health Equity Map
+﻿# EquityMap — Kenya Health Equity Map
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Maps health access inequity across Kenya's 47 counties.
+Offline-first digital platform for health equity monitoring across Kenya's 47 counties.
+Maps health access inequity using the Priority Gap Score (PGS) — a transparent, verifiable composite of travel time, poverty, and facility density.
 
-**Production URL:** https://geraldkombo.github.io/kenya-health-equity-map
+**Live platform:** https://geraldkombo.github.io/kenya-health-equity-map/
+
+**Target users:** Community Health Promoters, CBOs, County Health Management Teams, CLM peer networks, Ministry of Health planners.
+
+**Value proposition:** Translates complex public health data into printable, source-cited evidence that communities carry into budget hearings and CHMT meetings.
 
 ## Data Sources
 
