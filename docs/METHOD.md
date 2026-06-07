@@ -1,4 +1,4 @@
-# Priority Gap Score (PGS) Methodology
+ï»¿# Priority Gap Score (PGS) Methodology
 
 ## Overview
 
@@ -25,11 +25,11 @@ Where a higher value should indicate greater priority (e.g., travel time), the n
 ## Aggregation
 
 ```
-PGS = (accessibility Ã- 0.4) + (vulnerability Ã- 0.3) + (population_pressure Ã- 0.3)
+PGS = (accessibility ï¿½- 0.4) + (vulnerability ï¿½- 0.3) + (population_pressure ï¿½- 0.3)
 ```
 
 Where:
-- `accessibility = travel_time_normalised Ã- 0.6 + facility_density_inverted Ã- 0.4`
+- `accessibility = travel_time_normalised ï¿½- 0.6 + facility_density_inverted ï¿½- 0.4`
 - `vulnerability = poverty_normalised`
 - `population_pressure = population_normalised`
 
@@ -46,7 +46,7 @@ Weights can be adjusted interactively in Research mode.
 
 ## Limitations
 
-- Proxy indicators only â€” not clinical outcome measures
+- Proxy indicators only - not clinical outcome measures
 - Synthetic/demo data used currently
 - Ward centroids rather than population-weighted means
 - Does not capture quality of care or facility capacity

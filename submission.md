@@ -1,6 +1,6 @@
-# The Kenya Health Equity Map: Empowering Communities Through Data Visualization
+﻿# The Kenya Health Equity Map: Empowering Communities Through Data Visualization
 
-## Marketplace Exhibition — 3rd CSS Knowledge Dissemination Forum
+## Marketplace Exhibition - 3rd CSS Knowledge Dissemination Forum
 ## Sub-theme 2: Digital Health and Evidence Generation Through Community-Led Monitoring
 **Date:** 23rd–25th June 2026 | **Venue:** Lake Naivasha Resort
 
@@ -22,14 +22,14 @@ The score is calculated by combining three major realities of community life:
 
 | Factor | What It Measures | Why It Matters |
 |---|---|---|
-| **Vulnerability & Poverty** | How many people live below the poverty line, and what are the local clinical outcomes? | Tana River has a 72.5% poverty rate — the highest in Kenya. Communities in poverty cannot absorb out-of-pocket health costs. |
+| **Vulnerability & Poverty** | How many people live below the poverty line, and what are the local clinical outcomes? | Tana River has a 72.5% poverty rate - the highest in Kenya. Communities in poverty cannot absorb out-of-pocket health costs. |
 | **Physical Accessibility** | How long does it actually take a person to walk, cycle, or find transport to the nearest clinic? | In ASAL counties, travel times exceed 90 minutes. Distance is a direct barrier to care. |
 | **Population Pressure** | How many people are forced to rely on a single facility? | Elgeyo-Marakwet has 454,000 people relying on 1 mapped facility. |
 
 This calculation reveals a stark national divide:
 
-- **Lowest inequity:** Nairobi County (score 40) — dense urban network with 618 facilities
-- **Highest inequity:** Turkana County (score 92) — vast distances, few facilities, deep poverty
+- **Lowest inequity:** Nairobi County (score 40) - dense urban network with 618 facilities
+- **Highest inequity:** Turkana County (score 92) - vast distances, few facilities, deep poverty
 
 ---
 
@@ -39,7 +39,7 @@ The tool is designed specifically to support CLM through several practical appli
 
 ### 3.1 Visualizing Infrastructure Gaps
 
-The map clearly exposes areas where infrastructure completely fails the population. Based on our validated baseline data, Elgeyo-Marakwet has just 1 mapped facility serving 454,000 people. This gives communities hard evidence to present to county health executives — quantified, sourced, and visually undeniable.
+The map clearly exposes areas where infrastructure completely fails the population. Based on our validated baseline data, Elgeyo-Marakwet has just 1 mapped facility serving 454,000 people. This gives communities hard evidence to present to county health executives - quantified, sourced, and visually undeniable.
 
 ### 3.2 Advocating for Maternal Health
 
@@ -70,7 +70,7 @@ The platform generates a one-page county brief for any of the 47 counties. Each 
 
 ### 3.4 Overcoming Digital Exclusion
 
-To ensure this technology doesn't exclude rural communities, the map is built to work offline. Once loaded on a smartphone, a community health promoter in a remote village can use the map, view the statistics, and show the visual evidence without needing an active internet connection. The tool requires no installation, no login, and no app store — just open the URL.
+To ensure this technology doesn't exclude rural communities, the map is built to work offline. Once loaded on a smartphone, a community health promoter in a remote village can use the map, view the statistics, and show the visual evidence without needing an active internet connection. The tool requires no installation, no login, and no app store - just open the URL.
 
 ---
 
@@ -101,7 +101,7 @@ This transforms a limitation into a feature: the map is not a finished, top-down
 
 ## 6. Conclusion
 
-The Kenya Health Equity Map demonstrates how digital health tools can be designed not as top-down surveillance systems, but as community-owned evidence platforms that strengthen community systems. It addresses digital exclusion through offline capability, supports data justice through transparent methodology, and puts the power of spatial analysis into the hands of those who need it most — the communities and peer-led networks at the frontlines of Kenya's health equity fight.
+The Kenya Health Equity Map demonstrates how digital health tools can be designed not as top-down surveillance systems, but as community-owned evidence platforms that strengthen community systems. It addresses digital exclusion through offline capability, supports data justice through transparent methodology, and puts the power of spatial analysis into the hands of those who need it most - the communities and peer-led networks at the frontlines of Kenya's health equity fight.
 
 ---
 

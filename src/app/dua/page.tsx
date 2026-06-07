@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export const metadata = {
   title: "Data Use Agreement | Kenya Health Equity Map",
@@ -59,7 +59,7 @@ export default function DUAPage() {
               <tbody>
                 <SourceRow
                   name="KNBS 2019 Census (Population)"
-                  url="https://www.knbs.or.ke/census/"
+                  url="https://statistics.knbs.or.ke/nada/index.php/catalog/116"
                   license="Open Data"
                 />
                 <SourceRow
@@ -84,7 +84,7 @@ export default function DUAPage() {
                 />
                 <SourceRow
                   name="KNBS GIS Boundary Files"
-                  url="https://www.knbs.or.ke/census/"
+                  url="https://statistics.knbs.or.ke/nada/index.php/catalog/116"
                   license="Open Data"
                 />
                 <SourceRow

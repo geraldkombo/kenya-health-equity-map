@@ -110,9 +110,9 @@ function PrintableBrief({
         <p className="mt-3 text-sm leading-7 text-stone-800">{narrative}</p>
         <p className="mt-2 text-[10px] leading-5 text-stone-400">
           <strong>Data sources:</strong> County populations from{" "}
-          <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Kenya Census</a>.
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/116" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Kenya Census</a>.
           Poverty rates from{" "}
-          <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16 county estimates</a>.
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/13" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16 county estimates</a>.
           Health facility locations from{" "}
           <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI Kenya Health Facilities</a>
           {" "}(CC-BY-4.0). Travel time estimates derived from cost and distance modelling
@@ -177,9 +177,9 @@ function PrintableBrief({
           (<a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">WHO AccessMod</a>;
           <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI facilities</a>).
           Poverty data from{" "}
-          <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16 county poverty estimates</a>.
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/13" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16 county poverty estimates</a>.
           Population from{" "}
-          <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>.
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/116" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>.
         </p>
       </div>
 
@@ -215,8 +215,8 @@ road networks (<a href="https://www.openstreetmap.org/relation/192798" target="_
         <p className="mt-2 text-[10px] leading-5 text-stone-400">
           Suggested citation: Kenya Health Equity Map, <a href="https://geraldkombo.github.io/kenya-health-equity-map/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">geraldkombo.github.io/kenya-health-equity-map</a>.
           {county.name} County Brief. Sources:{" "}
-          <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>;
-          <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>;
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/116" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>;
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/13" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>;
           <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI Health Facilities</a>.
         </p>
       </div>

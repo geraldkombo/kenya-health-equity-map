@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import type { CountyRecord, IndicatorRecord } from "@/lib/adapters";
@@ -92,20 +92,20 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
     if (!comparisons || !indicator || !nationalAvg) return [];
     const lines: string[] = [];
     if (comparisons.travelTime !== null && comparisons.travelTime >= 70) {
-      lines.push(`Travel time is longer than ${comparisons.travelTime}% of counties — people take too long to reach a clinic.`);
+      lines.push(`Travel time is longer than ${comparisons.travelTime}% of counties - people take too long to reach a clinic.`);
     }
     if (comparisons.poverty !== null && comparisons.poverty >= 70) {
-      lines.push(`Poverty is higher than ${comparisons.poverty}% of counties — many families struggle to afford care.`);
+      lines.push(`Poverty is higher than ${comparisons.poverty}% of counties - many families struggle to afford care.`);
     }
     if (comparisons.population !== null) {
       if (comparisons.population >= 80) {
-        lines.push(`Population is bigger than ${comparisons.population}% of counties — more people competing for the same health services.`);
+        lines.push(`Population is bigger than ${comparisons.population}% of counties - more people competing for the same health services.`);
       } else if (comparisons.population <= 20) {
-        lines.push(`Population is smaller than ${100 - comparisons.population}% of counties — less pressure on health services.`);
+        lines.push(`Population is smaller than ${100 - comparisons.population}% of counties - less pressure on health services.`);
       }
     }
     if (comparisons.facilityDensity !== null && comparisons.facilityDensity <= 20) {
-      lines.push(`Fewer clinics per person than ${100 - comparisons.facilityDensity}% of counties — not enough facilities to go around.`);
+      lines.push(`Fewer clinics per person than ${100 - comparisons.facilityDensity}% of counties - not enough facilities to go around.`);
     }
     if (lines.length === 0) {
       lines.push("All measures are within the normal range compared to other counties.");
@@ -175,9 +175,9 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
         <div className="mt-4 border-t border-stone-100 pt-3">
           <p className="text-[10px] leading-4 text-stone-400">
             Population:{" "}
-            <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>
+            <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/116" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>
             {" · "}Poverty:{" "}
-            <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>
+            <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/13" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>
             {" · "}Facilities:{" "}
             <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI</a>
             {" · "}Modelling:{" "}

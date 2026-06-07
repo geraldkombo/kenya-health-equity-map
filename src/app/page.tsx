@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState, useCallback, useRef } from "react";
@@ -105,7 +105,7 @@ export default function HomePage() {
       <div className="mb-3 sm:mb-6">
         <h1 className="text-lg font-bold tracking-tight text-stone-800 sm:text-xl">Kenya Health Equity Map</h1>
         <p className="mt-0.5 text-xs font-medium text-stone-700 sm:text-sm">
-          See which counties are most underserved — and get the evidence to demand change.
+          See which counties are most underserved - and get the evidence to demand change.
         </p>
         <p className="mt-0.5 text-[11px] italic text-stone-500 sm:text-xs">
           Community-led monitoring starts with data communities can trust and use.
@@ -252,9 +252,9 @@ export default function HomePage() {
       <div className="mt-6 border-t border-stone-100 pt-4 pb-2">
         <p className="text-[10px] leading-5 text-stone-400">
           <strong>Data sources:</strong>{" "}
-          <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/116" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>
           {" · "}
-          <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/13" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>
           {" · "}
           <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ICPAC/KEMRI Health Facilities</a>
           {" · "}
@@ -266,7 +266,7 @@ export default function HomePage() {
           {" · "}
           <a href="https://esa-worldcover.org/en" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">ESA WorldCover land cover</a>
           {" · "}
-          <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS GIS boundaries</a>
+          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/116" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS GIS boundaries</a>
           <span className="ml-1">| CC-BY-4.0 open data</span>
         </p>
       </div>

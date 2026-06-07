@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import maplibregl from "maplibre-gl";
@@ -240,7 +240,7 @@ export default function MapView({
       ) : null}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 flex items-center justify-between px-3 py-1.5">
         <a
-          href="https://www.knbs.or.ke/census/"
+          href="https://statistics.knbs.or.ke/nada/index.php/catalog/116"
           target="_blank"
           rel="noreferrer"
           className="pointer-events-auto text-[9px] text-stone-400 hover:text-stone-600 underline underline-offset-2"

@@ -1,6 +1,6 @@
-# Democratizing Data: The Kenya Health Equity Map for Community-Led Monitoring
+﻿# Democratizing Data: The Kenya Health Equity Map for Community-Led Monitoring
 
-## Abstract Submission — 3rd CSS Knowledge Dissemination Forum
+## Abstract Submission - 3rd CSS Knowledge Dissemination Forum
 ## Sub-theme 2: Digital Health and Evidence Generation Through Community-Led Monitoring
 
 As Kenya transitions toward integrated Universal Health Coverage (UHC), the risk of marginalized communities being excluded from formal health systems grows. Deep geographical and socioeconomic disparities continue to limit access to essential services. The Kenya Health Equity Map is an innovative, fully offline-capable digital tool designed to support Community-Led Monitoring (CLM) by translating complex health, demographic, and infrastructure data into plain, accessible visual evidence for local advocates.

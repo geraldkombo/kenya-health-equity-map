@@ -1,4 +1,4 @@
-export interface PGSWeights {
+﻿export interface PGSWeights {
   accessibility: number;
   populationPressure: number;
   vulnerability: number;
@@ -74,7 +74,7 @@ export function computePGS(
     drivers.push("Fewer health facilities per person compared to other counties");
   }
   if (norm.poverty > 0.7) {
-    drivers.push("Poverty rate is higher than 70% of counties — harder for families to afford care");
+    drivers.push("Poverty rate is higher than 70% of counties - harder for families to afford care");
   }
   if (norm.populationPressure > 0.7) {
     drivers.push("More people sharing each health facility than 70% of counties");

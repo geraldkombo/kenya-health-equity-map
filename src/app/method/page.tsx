@@ -6,7 +6,7 @@ export default function MethodPage() {
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
       <h1 className="text-xl font-semibold tracking-tight text-stone-800">Methodology</h1>
       <p className="mt-1 text-sm text-stone-500">
-        How the Priority Gap Score (PGS) works — plain and simple.
+        How the Priority Gap Score (PGS) works - plain and simple.
       </p>
 
       <div className="mt-8 space-y-8">
@@ -19,8 +19,8 @@ export default function MethodPage() {
             clinic or hospital. A <strong>lower score</strong> means health services are easier to access.
           </p>
           <p className="mt-3 text-sm leading-6 text-stone-700">
-            For example: <strong>Turkana</strong> scores 92 — very hard to access care.
-            <strong> Nairobi</strong> scores 40 — much easier with 618 facilities in one city.
+            For example: <strong>Turkana</strong> scores 92 - very hard to access care.
+            <strong> Nairobi</strong> scores 40 - much easier with 618 facilities in one city.
           </p>
         </section>
 
@@ -32,7 +32,7 @@ export default function MethodPage() {
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-300 text-xs font-bold text-stone-700">1</div>
               <h3 className="mt-3 text-sm font-semibold text-stone-800">Collect Data</h3>
               <p className="mt-1 text-xs leading-5 text-stone-600">
-                We gather information everyone can access — county maps, where facilities are,
+                We gather information everyone can access - county maps, where facilities are,
                 how many people live there, and poverty levels.
               </p>
             </div>
@@ -56,8 +56,8 @@ export default function MethodPage() {
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-300 text-xs font-bold text-stone-700">4</div>
               <h3 className="mt-3 text-sm font-semibold text-stone-800">Get the Score</h3>
               <p className="mt-1 text-xs leading-5 text-stone-600">
-                Number comes out between 0 and 100. Turkana got 92 — very urgent.
-                Nairobi got 40 — less urgent. The higher, the more help needed.
+                Number comes out between 0 and 100. Turkana got 92 - very urgent.
+                Nairobi got 40 - less urgent. The higher, the more help needed.
               </p>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function MethodPage() {
 
         {/* ── Travel Time Modelling ── */}
         <section className="rounded-xl border border-stone-200 bg-white p-6">
-          <h2 className="text-base font-semibold text-stone-800">Travel Time — How Far Is the Nearest Clinic?</h2>
+          <h2 className="text-base font-semibold text-stone-800">Travel Time - How Far Is the Nearest Clinic?</h2>
           <p className="mt-3 text-sm leading-6 text-stone-700">
             We don&apos;t just draw a straight line on a map (&quot;as the crow flies&quot;). That would be cheating.
             Instead, we use a computer model that simulates how a real person would travel to the nearest
@@ -130,7 +130,7 @@ export default function MethodPage() {
               </p>
               <p className="mt-1 text-[10px] leading-4 text-stone-400">
                 Data:{" "}
-                <a href="https://www.knbs.or.ke/kihbs/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>
+                <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/13" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KIHBS 2015/16</a>
                 {" · "}
                 <a href="https://pip.worldbank.org/country-profiles/KEN" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">World Bank</a>
               </p>
@@ -144,7 +144,7 @@ export default function MethodPage() {
               </p>
               <p className="mt-1 text-[10px] leading-4 text-stone-400">
                 Data:{" "}
-                <a href="https://www.knbs.or.ke/census/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>
+                <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/116" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-600">KNBS 2019 Census</a>
               </p>
             </div>
           </div>
@@ -186,7 +186,7 @@ export default function MethodPage() {
             (<a href="https://kemri-wellcome.org/press-release-launch-of-comprehensive-public-health-facility-inventory-for-sub-saharan-africa/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-900">KEMRI/Wellcome Trust</a>).
             Travel time and number of facilities tell you about <strong>physical access</strong>.
             Poverty tells you about <strong>ability to pay</strong>. Population tells you about
-            <strong>demand</strong> — how many people are fighting for the same bed.
+            <strong>demand</strong> - how many people are fighting for the same bed.
           </p>
           <p className="mt-3 text-sm leading-6 text-stone-700">
             Most importantly, all this data is <strong>publicly available</strong>. You don&apos;t
@@ -199,13 +199,13 @@ export default function MethodPage() {
           <h2 className="text-base font-semibold text-stone-800">What This Score Does NOT Tell You</h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-stone-700">
             <li>
-              <strong>No clinical data:</strong> The score uses travel time, poverty, and population — not
+              <strong>No clinical data:</strong> The score uses travel time, poverty, and population - not
               how many people actually got sick or died. It shows <em>risk</em>, not <em>outcome</em>.
             </li>
             <li>
               <strong>Partial facility list:</strong> We currently have 1,699 facilities from OpenStreetMap
               and ICPAC/KEMRI. Kenya has about 17,400+ registered facilities. Many clinics and
-              dispensaries are missing — especially in remote areas.
+              dispensaries are missing - especially in remote areas.
             </li>
             <li>
               <strong>County-level only:</strong> One number for the whole county. If you live in a

@@ -1,4 +1,4 @@
-export interface CountyRecord {
+﻿export interface CountyRecord {
   id: string;
   name: string;
 }
@@ -48,7 +48,7 @@ export const REAL_SOURCES: Record<string, SourceEntry[]> = {
     },
     {
       name: "KNBS GIS Boundary Files",
-      url: "https://www.knbs.or.ke/census/",
+      url: "https://statistics.knbs.or.ke/nada/index.php/catalog/116",
       license: "Open Data",
       licenseUrl: "https://www.knbs.or.ke/terms-of-use/",
       note: "KNBS publishes official administrative boundary shapefiles for counties, sub-counties, and wards. These are the authoritative source for spatial joins and aggregation.",
