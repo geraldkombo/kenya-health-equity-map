@@ -77,20 +77,20 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
 
   return (
     <>
-      <div className="mb-6 pb-4 border-b border-gray-200 print:hidden flex flex-col md:flex-row md:justify-between md:items-end gap-4">
+      <div className="mb-8 pb-4 border-b border-[#E0DBD0] print:hidden flex flex-col md:flex-row md:justify-between md:items-end gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-amber-900">Compare Counties</h1>
-          <p className="text-gray-600 mt-1 text-sm">
+          <h1 className="text-3xl font-bold text-[#78350F]">Compare Counties</h1>
+          <p className="text-[#524B3F] mt-2 text-[14px]">
             Select two counties to evaluate their infrastructure disparities side-by-side.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
           {(countyA || countyB) && (
             <button
               onClick={() => { setCountyA(""); setCountyB(""); }}
-              className="text-xs flex items-center gap-1.5 bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 font-bold px-3 py-1.5 rounded-md transition-colors shadow-sm"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center gap-2 bg-[#F8F5F0] border border-[#E0DBD0] hover:bg-[#F0EDE6] text-[#292524] font-bold px-4 py-2 rounded-[6px] transition-colors shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] active:scale-[0.98]"
             >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
               </svg>
               Reset Selection
@@ -99,7 +99,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
           {selA && selB && (
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#EA580C] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#C04A0A] print:hidden"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] gap-2 rounded-[6px] bg-[#EA580C] px-4 py-2 text-[14px] font-semibold text-[#FFFBEB] shadow-sm transition-colors hover:bg-[#C2410C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#92400E] print:hidden active:scale-[0.98]"
             >
               Print advocacy report
             </button>
@@ -108,21 +108,21 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
       </div>
 
       {/* Selectors */}
-      <div className="mt-4 rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-sm print:hidden">
-        <div className="mb-4 flex items-center justify-between border-b border-stone-200 pb-3">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-stone-700">
+      <div className="mt-8 rounded-[8px] border border-[#E0DBD0] bg-[#F8F5F0] p-4 sm:p-8 shadow-sm print:hidden">
+        <div className="mb-4 flex items-center justify-between border-b border-[#E0DBD0] pb-4">
+          <h2 className="text-[14px] font-bold uppercase tracking-wide text-[#524B3F]">
             Configure Comparison
           </h2>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2">
           <div>
-            <label className="mb-2 block text-sm font-semibold text-stone-700">
+            <label className="mb-2 block text-[14px] font-semibold text-[#292524]">
               Select Primary County
             </label>
             <select
               value={countyA}
               onChange={(e) => { setCountyA(e.target.value); setCountyB(""); }}
-              className="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 shadow-sm focus:border-stone-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full min-h-[44px] rounded-[4px] border border-[#E0DBD0] bg-white px-4 py-2 text-[14px] text-[#292524] shadow-sm hover:border-[#A8A08F] focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C]"
             >
               <option value="">-- Choose a County --</option>
               {counties.map((c) => (
@@ -131,14 +131,14 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
             </select>
           </div>
           <div>
-            <label className="mb-2 block text-sm font-semibold text-stone-700">
+            <label className="mb-2 block text-[14px] font-semibold text-[#292524]">
               Select Comparison County
             </label>
             <select
               value={countyB}
               onChange={(e) => setCountyB(e.target.value)}
               disabled={!countyA}
-              className="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 shadow-sm focus:border-stone-400 focus:outline-none focus:ring-2 focus:ring-orange-500 disabled:opacity-50"
+              className="w-full min-h-[44px] rounded-[4px] border border-[#E0DBD0] bg-white px-4 py-2 text-[14px] text-[#292524] shadow-sm hover:border-[#A8A08F] focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] disabled:opacity-50"
             >
               <option value="">-- Choose a County --</option>
               {counties.filter((c) => c.id !== countyA).map((c) => (
@@ -146,21 +146,21 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
               ))}
             </select>
             {selA && suggestedNeighbors.length > 0 && (
-              <div className="mt-3">
-                <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wide text-stone-500">
+              <div className="mt-4">
+                <p className="mb-2 text-[12px] font-semibold uppercase tracking-wide text-[#6B6355]">
                   Suggested neighboring counties:
                 </p>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {suggestedNeighbors.map((n) => {
                     const isActive = selB?.id === n.id;
                     return (
                       <button
                         key={n.id}
                         onClick={() => setCountyB(n.id)}
-                        className={`rounded-md px-2.5 py-1.5 text-[11px] font-medium shadow-sm transition-all ${
+                        className={`min-h-[44px] inline-flex items-center justify-center rounded-[6px] px-4 py-2 text-[14px] font-medium shadow-sm transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] active:scale-[0.98] ${
                           isActive
-                            ? "bg-amber-900 font-bold text-white ring-2 ring-orange-500"
-                            : "bg-orange-100 text-orange-800 hover:bg-orange-200"
+                            ? "bg-[#78350F] font-bold text-[#FFFBEB]"
+                            : "bg-[#FFFBEB] border border-[#E0DBD0] text-[#92400E] hover:bg-[#FDE68A] hover:border-[#FCD34D]"
                         }`}
                       >
                         {isActive ? "Comparing " : "+ "}{n.name}
@@ -175,16 +175,16 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
       </div>
 
       {selA && selB && selA.id !== selB.id ? (
-        <div className="mt-6 print:mt-2">
+        <div className="mt-8 print:mt-4">
           <CompareView countyA={selA} countyB={selB} indicators={indicators} />
         </div>
       ) : (
-        <div className="mt-6 rounded-xl border border-stone-200 bg-white p-8 text-center text-sm text-stone-400">
+        <div className="mt-8 rounded-[8px] border border-[#E0DBD0] bg-white p-8 text-center text-[14px] text-[#8A8170]">
           Select two counties to see a comparison.
         </div>
       )}
 
-      <div className="hidden print:block text-center text-sm font-bold text-stone-900 mb-2">
+      <div className="hidden print:block text-center text-[14px] font-bold text-[#292524] mb-4">
         County Comparison Report - {selA?.name} vs {selB?.name}
       </div>
 
@@ -192,8 +192,10 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
         <SourcesPanel />
       </div>
 
-      <div className="mt-6 text-center text-xs text-stone-400 print:hidden">
-        <Link href="/" className="text-[#EA580C] underline underline-offset-2">&larr; Return to map</Link>
+      <div className="mt-8 text-center text-[12px] text-[#A8A08F] print:hidden flex justify-center">
+        <Link href="/" className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-[6px] px-4 py-2 text-[#EA580C] hover:bg-[#F8F5F0] hover:text-[#C2410C] underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C]">
+          &larr; Return to map
+        </Link>
       </div>
     </>
   );
