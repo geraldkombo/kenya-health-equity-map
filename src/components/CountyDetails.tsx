@@ -162,7 +162,7 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
               label="Skilled birth attendance"
               value={indicator.skilled_birth_attendance}
               max={100}
-              info="Percentage of deliveries attended by a skilled health professional (KDHS 2022)"
+              info="Percentage of deliveries attended by a skilled health professional (Kenya Demographic and Health Survey -- KDHS 2022)"
             />
           )}
         </div>

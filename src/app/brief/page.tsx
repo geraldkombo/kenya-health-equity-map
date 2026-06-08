@@ -60,8 +60,7 @@ function PrintableBrief({
           poverty rate of {indicator.poverty_proxy}%. Furthermore, with only{" "}
           {indicator.facility_count} validated facilities mapped against a vast geography, facility
           density remains a critical limiting factor for decentralized care. These indicators are
-          derived from open-data baselines (KNBS 2019 Census, KIHBS, OpenStreetMap/ICPAC
-          facility inventory) and provide a verifiable, transparent starting point for community-led
+           derived from open-data baselines (KNBS 2019 Census from the Kenya National Bureau of Statistics, KIHBS from the Kenya Integrated Household Budget Survey, OpenStreetMap / ICPAC facility inventory from the IGAD Climate Prediction and Applications Centre) and provide a verifiable, transparent starting point for community-led
           advocacy.
         </p>
         {county.name === "Turkana" && (
@@ -141,7 +140,7 @@ function PrintableBrief({
                 key: "financial",
                 label: "Financial Protection",
                 desc: norm.poverty > 0.6
-                  ? `A ${indicator.poverty_proxy}% poverty rate means most families cannot absorb out-of-pocket delivery costs. Raise this at CHMT planning meetings and Health Facility Management Committee discussions to advocate for waived maternal health fees.`
+                  ? `A ${indicator.poverty_proxy}% poverty rate means most families cannot absorb out-of-pocket delivery costs. Raise this at County Health Management Team (CHMT) planning meetings and Health Facility Management Committee discussions to advocate for waived maternal health fees.`
                   : `At ${indicator.poverty_proxy}% poverty, financial barriers still affect access. Use this figure to argue for subsidized transport or supply vouchers for expectant mothers.`,
               },
               {
@@ -173,10 +172,10 @@ function PrintableBrief({
           OpenStreetMap/ICPAC baseline of 1,699 community-mapped facilities, unmapped rural
           dispensaries may not be reflected.
           <strong className="text-[#78350F]">
-            {" "}If your local clinic is missing from this map, you can report it directly to
-            OpenStreetMap at <a href="https://www.openstreetmap.org/note/new#map=6/0.5/38.0" target="_blank" rel="noreferrer" className="min-h-[44px] inline-flex items-center underline underline-offset-2 hover:text-[#B45309] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">www.openstreetmap.org/note/new</a> - just drop a pin and describe the
-            facility. No account needed. Every addition strengthens the evidence base for all
-            communities. Or send the facility name and location via WhatsApp to
+            {" "}If a local clinic is absent from this map, community members can report it directly to
+            OpenStreetMap at <a href="https://www.openstreetmap.org/note/new#map=6/0.5/38.0" target="_blank" rel="noreferrer" className="min-h-[44px] inline-flex items-center underline underline-offset-2 hover:text-[#B45309] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">www.openstreetmap.org/note/new</a> - drop a pin and describe the
+            facility. No account is required. Every addition strengthens the evidence base for all
+            communities. Facility name and location can also be sent via WhatsApp to
             <a href="https://wa.me/254706813068" target="_blank" rel="noreferrer" className="min-h-[44px] inline-flex items-center text-[#059669] hover:text-[#047857] underline underline-offset-2 ml-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">+254 706 813 068</a>.
           </strong>
         </p>

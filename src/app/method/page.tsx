@@ -106,7 +106,7 @@ export default function MethodPage() {
             <li><strong>Population-to-facility ratios</strong> capture <strong>demand pressure</strong>: whether the existing infrastructure is overwhelmed by patient volume.</li>
           </ul>
           <p className="mt-4 text-[14px] leading-7 text-[#292524]">
-            All datasets are from publicly accessible sources, including KNBS, KDHS, KIHBS, WHO AccessMod, and OpenStreetMap, ensuring every input can be independently verified.
+            All datasets are from publicly accessible sources, including the Kenya National Bureau of Statistics (KNBS), the Kenya Demographic and Health Survey (KDHS), the Kenya Integrated Household Budget Survey (KIHBS), WHO AccessMod, and OpenStreetMap, ensuring every input can be independently verified.
           </p>
         </section>
 

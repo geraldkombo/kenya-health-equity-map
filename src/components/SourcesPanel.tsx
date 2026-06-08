@@ -19,20 +19,20 @@ export default function SourcesPanel() {
         </p>
         <ul className="list-disc pl-8 space-y-2 mb-4">
           <li>
-            <strong>Population:</strong> KNBS 2019 Census data.
+            <strong>Population:</strong> Kenya National Bureau of Statistics (KNBS) 2019 Census data.
           </li>
           <li>
-            <strong>Poverty Rate:</strong> KIHBS 2015/16 baseline indicators.
+            <strong>Poverty Rate:</strong> Kenya Integrated Household Budget Survey (KIHBS) 2015/16 baseline indicators.
           </li>
           <li>
-            <strong>Facility Mapping:</strong> OpenStreetMap / ICPAC master lists. Over 1,699 verified points.
+            <strong>Facility Mapping:</strong> OpenStreetMap / IGAD Climate Prediction and Applications Centre (ICPAC) master lists. Over 1,699 verified points.
           </li>
           <li>
             <strong>Travel Modeling:</strong> WHO AccessMod methodologies calculating friction surfaces.
           </li>
         </ul>
         <p className="text-[12px] leading-5 text-[#8A8170]">
-          Last Updated: <strong>October 2024</strong>. If a community dispensary is absent from this platform, you can augment the baseline by reporting its coordinates to OpenStreetMap directly at
+          Last Updated: <strong>October 2024</strong>. If a community dispensary is absent from this platform, community members can augment the baseline by reporting its coordinates to OpenStreetMap directly at
           <a href="https://www.openstreetmap.org/note/new" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#524B3F] min-h-[44px] inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1 text-[#EA580C]">
             www.openstreetmap.org
           </a>

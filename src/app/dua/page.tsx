@@ -36,7 +36,7 @@ export default function DUAPage() {
             who use this tool for planning and advocacy.
           </p>
           <p className="mt-3 text-sm leading-6 text-stone-700">
-            By using this platform, you agree to attribute the original data creators in any derivative
+            Use of this platform constitutes agreement to attribute the original data creators in any derivative
             work, publication, or research that incorporates data presented here.
           </p>
         </section>
@@ -127,13 +127,13 @@ export default function DUAPage() {
           <h2 className="text-base font-semibold font-serif text-stone-800">Attribution Requirements</h2>
           <div className="mt-4 space-y-4 text-sm leading-6 text-stone-700">
             <p>
-              <strong>KNBS data</strong> must be attributed as &ldquo;Kenya National Bureau of Statistics,
+              <strong>Kenya National Bureau of Statistics (KNBS) data</strong> must be attributed as &ldquo;Kenya National Bureau of Statistics,
               2019 Kenya Population and Housing Census.&rdquo; The KNBS terms of use require that any
               publication using KNBS data include a disclaimer that KNBS does not bear responsibility
               for the interpretation or analysis of the data.
             </p>
             <p>
-              <strong>ICPAC/KEMRI data</strong> is licensed under CC-BY-4.0. Attribution must include
+              <strong>IGAD Climate Prediction and Applications Centre (ICPAC) / Kenya Medical Research Institute (KEMRI) data</strong> is licensed under CC-BY-4.0. Attribution must include
               &ldquo;ICPAC and KEMRI/Wellcome Trust, Kenya Health Facilities dataset.&rdquo;
             </p>
             <p>
@@ -142,7 +142,7 @@ export default function DUAPage() {
               <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer" className="text-[#EA580C] underline underline-offset-2 ml-1">openstreetmap.org/copyright</a>.
             </p>
             <p>
-              <strong>ESA WorldCover</strong> is licensed under CC-BY-4.0. Attribution must include
+              <strong>European Space Agency (ESA) WorldCover</strong> is licensed under CC-BY-4.0. Attribution must include
               &ldquo;European Space Agency, ESA WorldCover 10 m 2021.&rdquo;
             </p>
             <p>
@@ -197,7 +197,7 @@ export default function DUAPage() {
                 <li>Register a free account at <a href="https://www.openstreetmap.org" target="_blank" rel="noreferrer" className="text-[#EA580C] underline underline-offset-2">openstreetmap.org</a>.</li>
                 <li>Navigate to the facility location and select the <strong>Edit</strong> function.</li>
                 <li>Place a node and assign the appropriate tags -- facility name, type (hospital, clinic, dispensary), and operational status.</li>
-                <li>Submit your changes. The facility will appear on this platform following the next scheduled data refresh.</li>
+                <li>Submit the changes. The facility will appear on this platform following the next scheduled data refresh.</li>
               </ol>
               <p className="mt-2 text-xs text-amber-700">
                 <strong>Data integrity requirement:</strong> Only facilities confirmed through
