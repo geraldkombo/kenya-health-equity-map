@@ -48,6 +48,7 @@ This platform directly supports:
 ## Architecture
 
 - **Frontend:** Next.js 15 static export + MapLibre GL JS + Tailwind CSS 4
+- **Tile Provider:** CARTO (swappable — MapLibre accepts any MVT-compatible tile source; no code changes required beyond the style URL)
 - **Data Pipeline:** Zod-validated ETL scripts in `scripts/etl/`
 - **Backend:** Zero runtime backend — all data is static JSON at build time
 - **Deployment:** GitHub Actions → GitHub Pages
