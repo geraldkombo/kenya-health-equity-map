@@ -1,6 +1,6 @@
 # Contributing to Kenya Health Equity Map
 
-Thank you for your interest in improving health equity data for Kenya. This project thrives on community contributions — whether you are a developer, a data scientist, a community health worker, or a health equity researcher.
+Thank you for your interest in improving health equity data for Kenya. This project thrives on community contributions -- whether you are a developer, a data scientist, a community health worker, or a health equity researcher.
 
 ## Ways to Contribute
 
@@ -9,7 +9,7 @@ If a clinic, dispensary, or health centre in your community is missing from the 
 1. Go to [OpenStreetMap](https://www.openstreetmap.org/note/new#map=6/0.5/38.0&layers=N)
 2. Drop a pin at the facility location
 3. Use the template: `Missing health facility: [name]. This facility serves the community but is not currently mapped.`
-4. Submit — no account needed
+4. Submit -- no account needed
 
 ### 2. Improve the Data
 - Update facility lists in `scripts/etl/`
@@ -42,8 +42,8 @@ npm run dev        # Local development server
 - Use TypeScript for all new code
 - Follow the existing Tailwind CSS design system (exact hex colours, 4/8px spacing grid)
 - Ensure WCAG AA contrast and `focus-visible` rings on all interactive elements
-- No tracking, no cookies, no login — keep the platform privacy-preserving
-- Run `npm run build` before submitting — it must pass with 0 errors
+- No tracking, no cookies, no login -- keep the platform privacy-preserving
+- Run `npm run build` before submitting -- it must pass with 0 errors
 
 ## Pull Request Process
 
@@ -59,4 +59,4 @@ All data remains under its original licence (see README.md). By contributing cod
 
 ---
 
-*Every facility mapped, every data point corrected, and every line of code contributed makes Kenya's health inequities visible — and therefore actionable.*
+*Every facility mapped, every data point corrected, and every line of code contributed makes Kenya's health inequities visible -- and therefore actionable.*

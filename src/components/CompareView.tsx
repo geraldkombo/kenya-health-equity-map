@@ -213,7 +213,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
             Advocacy Takeaway
           </h3>
           <p className="mt-2 text-[14px] leading-7 text-[#292524] print:text-[10px] print:leading-snug">
-            Data Takeaway: {equityNote.higher.name} registers a Gap Score of {sA.pgs} compared to {equityNote.lower.name}&rsquo;s {sB.pgs} — a difference of {equityNote.diff} points. Significant variations in regional infrastructure demand strategic resource distribution.
+            Data Takeaway: {equityNote.higher.name} registers a Gap Score of {sA.pgs} compared to {equityNote.lower.name}&rsquo;s {sB.pgs} -- a difference of {equityNote.diff} points. Significant variations in regional infrastructure demand strategic resource distribution.
           </p>
           <div className="mt-4 border-t border-[#E0DBD0] pt-4 text-[12px] font-semibold text-[#78350F] print:mt-2 print:pt-2 print:text-[9px]">
             Use this direct comparison in community-led monitoring to advocate for equitable resource allocation from national and county health executives.

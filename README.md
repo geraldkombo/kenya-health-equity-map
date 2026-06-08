@@ -6,7 +6,7 @@
 [![Digital Public Good](https://img.shields.io/badge/DPG-Aligned-0066CC.svg)](https://digitalpublicgoods.net)
 [![No Cookies](https://img.shields.io/badge/Privacy-No_Cookies_•_No_Tracking-78350F.svg)](#privacy)
 
-Open-source, offline-first digital platform for health equity monitoring across Kenya's 47 counties. Maps health access inequity using the **Priority Gap Score (PGS)** — a transparent, verifiable composite of travel time, poverty, and facility density.
+Open-source, offline-first digital platform for health equity monitoring across Kenya's 47 counties. Maps health access inequity using the **Priority Gap Score (PGS)** -- a transparent, verifiable composite of travel time, poverty, and facility density.
 
 **Live platform:** https://geraldkombo.github.io/kenya-health-equity-map/
 
@@ -20,14 +20,14 @@ Open-source, offline-first digital platform for health equity monitoring across 
 
 This platform directly supports:
 
-- **SDG 3 — Good Health and Well-being:** By identifying infrastructure gaps, the tool enables targeted resource allocation to reduce preventable mortality and improve access to care.
-- **SDG 10 — Reduced Inequalities:** The Priority Gap Score quantifies within-country disparities, making visible the inequities that affect rural and marginalised populations.
+- **SDG 3 -- Good Health and Well-being:** By identifying infrastructure gaps, the tool enables targeted resource allocation to reduce preventable mortality and improve access to care.
+- **SDG 10 -- Reduced Inequalities:** The Priority Gap Score quantifies within-country disparities, making visible the inequities that affect rural and marginalised populations.
 
 ---
 
 ## Privacy
 
-**This platform uses no cookies, requires no authentication or login, and performs zero user tracking.** All data is served as static JSON files at build time. No user data is collected, stored, or transmitted. The map tiles are served via CARTO with client-side rendering only — no user coordinates or session data leave the browser.
+**This platform uses no cookies, requires no authentication or login, and performs zero user tracking.** All data is served as static JSON files at build time. No user data is collected, stored, or transmitted. The map tiles are served via CARTO with client-side rendering only -- no user coordinates or session data leave the browser.
 
 ---
 
@@ -48,9 +48,9 @@ This platform directly supports:
 ## Architecture
 
 - **Frontend:** Next.js 15 static export + MapLibre GL JS + Tailwind CSS 4
-- **Tile Provider:** CARTO (swappable — MapLibre accepts any MVT-compatible tile source; no code changes required beyond the style URL)
+- **Tile Provider:** CARTO (swappable -- MapLibre accepts any MVT-compatible tile source; no code changes required beyond the style URL)
 - **Data Pipeline:** Zod-validated ETL scripts in `scripts/etl/`
-- **Backend:** Zero runtime backend — all data is static JSON at build time
+- **Backend:** Zero runtime backend -- all data is static JSON at build time
 - **Deployment:** GitHub Actions → GitHub Pages
 - **Service Worker:** Cache-first strategy for offline access to map tiles and data
 
@@ -102,7 +102,7 @@ See [CITATION.cff](CITATION.cff) for machine-readable citation format.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT -- see [LICENSE](LICENSE).
 
 ---
 

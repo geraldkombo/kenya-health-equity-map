@@ -196,7 +196,7 @@ export default function DUAPage() {
               <ol className="mt-2 list-inside list-decimal space-y-1 pl-1">
                 <li>Register a free account at <a href="https://www.openstreetmap.org" target="_blank" rel="noreferrer" className="text-[#EA580C] underline underline-offset-2">openstreetmap.org</a>.</li>
                 <li>Navigate to the facility location and select the <strong>Edit</strong> function.</li>
-                <li>Place a node and assign the appropriate tags — facility name, type (hospital, clinic, dispensary), and operational status.</li>
+                <li>Place a node and assign the appropriate tags -- facility name, type (hospital, clinic, dispensary), and operational status.</li>
                 <li>Submit your changes. The facility will appear on this platform following the next scheduled data refresh.</li>
               </ol>
               <p className="mt-2 text-xs text-amber-700">
