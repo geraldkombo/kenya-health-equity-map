@@ -170,6 +170,14 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                           <span className="text-[12px] font-normal text-[#8A8170] print:text-[9px]">per 10k</span>
                         </td>
                       </tr>
+                      {ind.skilled_birth_attendance != null && (
+                        <tr>
+                          <td className="py-2 text-[#6B6355] print:py-1">Skilled birth attendance</td>
+                          <td className="py-2 text-right font-semibold text-[#292524] print:py-1">
+                            {ind.skilled_birth_attendance}%
+                          </td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
                   {s.drivers.length > 0 && (

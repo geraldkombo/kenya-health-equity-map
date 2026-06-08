@@ -108,6 +108,9 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
     if (comparisons.facilityDensity !== null && comparisons.facilityDensity <= 20) {
       lines.push(`Fewer clinics per person than ${100 - comparisons.facilityDensity}% of counties - not enough facilities to go around.`);
     }
+    if (indicator && indicator.skilled_birth_attendance != null && indicator.skilled_birth_attendance < 50) {
+      lines.push(`Only ${indicator.skilled_birth_attendance}% of births are attended by a skilled professional - well below the national target, indicating urgent need for maternal health investment.`);
+    }
     if (lines.length === 0) {
       lines.push("All measures are within the normal range compared to other counties.");
     }
@@ -154,6 +157,14 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
             max={4}
             invert
           />
+          {indicator.skilled_birth_attendance != null && (
+            <ProgressBar
+              label="Skilled birth attendance"
+              value={indicator.skilled_birth_attendance}
+              max={100}
+              info="Percentage of deliveries attended by a skilled health professional (KDHS 2022)"
+            />
+          )}
         </div>
       )}
 

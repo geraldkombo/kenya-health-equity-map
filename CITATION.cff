@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite it as below."
+title: "Kenya Health Equity Map"
+version: 1.0.0
+date-released: 2026-06-01
+authors:
+  - family-names: "Kombo"
+    given-names: "Gerald"
+    email: "geraldkombo@gmail.com"
+    orcid: ""
+repository-code: "https://github.com/geraldkombo/kenya-health-equity-map"
+url: "https://geraldkombo.github.io/kenya-health-equity-map/"
+abstract: "Open-source platform mapping health infrastructure disparities across all 47 Kenyan counties using the Priority Gap Score (PGS), a composite of travel time, poverty, and facility density."
+keywords:
+  - health equity
+  - Kenya
+  - community-led monitoring
+  - open data
+  - digital public good
+  - SDG 3
+  - SDG 10
+license: "MIT"

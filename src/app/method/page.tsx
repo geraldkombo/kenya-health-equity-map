@@ -3,141 +3,148 @@ import SourcesPanel from "@/components/SourcesPanel";
 
 export default function MethodPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-      <h1 className="text-xl font-semibold tracking-tight text-amber-900">Methodology Framework</h1>
-      <p className="mt-1 text-sm text-stone-500 border-l-4 border-orange-600 pl-4">
-        Health equity necessitates transparent methodologies. All algorithms and calculations remain publicly accessible and documented.
+    <div className="mx-auto max-w-3xl px-8 py-8">
+      <h1 className="text-[24px] font-bold text-[#78350F]">Methodology Framework</h1>
+      <p className="mt-4 text-[14px] leading-7 text-[#6B6355] border-l-4 border-[#EA580C] pl-4">
+        Health equity requires transparent, verifiable methodologies. All algorithms, data sources, and calculations are publicly documented and independently reproducible.
       </p>
 
       <div className="mt-8 space-y-8">
-        {/* ── PGS ── */}
-        <section className="rounded-xl border border-stone-200 bg-white p-6">
-          <h2 className="text-base font-bold text-amber-900">The Priority Gap Score (PGS)</h2>
-          <p className="mt-3 text-sm leading-6 text-stone-700">
-            The Priority Gap Score (PGS) is a composite index ranging from <strong>0 to 100</strong>
-            that quantifies the degree of health inequity within each county. Higher values indicate
-            more severe gaps in healthcare access and greater urgency for resource allocation and
-            community intervention. The methodology is published in full below and can be
-            independently verified by any user.
+        {/* SDG Alignment */}
+        <section className="rounded-[8px] border border-[#E0DBD0] bg-[#FFFBEB] p-8">
+          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">
+            Sustainable Development Goals Alignment
+          </h2>
+          <p className="mt-4 text-[14px] leading-7 text-[#292524]">
+            This platform directly supports <strong>SDG 3 (Good Health and Well-being)</strong> by identifying health infrastructure gaps that drive preventable mortality, and <strong>SDG 10 (Reduced Inequalities)</strong> by quantifying within-country disparities that affect rural and marginalised populations.
           </p>
-          <p className="mt-3 text-sm leading-6 text-stone-700">
-            <strong>Turkana</strong> (PGS 92) and <strong>Mandera</strong> (PGS 91) represent the
-            most underserved counties, while <strong>Nairobi</strong> (PGS 40) benefits from a
-            higher concentration of health infrastructure and lower poverty rates.
+        </section>
+
+        {/* ── PGS ── */}
+        <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
+          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">The Priority Gap Score (PGS)</h2>
+          <p className="mt-4 text-[14px] leading-7 text-[#292524]">
+            The Priority Gap Score (PGS) is a composite index ranging from <strong>0 to 100</strong>
+            that quantifies health infrastructure inequity within each county. A higher score indicates
+            more severe gaps and greater urgency for resource allocation.
+          </p>
+          <div className="mt-4 rounded-[6px] bg-[#F8F5F0] p-4 text-[14px] leading-7 text-[#524B3F]">
+            <p className="font-semibold text-[#292524]">How to read the score:</p>
+            <ul className="list-disc pl-4 mt-2 space-y-1">
+              <li><strong>0–29:</strong> Relatively equitable resource distribution</li>
+              <li><strong>30–49:</strong> Moderate infrastructure gaps</li>
+              <li><strong>50–69:</strong> Significant gaps requiring intervention</li>
+              <li><strong>70–100:</strong> Severe gaps — urgent resource allocation needed</li>
+            </ul>
+          </div>
+          <p className="mt-4 text-[14px] leading-7 text-[#292524]">
+            <strong>Turkana</strong> (PGS 92) and <strong>Mandera</strong> (PGS 91) are the most underserved counties, while <strong>Nairobi</strong> (PGS 40) benefits from higher infrastructure concentration and lower poverty.
           </p>
         </section>
 
         {/* ── Three Components ── */}
-        <section className="rounded-xl border border-stone-200 bg-white p-6">
-          <h2 className="text-base font-bold text-amber-900">Score Components</h2>
+        <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
+          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">Score Components</h2>
+          <p className="mt-4 text-[14px] leading-7 text-[#524B3F]">
+            The PGS combines three dimensions, each normalised to a 0–1 scale before aggregation:
+          </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-lg bg-stone-50 p-5">
-              <h3 className="font-bold text-orange-700">1. Vulnerability</h3>
-              <p className="mt-2 text-xs leading-5 text-stone-600">
-                Proportion of the county population living below the poverty line. Higher poverty
-                rates reduce a household&apos;s capacity to absorb out-of-pocket health expenditures
-                and transport costs associated with seeking care.
+            <div className="rounded-[8px] bg-[#F8F5F0] p-4">
+              <h3 className="text-[12px] font-bold uppercase tracking-widest text-[#EA580C]">1. Vulnerability (30%)</h3>
+              <p className="mt-2 text-[12px] leading-6 text-[#524B3F]">
+                Proportion of the county population living below the poverty line. Higher poverty reduces a household&apos;s ability to afford transport, consultation fees, and treatment.
               </p>
             </div>
-            <div className="rounded-lg bg-stone-50 p-5">
-              <h3 className="font-bold text-orange-700">2. Physical Access</h3>
-              <p className="mt-2 text-xs leading-5 text-stone-600">
-                Mean travel time to the nearest mapped health facility, computed across the
-                county population using least-cost path analysis along road and path networks.
+            <div className="rounded-[8px] bg-[#F8F5F0] p-4">
+              <h3 className="text-[12px] font-bold uppercase tracking-widest text-[#EA580C]">2. Physical Access (40%)</h3>
+              <p className="mt-2 text-[12px] leading-6 text-[#524B3F]">
+                Mean travel time to the nearest mapped health facility, computed using least-cost path analysis along road and path networks. Higher travel times mean harder access to care.
               </p>
             </div>
-            <div className="rounded-lg bg-stone-50 p-5">
-              <h3 className="font-bold text-orange-700">3. Population Pressure</h3>
-              <p className="mt-2 text-xs leading-5 text-stone-600">
-                Population-to-facility ratio, reflecting the demand pressure on existing health
-                infrastructure. Higher ratios are associated with longer wait times, stockouts,
-                and reduced service quality.
+            <div className="rounded-[8px] bg-[#F8F5F0] p-4">
+              <h3 className="text-[12px] font-bold uppercase tracking-widest text-[#EA580C]">3. Population Pressure (30%)</h3>
+              <p className="mt-2 text-[12px] leading-6 text-[#524B3F]">
+                Population-to-facility ratio. Higher ratios mean more people sharing each facility, leading to longer wait times and reduced service quality.
               </p>
             </div>
           </div>
-          <div className="mt-4 rounded-lg bg-stone-50 p-4 text-xs leading-6 text-stone-600">
-            <p className="font-semibold text-stone-700">Aggregation method:</p>
+          <div className="mt-4 rounded-[8px] bg-[#F8F5F0] p-4 text-[14px] leading-7 text-[#524B3F]">
+            <p className="font-semibold text-[#292524]">Formula:</p>
             <p className="mt-1">
-              <strong>PGS</strong> = Accessibility (40%) + Vulnerability (30%) + Population Pressure (30%).
-              Each component is normalised to a 0&ndash;1 scale prior to aggregation, enabling
-              combination of heterogeneous units (minutes, percentages, population counts).
-              The result is multiplied by 100 to produce a final score out of 100.
+              <strong>PGS</strong> = (Physical Access × 0.40) + (Vulnerability × 0.30) + (Population Pressure × 0.30)
+            </p>
+            <p className="text-[12px] leading-5 text-[#6B6355] mt-2">
+              Each component is normalised to a 0–1 scale, then the weighted sum is multiplied by 100.
             </p>
           </div>
         </section>
 
         {/* ── How travel time is calculated ── */}
-        <section className="rounded-xl border border-stone-200 bg-white p-6">
-          <h2 className="text-base font-bold text-amber-900">Travel time estimation</h2>
-          <p className="mt-3 text-sm leading-6 text-stone-700">
-            Travel time estimates are derived using AccessMod, a WHO-supported geographic
-            accessibility modelling tool developed by researchers at KEMRI-Wellcome Trust.
-            The model computes least-cost travel paths along the road and path network
-            derived from OpenStreetMap, applying mode-specific speed assumptions based on
-            road surface classification: paved roads are assigned motorised transport speeds,
-            while unpaved and informal paths are assigned pedestrian or bicycle speeds.
+        <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
+          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">Travel time estimation</h2>
+          <p className="mt-4 text-[14px] leading-7 text-[#292524]">
+            Travel time estimates use <strong>AccessMod</strong>, a WHO-supported geographic accessibility modelling tool. The model computes least-cost travel paths along OpenStreetMap road networks, applying mode-specific speeds: paved roads use motorised transport speeds, while unpaved roads and paths use walking or bicycle speeds.
           </p>
-          <p className="mt-3 text-xs leading-5 text-stone-500">
-            This model was developed by researchers at KEMRI-Wellcome Trust and WHO using an open
-            tool called{" "}
-            <a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-800">AccessMod</a>.
-            Road data comes from{" "}
-            <a href="https://www.openstreetmap.org/relation/192798" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-stone-800">OpenStreetMap</a>.
+          <p className="mt-4 text-[14px] leading-7 text-[#524B3F]">
+            This model was developed by researchers at KEMRI-Wellcome Trust. Road data comes from{" "}
+            <a href="https://www.openstreetmap.org/relation/192798" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#292524] text-[#EA580C]">OpenStreetMap</a>. Tool:{" "}
+            <a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#292524] text-[#EA580C]">AccessMod</a>.
           </p>
         </section>
 
         {/* ── Why these three measures ── */}
-        <section className="rounded-xl border border-stone-200 bg-white p-6">
-          <h2 className="text-base font-bold text-amber-900">Rationale for selected indicators</h2>
-          <p className="mt-3 text-sm leading-6 text-stone-700">
-            These three dimensions are well established in health-access literature. Travel time
-            and facility density measure <strong>physical accessibility</strong> of care. Poverty
-            rates approximate <strong>economic accessibility</strong> — a household&apos;s capacity to
-            afford transport, consultation fees, and treatment. Population-to-facility ratios
-            capture <strong>demand pressure</strong> on available services.
+        <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
+          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">Rationale for selected indicators</h2>
+          <p className="mt-4 text-[14px] leading-7 text-[#292524]">
+            These three dimensions are well established in health-access literature:
           </p>
-          <p className="mt-3 text-sm leading-6 text-stone-700">
-            All constituent datasets are drawn from publicly accessible sources — Kenya National
-            Bureau of Statistics (KNBS), the Kenya Demographic and Health Survey (KDHS), WHO
-            AccessMod, and OpenStreetMap — ensuring that every input can be independently
-            verified by researchers, advocates, and community members.
+          <ul className="mt-4 space-y-4 text-[14px] leading-7 text-[#524B3F]">
+            <li><strong>Travel time and facility density</strong> measure <strong>physical accessibility</strong> — can a person reach care when needed?</li>
+            <li><strong>Poverty rates</strong> approximate <strong>economic accessibility</strong> — can a household afford transport, fees, and treatment?</li>
+            <li><strong>Population-to-facility ratios</strong> capture <strong>demand pressure</strong> — is the existing infrastructure overwhelmed?</li>
+          </ul>
+          <p className="mt-4 text-[14px] leading-7 text-[#292524]">
+            All datasets are from publicly accessible sources — KNBS, KDHS, KIHBS, WHO AccessMod, and OpenStreetMap — ensuring every input can be independently verified.
           </p>
         </section>
 
-        {/* ── Data Limitations: An Invitation to Act ── */}
-        <section className="rounded-xl bg-amber-900 p-6 text-white shadow-md">
-          <h2 className="text-base font-bold text-orange-400">Data Limitations and Future Considerations</h2>
-          <p className="mt-3 text-sm leading-6 text-stone-100">
-            While this map is a powerful tool for advocacy, it relies on a validated baseline of
-            1,699 community-mapped facilities, representing approximately 10% of Kenya&apos;s officially
-            registered facilities. Therefore, the calculated accessibility scores represent a strict
-            minimum baseline of healthcare availability.
+        {/* ── Maternal Health Access ── */}
+        <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
+          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">Maternal Health Access</h2>
+          <p className="mt-4 text-[14px] leading-7 text-[#292524]">
+            The platform includes county-level <strong>Skilled Birth Attendance (SBA)</strong> rates from the Kenya Demographic and Health Survey (KDHS 2022). SBA measures the proportion of deliveries attended by a skilled health professional — a key indicator of maternal health system performance. Counties with low SBA and high travel time represent <strong>maternal health access deserts</strong> where women face compounded barriers to safe delivery.
           </p>
-          <p className="mt-3 text-sm leading-6 text-stone-100">
-            <strong className="text-orange-300">Example:</strong> Elgeyo-Marakwet County has
-            approximately 129 health facilities in the official Kenya Master Health Facility List,
-            but fewer than 20 are mapped on OpenStreetMap. This creates an artificial population
-            pressure showing 1 mapped facility per 454,000 people. The gap between official records
-            and community mapping is precisely where CLM action is needed.
+          <p className="mt-4 text-[14px] leading-7 text-[#524B3F]">
+            SBA data is displayed in the county detail panel and can be used alongside the PGS to identify priority counties for maternal health interventions, mobile clinics, and community health worker deployment.
           </p>
-          <p className="mt-4 text-sm font-medium text-orange-200">
-            We view this limitation not as a flaw, but as a direct opportunity for Community-Led
-            Monitoring.
+        </section>
+
+        {/* ── Data Limitations ── */}
+        <section className="rounded-[8px] bg-[#78350F] p-8 text-[#FFFBEB]">
+          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#FDE68A]">Data Limitations and Future Considerations</h2>
+          <p className="mt-4 text-[14px] leading-7 text-[#FFFBEB]">
+            This map relies on a validated baseline of 1,699 community-mapped facilities, representing approximately 10% of Kenya&apos;s officially registered facilities. The calculated scores therefore represent a strict minimum baseline.
           </p>
-          <div className="mt-4 rounded-sm bg-white p-5 text-stone-900">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900">
+          <p className="mt-4 text-[14px] leading-7 text-[#FFFBEB]">
+            <strong className="text-[#FDE68A]">Example:</strong> Elgeyo-Marakwet County has ~129 facilities in the official Kenya Master Health Facility List, but fewer than 20 are mapped on OpenStreetMap. This creates an artificial score of 1 facility per 454,000 people. The gap between official records and community mapping is precisely where intervention is needed.
+          </p>
+          <p className="mt-4 text-[14px] font-medium text-[#FDE68A]">
+            We view this limitation as an opportunity for community-driven data improvement.
+          </p>
+          <div className="mt-4 rounded-[8px] bg-white p-6 text-[#292524]">
+            <h3 className="text-[12px] font-bold uppercase tracking-widest text-[#78350F]">
               Procedure for reporting unmapped health facilities
             </h3>
-            <ol className="mt-2 list-decimal pl-5 space-y-2 text-sm text-stone-700">
+            <ol className="mt-4 list-decimal pl-4 space-y-4 text-[14px] leading-7 text-[#524B3F]">
               <li>
-                Navigate to the OpenStreetMap platform.
+                Navigate to <a href="https://www.openstreetmap.org/note/new#map=6/0.5/38.0&layers=N" target="_blank" rel="noreferrer" className="text-[#EA580C] underline underline-offset-2">OpenStreetMap</a>.
               </li>
               <li>
                 Identify the precise geographic coordinates of the facility.
               </li>
               <li>
-                Input the required facility specifications.
-                <div className="mt-1 rounded bg-stone-100 p-2 text-xs font-mono text-stone-600 select-all">
+                Submit a note with the following template:
+                <div className="mt-2 rounded-[4px] bg-[#F8F5F0] p-2 text-[12px] font-mono text-[#6B6355] select-all">
                   Missing health facility: [facility name]. This facility serves the community but is not currently mapped. Location verified by community health workers.
                 </div>
               </li>
@@ -149,7 +156,7 @@ export default function MethodPage() {
               href="https://www.openstreetmap.org/note/new#map=6/0.5/38.0&layers=N"
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex items-center rounded-lg bg-amber-700 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-800 transition-colors"
+              className="mt-4 inline-flex items-center min-h-[44px] rounded-[6px] bg-[#78350F] px-4 py-2 text-[14px] font-bold text-[#FFFBEB] hover:bg-[#451A03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] transition-colors"
             >
               Report unmapped facility via OpenStreetMap
             </a>
@@ -158,7 +165,7 @@ export default function MethodPage() {
 
         <SourcesPanel />
 
-        <div className="text-center text-xs text-stone-400">
+        <div className="text-center text-[12px] text-[#A8A08F]">
           <Link href="/" className="text-[#EA580C] underline underline-offset-2">&larr; Return to map</Link>
         </div>
       </div>
