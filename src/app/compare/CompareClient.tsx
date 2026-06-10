@@ -232,7 +232,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
       </div>
 
       {selA && selB && selA.id !== selB.id ? (
-        <div className="mt-8 print:m-0 print:p-0 print:space-y-2">
+        <div className="mt-8 print:m-0 print:p-0 print:max-h-[270mm] print:overflow-hidden print:space-y-1.5">
           <CompareView countyA={selA} countyB={selB} indicators={indicators} />
 
           {/* Action Notes */}
