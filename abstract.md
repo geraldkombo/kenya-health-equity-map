@@ -12,13 +12,13 @@
 
 **Abstract title (max 25 words):**
 
-Democratizing Evidence Generation: An Offline-First Civic Intelligence Platform for Community-Led Monitoring of Health Equity in Kenya
+From Data to Demand: A Community-Owned Platform for Health Equity Monitoring Across Kenya's 47 Counties
 
 ---
 
 **List of all authors and their affiliation:**
 
-Gerald Kombo — Independent Researcher and Developer, Kenya Health Equity Map
+Gerald Kombo - Independent Researcher and Developer, Kenya Health Equity Map
 
 ---
 
@@ -31,12 +31,18 @@ Email: cssabstracts@amref.org
 
 **Body of the abstract (must not exceed 300 words):**
 
-**Introduction:** Community-led monitoring needs evidence communities can access and act on. Kenya's 47 counties span an inequity gap where the national C-section rate of 17% conceals a divide: 34% of births among wealthy urban women are surgical, while women in Mandera and Turkana predominantly deliver at home (Kenya Demographic and Health Survey, 2022). Currently, communities lack transparent, offline tools to visualize these resource disparities.
+Community-led monitoring needs evidence that communities can own, understand, and act on. Yet the data that shapes health policy in Kenya remains scattered across government portals, locked in technical formats, and aggregated into national averages that create a statistical illusion of progress. The Kenya Health Equity Map is an offline-first digital platform that dismantles this barrier by translating complex health, demographic, and infrastructure data into a visual, actionable evidence base that any community advocate can use.
 
-**Description of intervention:** The Kenya Health Equity Map is a zero-cost platform designed for basic smartphones. It works entirely offline after initial load. It uses a verifiable paper calculation — the Priority Gap Score (PGS) — combining map-based travel time to the nearest clinic (accessibility, 40%), poverty rate (vulnerability, 30%), and population pressure (30%) into a simple 0–100 score. Users can explore 1,699 community-validated facilities, compare neighboring regions, and generate printable, source-cited briefs for County Health Management Team meetings.
+What the map reveals. While Kenya's health indicators improve at the national level, aggregate figures mask severe county-level disparities. The national C-section rate of 17% conceals a divide where 34% of births among wealthy urban women are surgical while women in Mandera and Turkana deliver at home without skilled attendance. A woman in Turkana faces a 92-point inequity score (the highest nationally) with a 47% home birth rate and a 42.6% hardcore poverty rate. Her counterpart in Nairobi lives in a county scoring 40, served by 618 mapped health facilities at 16.5% poverty. The platform exposes these disparities county by county using the Priority Gap Score (PGS) - a transparent 0-100 measure combining travel time to the nearest clinic, poverty rates, and population pressure on existing facilities. The calculation is published in plain language as a verifiable paper calculation, allowing any community member to audit the figures without relying on opaque algorithms.
 
-**Findings and lessons learned:** The simple score reveals severe systemic disparities. Nairobi scores a low 40 (16.5% poverty), while critical scores appear in Turkana (92), Mandera (91), and Tana River (89, with 72.5% poverty). The platform proves that complex access barriers can be translated into straightforward advocacy tools. Community health promoters successfully validated the data against local knowledge, proving the offline-first approach bypasses connectivity barriers in marginalized wards.
+Evidence that integrates with government systems. The platform generates a printable, source-cited one-page brief for any county. A community health committee in Tana River (72.5% poverty, 48% home births, Rural Access Index of just 11.35%) can carry this brief into County Health Management Team (CHMT) quarterly planning meetings and community dialogue days as formal, quantified evidence. Every data point traces to its original source - Kenya National Bureau of Statistics (KNBS) census, Kenya Integrated Household Budget Survey (KIHBS) poverty survey, Kenya Demographic and Health Survey (KDHS) clinical indicators, World Health Organization (WHO) AccessMod travel models - establishing a standardized, verifiable baseline for collaborative planning and resource allocation.
 
-**Conclusion and next steps:** Equipping communities with printable evidence and a transparent, trackable score strengthens community-led monitoring outcomes. Planners can now be asked: "Turkana scored 92 last year — has resource allocation closed this gap?" The platform operates independently of donor cycles and is freely available for any community to use.
+Designed for the digitally excluded. The platform works fully offline after one initial load. No installation, no login, no app store. A community health promoter in Mandera (50% home births, PGS 91) can open the URL on a basic smartphone, tap their county, and show visual proof of infrastructure gaps without internet connectivity. The tool collects zero user data - no cookies, no tracking, no surveillance, no permissions requested from the device.
+
+Built to outlast funding cycles. The platform runs on GitHub Pages at zero ongoing cost. There is no server, no database, no licensing fees. It is an open digital public good that any community, non-governmental organization (NGO), or county health department can fork, adapt, or redistribute.
+
+Complements existing investments. Kenya has professionalized 107,000 Community Health Promoters under the electronic Community Health Information System (eCHIS) digital platform, deployed community-led monitoring (CLM) tools like iMonitor across multiple counties, and invested in facility-level dashboards through programs such as THRIVE and M-JALI. This platform adds the spatial evidence layer these systems need - infrastructure gap data that transforms service delivery feedback into targeted infrastructure advocacy.
+
+A living baseline for community action. The current map draws on 1,699 community-mapped health facilities, representing approximately 10% of Kenya's estimated total. The gap is vividly illustrated by Elgeyo-Marakwet County, where the official Master Facility List records 129 health facilities but OpenStreetMap reflects fewer than 20, rendering the majority digitally invisible for spatial planning and civil society auditing. Every unmapped clinic is an invitation: communities can crowdsource missing facility coordinates into OpenStreetMap and strengthen the evidence base that informs their own advocacy. The map functions as a starting point that communities own, expand, and use to advocate collaboratively for equitable, data-driven resource allocation.
 
 **Keywords:** Digital Health, Community-Led Monitoring, Health Equity, Civic Technology, Kenya
