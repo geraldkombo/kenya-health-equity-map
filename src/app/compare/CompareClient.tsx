@@ -236,7 +236,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
           <CompareView countyA={selA} countyB={selB} indicators={indicators} />
 
           {/* Action Notes */}
-          <div className="print:mt-0 break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-2 bg-white">
+          {notes.some(n => n.trim()) && <div className="print:mt-0 break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-2 bg-white">
             <h3 className="text-[11px] print:text-[7pt] font-bold text-stone-900 uppercase tracking-wider">County Health Management Team Action Notes</h3>
             <div className="space-y-2 print:space-y-1 mt-2 print:mt-1">
               {notes.map((note, i) => (
@@ -254,7 +254,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
                 />
               ))}
             </div>
-          </div>
+          </div>}
         </div>
       ) : (
         <div className="mt-8 rounded-[8px] border border-[#E0DBD0] bg-white p-8 text-center text-[14px] leading-7 text-[#8A8170]">

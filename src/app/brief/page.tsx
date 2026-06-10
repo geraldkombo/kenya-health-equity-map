@@ -100,7 +100,7 @@ function PrintableBrief({
         </div>
 
         {/* Action Notes */}
-        <div className="break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-2 bg-white">
+        {notes.some(n => n.trim()) && <div className="break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-2 bg-white">
           <h3 className="text-[11px] print:text-[7pt] font-bold text-stone-900 uppercase tracking-wider mb-2 print:mb-1">County Health Management Team Action Notes</h3>
           <div className="space-y-3 print:space-y-1">
             {notes.map((note, i) => (
@@ -118,7 +118,7 @@ function PrintableBrief({
               />
             ))}
           </div>
-        </div>
+        </div>}
       </div>
 
       {/* Footer */}
