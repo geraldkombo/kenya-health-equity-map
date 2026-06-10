@@ -1,18 +1,25 @@
 const CACHE = "ke-health-v6";
 const DATA_CACHE = "ke-data-v1";
+const BASE = self.location.pathname.replace(/\/sw\.js$/, "");
 
 const PRECACHE_ROUTES = [
-  "/",
-  "/brief",
-  "/compare",
-  "/method",
-  "/forum",
-  "/dua",
-  "/sitemap.xml",
-  "/manifest.json",
-  "/icon.svg",
-  "/icons/icon-192x192.png",
-  "/icons/icon-512x512.png",
+  BASE + "/",
+  BASE + "/brief",
+  BASE + "/compare",
+  BASE + "/method",
+  BASE + "/forum",
+  BASE + "/dua",
+  BASE + "/sitemap.xml",
+  BASE + "/manifest.json",
+  BASE + "/icon.svg",
+  BASE + "/icons/icon-192x192.png",
+  BASE + "/icons/icon-512x512.png",
+];
+
+const DATA_ROUTES = [
+  BASE + "/data/snapshots/counties.json",
+  BASE + "/data/snapshots/county_indicators.json",
+  BASE + "/data/snapshots/facilities.json",
 ];
 
 self.addEventListener("install", (event) => {
@@ -22,17 +29,14 @@ self.addEventListener("install", (event) => {
         console.warn("SW: some precache routes failed", err);
       });
     }).then(() => {
-      // Cache data snapshots for offline use
       return caches.open(DATA_CACHE).then((dataCache) => {
-        return Promise.allSettled([
-          "/data/snapshots/counties.json",
-          "/data/snapshots/county_indicators.json",
-          "/data/snapshots/facilities.json",
-        ].map((p) =>
-          fetch(p).then((res) => {
-            if (res.ok) dataCache.put(p, res);
-          }).catch(() => {})
-        ));
+        return Promise.allSettled(
+          DATA_ROUTES.map((p) =>
+            fetch(p).then((res) => {
+              if (res.ok) dataCache.put(p, res);
+            }).catch(() => {})
+          )
+        );
       });
     })
   );
@@ -54,7 +58,7 @@ self.addEventListener("fetch", (event) => {
   const path = url.pathname;
 
   // Data files: cache-first with network fallback
-  if (path.includes("/data/") || path.includes(".pmtiles")) {
+  if (path.startsWith(BASE + "/data/") || path.includes(".pmtiles")) {
     event.respondWith(
       caches.open(DATA_CACHE).then((cache) => {
         return cache.match(event.request).then((cached) => {
@@ -76,7 +80,7 @@ self.addEventListener("fetch", (event) => {
           return cached || fetch(event.request).then((response) => {
             if (response.ok) cache.put(event.request, response.clone());
             return response;
-          }).catch(() => cache.match("/"));
+          }).catch(() => cache.match(BASE + "/"));
         });
       })
     );
