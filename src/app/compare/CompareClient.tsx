@@ -68,7 +68,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
   const [authorName, setAuthorName] = useState("");
   const [authorTitle, setAuthorTitle] = useState("");
   const [authorOrg, setAuthorOrg] = useState("");
-  const [notes, setNotes] = useState<string[]>(["", ""]);
+  const [notes, setNotes] = useState<string[]>(["", "", "", "", ""]);
 
   const selA = useMemo(() => counties.find((c) => c.id === countyA) ?? null, [counties, countyA]);
   const selB = useMemo(() => counties.find((c) => c.id === countyB) ?? null, [counties, countyB]);
@@ -232,13 +232,13 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
       </div>
 
       {selA && selB && selA.id !== selB.id ? (
-        <div className="mt-8 print:m-2 print:p-2">
+        <div className="mt-8 print:m-0 print:p-0 print:space-y-2">
           <CompareView countyA={selA} countyB={selB} indicators={indicators} />
 
           {/* Action Notes */}
-          <div className="mt-8 break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-3 bg-white">
-            <h3 className="text-[11px] print:text-[9pt] font-bold text-stone-900 uppercase tracking-wider mb-2">County Health Management Team Action Notes</h3>
-            <div className="space-y-3 print:space-y-2 mt-3">
+          <div className="print:mt-0 break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-2 bg-white">
+            <h3 className="text-[11px] print:text-[7pt] font-bold text-stone-900 uppercase tracking-wider">County Health Management Team Action Notes</h3>
+            <div className="space-y-2 print:space-y-1 mt-2 print:mt-1">
               {notes.map((note, i) => (
                 <input
                   key={i}
@@ -250,7 +250,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
                     setNotes(next);
                   }}
                   placeholder="Type an action item..."
-                  className="w-full border-0 border-b border-stone-300 bg-transparent px-1 py-2 text-[13px] text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-[#EA580C] print:border-stone-400 print:text-[9pt] print:p-1"
+                  className="w-full border-0 border-b border-stone-300 bg-transparent px-1 py-1.5 text-[13px] text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-[#EA580C] print:border-stone-400 print:text-[7pt] print:py-0.5"
                 />
               ))}
             </div>

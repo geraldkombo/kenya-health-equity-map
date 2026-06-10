@@ -100,9 +100,9 @@ function PrintableBrief({
         </div>
 
         {/* Action Notes */}
-        <div className="break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-3 bg-white">
-          <h3 className="text-[11px] print:text-[8pt] font-bold text-stone-900 uppercase tracking-wider mb-2">County Health Management Team Action Notes</h3>
-          <div className="space-y-3 print:space-y-2 mt-3">
+        <div className="break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-2 bg-white">
+          <h3 className="text-[11px] print:text-[7pt] font-bold text-stone-900 uppercase tracking-wider mb-2 print:mb-1">County Health Management Team Action Notes</h3>
+          <div className="space-y-3 print:space-y-1">
             {notes.map((note, i) => (
               <input
                 key={i}
@@ -114,7 +114,7 @@ function PrintableBrief({
                   setNotes(next);
                 }}
                 placeholder="Type an action item..."
-                className="w-full border-0 border-b border-stone-300 bg-transparent px-1 py-2 text-[13px] text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-[#EA580C] print:border-stone-400 print:text-[9pt] print:p-1"
+                className="w-full border-0 border-b border-stone-300 bg-transparent px-1 py-2 text-[13px] text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-[#EA580C] print:border-stone-400 print:text-[7pt] print:py-0.5"
               />
             ))}
           </div>
@@ -151,7 +151,7 @@ function BriefContent() {
   const [authorName, setAuthorName] = useState("");
   const [authorTitle, setAuthorTitle] = useState("");
   const [authorOrg, setAuthorOrg] = useState("");
-  const [notes, setNotes] = useState<string[]>(["", ""]);
+  const [notes, setNotes] = useState<string[]>(["", "", "", "", ""]);
 
   useEffect(() => {
     async function load() {
