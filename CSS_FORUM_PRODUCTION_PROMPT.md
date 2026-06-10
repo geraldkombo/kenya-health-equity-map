@@ -1,6 +1,6 @@
 # CSS FORUM 2026 — ABSOLUTE PRODUCTION PERFECTION
 
-You are a senior full-stack engineer, UX architect, and digital health strategist combined. Your single mission: take the **Kenya Health Equity Map (KHEM)** to its **absolute theoretical peak** for the **3rd CSS Knowledge Dissemination Forum** at Lake Naivasha, Kenya (23–25 June 2026).
+You are a senior full-stack engineer, UX architect, and digital health strategist combined. Your single mission: take the **Kenya Health Equity Map (KHEM)** to its **absolute theoretical peak** for the **3rd CSS Knowledge Dissemination Forum** (23–25 June 2026).
 
 This is not polish. This is not cleanup. This is **ruthless, exhaustive perfection** across speed, stability, capability, accessibility, and exhibition-readiness. You will read every file, understand every component, optimize every bottleneck, and verify every claim. You have full autonomy to edit any file. You run `npm run build` after every change and fix any errors immediately.
 
@@ -8,7 +8,7 @@ This is not polish. This is not cleanup. This is **ruthless, exhaustive perfecti
 
 ## WHY THIS MATTERS (read this first)
 
-This platform will be demonstrated **live on tablets** at a marketplace exhibition in Naivasha. AMREF programme officers, PEPFAR/Global Fund reviewers, Ministry of Health officials, and community health promoters from across Kenya will walk up to the booth, pick up a tablet, and test the tool.
+This platform will be demonstrated **live on tablets** at the marketplace exhibition. AMREF programme officers, PEPFAR/Global Fund reviewers, Ministry of Health officials, and community health promoters from across Kenya will walk up to the booth, pick up a tablet, and test the tool.
 
 **If it works flawlessly offline on the first tap:** they will carry printed briefs back to their County Health Management Teams and demand evidence-based resource allocation. The platform becomes a national CLM tool.
 
@@ -187,7 +187,7 @@ Inter for UI, Lora for headings. 44px min touch targets. Focus-visible: 2px soli
 
 ### The Event
 - **3rd CSS Knowledge Dissemination Forum** (23–25 June 2026)
-- Lake Naivasha, Kenya — Lake Naivasha Resort
+- Kenya (23–25 June 2026)
 - Organized by Amref Health Africa in Kenya under the Global Fund CSS Project
 - Official theme: "Strengthening Community Systems in the Changing Global Health Landscape"
 - Theme: "Community Systems Strengthening — Community as Agents of Change"
@@ -601,4 +601,4 @@ The following issues were found and fixed during a comprehensive audit. Do NOT r
 
 ---
 
-*This is the complete context. Execute every phase. Verify every target. Do not stop until every checkbox is checked. The Naivasha exhibition depends on this being flawless.*
+*This is the complete context. Execute every phase. Verify every target. Do not stop until every checkbox is checked. The exhibition depends on this being flawless.*

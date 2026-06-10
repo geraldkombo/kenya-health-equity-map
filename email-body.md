@@ -10,7 +10,7 @@ Please find below my revised abstract for Sub-theme 2: Digital Health and Eviden
 
 This revision follows the official abstract template, uses the correct Community-led monitoring thematic area, aligns with Sub-theme 2 criteria (Digital Health and Evidence Generation Through Community-Led Monitoring), and validates all data points against the live platform at https://geraldkombo.github.io/kenya-health-equity-map/.
 
-This submission responds to the Call for Expression of Interest for the 3rd CSS Knowledge Dissemination Forum (Theme: *Strengthening Community Systems in the Changing Global Health Landscape*), Lake Naivasha Resort, 23–25 June 2026.
+This submission responds to the Call for Expression of Interest for the 3rd CSS Knowledge Dissemination Forum (Theme: *Strengthening Community Systems in the Changing Global Health Landscape*).
 
 My earlier submission should be disregarded in favor of this version.
 
@@ -33,15 +33,6 @@ My earlier submission should be disregarded in favor of this version.
 **Keywords:** Digital Health, Community-Led Monitoring, Health Equity, Civic Technology, Kenya
 
 ---
-
-## Live Exhibition Demonstration
-
-At the marketplace exhibition in Naivasha, the platform will be demonstrated on a tablet:
-
-1. **Map interaction** — tap any county, see its PGS and key indicators
-2. **Offline test** — enable airplane mode, confirm the platform still works
-3. **County brief** — generate and save a printable A4 brief with source citations
-4. **Comparison** — compare two counties side-by-side to visualize inequity gaps
 
 ---
 

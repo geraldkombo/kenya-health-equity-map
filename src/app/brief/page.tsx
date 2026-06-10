@@ -235,7 +235,6 @@ function BriefContent() {
     contentRef: printRef,
     documentTitle: `kenya-health-equity-brief-${selected?.name?.toLowerCase().replace(/\s+/g, "-") ?? countyCode}`,
     pageStyle: `
-      @page { size: A4; margin: 15mm; }
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     `,
   });

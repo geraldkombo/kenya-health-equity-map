@@ -13,10 +13,10 @@ export default function MethodPage() {
         {/* SDG Alignment */}
         <section className="rounded-[8px] border border-[#E0DBD0] bg-[#FFFBEB] p-8">
           <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">
-            Sustainable Development Goals Alignment
+            Global Health Targets
           </h2>
           <p className="mt-4 text-[14px] leading-7 text-[#292524]">
-            The platform is aligned with <strong>SDG 3 (Good Health and Well-being)</strong>. It maps where health infrastructure gaps are most acute so resources can reach the populations with the greatest need. It also supports <strong>SDG 10 (Reduced Inequalities)</strong> by making within-country disparities visible at a glance, particularly for rural and marginalised populations.
+            The platform supports global targets to ensure healthy lives and promote well-being for all. It maps where health infrastructure gaps are most acute so resources can reach the populations with the greatest need. It also makes within-country disparities visible at a glance, particularly for rural and marginalised populations.
           </p>
         </section>
 

@@ -44,7 +44,7 @@ export default function ForumPage() {
             <p className="mb-4 text-stone-600">
               Critical disparities. Home births account for 47% of deliveries. Significant travel times to health facilities.
             </p>
-            <Link href="/brief?county=10" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
+            <Link href="/brief?county=turkana" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               View Brief
             </Link>
@@ -57,7 +57,7 @@ export default function ForumPage() {
             <p className="mb-4 text-stone-600">
               Critical vulnerabilities. Home births account for 50% of deliveries alongside intense population pressures.
             </p>
-            <Link href="/brief?county=36" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
+            <Link href="/brief?county=mandera" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               View Brief
             </Link>
@@ -70,7 +70,7 @@ export default function ForumPage() {
             <p className="mb-4 text-stone-600">
               Severe intersection of poverty (72.5%) and limited facility access across the road network.
             </p>
-            <Link href="/brief?county=41" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
+            <Link href="/brief?county=tana-river" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               View Brief
             </Link>

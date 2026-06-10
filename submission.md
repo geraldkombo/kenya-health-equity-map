@@ -115,7 +115,7 @@ The Kenya Health Equity Map requires zero ongoing hosting costs. There is no ser
 
 ## 9. Exhibition at the Forum
 
-At the marketplace exhibition in Naivasha, the platform demonstration covers:
+At the marketplace exhibition, the platform demonstration covers:
 
 1. **Live map interaction:** Visitors tap their county on a tablet and see its PGS and component breakdown.
 2. **The offline test:** Loading the platform, switching to airplane mode, and demonstrating full functionality.

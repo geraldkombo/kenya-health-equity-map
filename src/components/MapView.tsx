@@ -240,6 +240,11 @@ export default function MapView({
           )}
         </div>
       )}
+      <div aria-live="polite" className="sr-only">
+        {selectedCountyCode && countyNames[selectedCountyCode]
+          ? `${countyNames[selectedCountyCode]} selected. Priority Gap Score: ${countyScores[selectedCountyCode] ?? "unknown"}.`
+          : "Map loaded. Tap a county to view its health equity data."}
+      </div>
       {hasError ? (
         <div className="absolute inset-0 flex items-center justify-center bg-stone-50 text-sm text-stone-500">
           Map rendering error encountered. Review the system console for details.

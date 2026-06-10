@@ -65,9 +65,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="manifest" href={`${BASE}/manifest.json`} />
       </head>
-      <body className="min-h-[100svh] bg-stone-50 text-stone-800">
+      <body className="min-w-[320px] overflow-x-hidden min-h-[100svh] bg-stone-50 text-stone-800">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:p-4 focus:bg-white focus:z-50 focus:text-accent-600 focus:outline-none min-h-[44px] flex items-center">
+          Skip to main content
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <script
           dangerouslySetInnerHTML={{
             __html: `if("serviceWorker"in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("${BASE}/sw.js").catch(()=>{})})}`,

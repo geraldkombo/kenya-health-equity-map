@@ -191,8 +191,11 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
         </div>
       )}
 
-      <div className="hidden print:block text-center text-[10px] font-bold text-[#292524] mb-4 mt-8 pt-8 border-t border-black">
-        Kenya Health Equity Map -- County Comparison Report: {selA?.name || "N/A"} vs {selB?.name || "N/A"}
+      <div className="hidden print:flex justify-between items-center text-xs text-stone-500 mt-12 pt-4 border-t border-stone-200">
+        <span>{selA?.name ? `${selA.name} County` : "Select primary county"}</span>
+        <span className="font-bold">VS</span>
+        <span>{selB?.name ? `${selB.name} County` : "Select comparison county"}</span>
+        <span>Kenya Health Equity Map | Offline Evidence Generator</span>
       </div>
 
       <div className="mt-8 print:hidden">
