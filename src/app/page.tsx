@@ -103,7 +103,7 @@ export default function HomePage() {
           Identify regions with the most critical service deficits and access evidence to support policy reform.
         </p>
         <p className="mt-0.5 text-[11px] italic text-stone-500 sm:text-xs">
-          Transparent evidence for CHMT planning and community-led advocacy.
+          Transparent evidence for County Health Management Team planning and community-led advocacy.
         </p>
       </div>
 
@@ -139,16 +139,16 @@ export default function HomePage() {
           )}
 
           <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-stone-500 sm:mt-4 sm:text-xs">
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1" title="Scores under 30 mean health facilities and services are reasonably distributed across the county">
               <span className="inline-block h-2.5 w-2.5 rounded-sm bg-[#FFF7BC] sm:h-3 sm:w-3"></span> Low (&lt;30)
             </span>
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1" title="Scores from 30 to 49 show noticeable gaps in facility access or affordability">
               <span className="inline-block h-2.5 w-2.5 rounded-sm bg-[#FEC44F] sm:h-3 sm:w-3"></span> Medium (30-49)
             </span>
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1" title="Scores from 50 to 69 point to serious gaps that need targeted investment">
               <span className="inline-block h-2.5 w-2.5 rounded-sm bg-[#D95F0E] sm:h-3 sm:w-3"></span> High (50&ndash;69)
             </span>
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1" title="Scores of 70 or above signal severe gaps. These counties need urgent resource allocation">
               <span className="inline-block h-2.5 w-2.5 rounded-sm bg-[#8C2D04] sm:h-3 sm:w-3"></span> Critical (70+)
             </span>
             <span className="ml-auto text-stone-400">Priority Gap Score</span>

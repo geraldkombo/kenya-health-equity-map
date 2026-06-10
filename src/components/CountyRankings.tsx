@@ -74,7 +74,7 @@ export default function CountyRankings({ counties, indicators, onCountyClick }: 
   return (
     <div className="rounded-xl border border-stone-200 bg-white p-5">
       <h3 className="text-sm font-semibold text-stone-800">Counties by priority need</h3>
-      <p className="mt-1 text-[10px] text-stone-400">Highest Priority Gap Scores — counties needing urgent resource allocation</p>
+      <p className="mt-1 text-[10px] text-stone-400">Highest Priority Gap Scores - counties needing urgent resource allocation</p>
 
       <div className="mt-3">
         <h4 className="text-[10px] font-semibold uppercase tracking-wider text-stone-500">Most underserved</h4>

@@ -41,7 +41,7 @@ function PrintableBrief({
               {score.pgs}
             </div>
             <div className="text-[12px] font-bold uppercase tracking-wide text-[#524B3F]">
-              Gap Score / 100
+              Priority Gap Score / 100
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@ on OpenStreetMap. This mapping gap results in a score of 1 facility per
                 key: "financial",
                 label: "Financial Protection",
                 desc: norm.poverty > 0.6
-                  ? `A ${indicator.poverty_proxy}% poverty rate means most families cannot absorb out-of-pocket delivery costs. Raise this at County Health Management Team (CHMT) planning meetings and Health Facility Management Committee discussions to advocate for waived maternal health fees.`
+                  ? `A ${indicator.poverty_proxy}% poverty rate means most families cannot absorb out-of-pocket delivery costs. Raise this at County Health Management Team planning meetings and Health Facility Management Committee discussions to advocate for waived maternal health fees.`
                   : `At ${indicator.poverty_proxy}% poverty, financial barriers still affect access. Use this figure to argue for subsidized transport or supply vouchers for expectant mothers.`,
               },
               {
@@ -187,7 +187,7 @@ on OpenStreetMap. This mapping gap results in a score of 1 facility per
           Travel modelling via{" "}
           <a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#524B3F] min-h-[44px] inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">WHO AccessMod</a>.
           <br />
-          <strong>Citation:</strong> Kenya Health Equity Map. {county.name} County CLM Evidence
+          <strong>Citation:</strong> Kenya Health Equity Map. {county.name} County Community-Led Monitoring Evidence
           Brief. geraldkombo.github.io/kenya-health-equity-map
         </p>
       </section>

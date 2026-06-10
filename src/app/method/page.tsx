@@ -22,9 +22,9 @@ export default function MethodPage() {
 
         {/* ── PGS ── */}
         <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
-          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">The Priority Gap Score (PGS)</h2>
+          <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">The Priority Gap Score</h2>
           <p className="mt-4 text-[14px] leading-7 text-[#292524]">
-            The Priority Gap Score (PGS) is a simple score from <strong>0 to 100</strong> that measures health infrastructure inequity within each county. Higher scores indicate greater service gaps and stronger claims on resource allocation.
+            The Priority Gap Score is a simple score from <strong>0 to 100</strong> that measures health infrastructure inequity within each county. Higher scores indicate greater service gaps and stronger claims on resource allocation.
           </p>
           <div className="mt-4 rounded-[6px] bg-[#F8F5F0] p-4 text-[14px] leading-7 text-[#524B3F]">
             <p className="font-semibold text-[#292524]">How to read the score:</p>
@@ -36,7 +36,7 @@ export default function MethodPage() {
             </ul>
           </div>
           <p className="mt-4 text-[14px] leading-7 text-[#292524]">
-            <strong>Turkana</strong> (PGS 92) and <strong>Mandera</strong> (PGS 91) are the most underserved counties. <strong>Nairobi</strong> (PGS 40) has more facilities per person and lower poverty, so its score is lower.
+            <strong>Turkana</strong> (Priority Gap Score 92) and <strong>Mandera</strong> (Priority Gap Score 91) are the most underserved counties. <strong>Nairobi</strong> (Priority Gap Score 40) has more facilities per person and lower poverty, so its score is lower.
           </p>
         </section>
 
@@ -44,7 +44,7 @@ export default function MethodPage() {
         <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
           <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">Score Components</h2>
             <p className="mt-4 text-[14px] leading-7 text-[#524B3F]">
-            The PGS combines three dimensions into a single transparent score. Anyone can verify the calculation with pen and paper:
+            The Priority Gap Score combines three dimensions into a single transparent score. Anyone can verify the calculation with pen and paper:
           </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
             <div className="rounded-[8px] bg-[#F8F5F0] p-4">
@@ -69,10 +69,10 @@ export default function MethodPage() {
           <div className="mt-4 rounded-[8px] bg-[#F8F5F0] p-4 text-[14px] leading-7 text-[#524B3F]">
             <p className="font-semibold text-[#292524]">Formula:</p>
             <p className="mt-1">
-              <strong>PGS</strong> = (Physical Access × 0.40) + (Vulnerability × 0.30) + (Population Pressure × 0.30)
+              <strong>Priority Gap Score</strong> = (Physical Access × 0.40) + (Vulnerability × 0.30) + (Population Pressure × 0.30)
             </p>
             <p className="text-[12px] leading-5 text-[#6B6355] mt-2">
-              Each component is converted to a 0–1 scale, then the weighted sum is multiplied by 100. This is a verifiable paper calculation — not an algorithm or model.
+              Each component is converted to a 0-1 scale, then the weighted sum is multiplied by 100. This is a verifiable paper calculation, not an algorithm or model.
             </p>
           </div>
         </section>
@@ -112,10 +112,10 @@ export default function MethodPage() {
         <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
           <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">Maternal Health Access</h2>
           <p className="mt-4 text-[14px] leading-7 text-[#292524]">
-            The platform adds county-level <strong>Skilled Birth Attendance (SBA)</strong> rates from the Kenya Demographic and Health Survey (KDHS 2022). SBA tracks the share of deliveries attended by a trained professional.             When low SBA coincides with long travel times, the result is a <strong>maternal health access desert</strong> where women face two compounding barriers at once.
+            The platform adds county-level <strong>Skilled Birth Attendance</strong> rates from the Kenya Demographic and Health Survey (2022). Skilled Birth Attendance tracks the share of deliveries attended by a trained professional. When low Skilled Birth Attendance coincides with long travel times, the result is a <strong>maternal health access desert</strong> where women face two compounding barriers at once.
           </p>
           <p className="mt-4 text-[14px] leading-7 text-[#524B3F]">
-            SBA appears in the county detail panel alongside the PGS, enabling identification of counties requiring maternal health investment, mobile clinics, or community health worker deployment.
+            Skilled Birth Attendance appears in the county detail panel alongside the Priority Gap Score, enabling identification of counties requiring maternal health investment, mobile clinics, or community health worker deployment.
           </p>
         </section>
 

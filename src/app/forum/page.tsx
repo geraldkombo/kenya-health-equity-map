@@ -39,7 +39,7 @@ export default function ForumPage() {
           <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
             <div className="mb-4 flex items-start justify-between">
               <h3 className="text-xl font-bold">Turkana County</h3>
-              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">PGS: 92</span>
+              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">Priority Gap Score: 92</span>
             </div>
             <p className="mb-4 text-stone-600">
               Critical disparities. Home births account for 47% of deliveries. Significant travel times to health facilities.
@@ -52,7 +52,7 @@ export default function ForumPage() {
           <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
             <div className="mb-4 flex items-start justify-between">
               <h3 className="text-xl font-bold">Mandera County</h3>
-              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">PGS: 91</span>
+              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">Priority Gap Score: 91</span>
             </div>
             <p className="mb-4 text-stone-600">
               Critical vulnerabilities. Home births account for 50% of deliveries alongside intense population pressures.
@@ -65,7 +65,7 @@ export default function ForumPage() {
           <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
             <div className="mb-4 flex items-start justify-between">
               <h3 className="text-xl font-bold">Tana River County</h3>
-              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">PGS: 89</span>
+              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">Priority Gap Score: 89</span>
             </div>
             <p className="mb-4 text-stone-600">
               Severe intersection of poverty (72.5%) and limited facility access across the road network.
@@ -85,9 +85,9 @@ export default function ForumPage() {
         </h2>
         <ul className="space-y-3 text-lg">
           <li><strong>1. Find your county:</strong> Tap your home county on the map.</li>
-          <li><strong>2. Review the score:</strong> See your verifiable Priority Gap Score (PGS) and key advocacy indicators.</li>
+          <li><strong>2. Review the score:</strong> See your verifiable Priority Gap Score and key advocacy indicators.</li>
           <li><strong>3. Compare:</strong> Select a neighboring county to see the resource gap.</li>
-          <li><strong>4. Generate evidence:</strong> Print the one-page brief to take into your next CHMT meeting.</li>
+          <li><strong>4. Generate evidence:</strong> Print the one-page brief to take into your next County Health Management Team meeting.</li>
         </ul>
       </section>
     </main>

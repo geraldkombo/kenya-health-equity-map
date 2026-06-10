@@ -110,7 +110,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
         </div>
         <div className="mt-4 flex justify-between text-[12px] text-[#8A8170] print:text-[9px]">
           <span>Low (0)</span>
-          <span>Critical (70+)</span>
+          <span title="Scores of 70 or above signal severe gaps. These counties need urgent resource allocation">Critical (70+)</span>
         </div>
       </section>
 
@@ -167,7 +167,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                         <td className="py-2 text-[#6B6355] print:py-1">Facility density</td>
                         <td className="py-2 text-right font-semibold text-[#292524] print:py-1">
                           {ind.facility_density_proxy.toFixed(2)}{" "}
-                          <span className="text-[12px] font-normal text-[#8A8170] print:text-[9px]">per 10k</span>
+                          <span className="text-[12px] font-normal text-[#8A8170] print:text-[9px]" title="Number of health facilities for every 10,000 people in the county">per 10,000</span>
                         </td>
                       </tr>
                       {ind.skilled_birth_attendance != null && (
@@ -213,7 +213,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
             Advocacy Takeaway
           </h3>
           <p className="mt-2 text-[14px] leading-7 text-[#292524] print:text-[10px] print:leading-snug">
-            Data Takeaway: {equityNote.higher.name} registers a Gap Score of {sA.pgs} compared to {equityNote.lower.name}&rsquo;s {sB.pgs} -- a difference of {equityNote.diff} points. Significant variations in regional infrastructure demand strategic resource distribution.
+            {equityNote.higher.name} has a Priority Gap Score of {sA.pgs} compared to {equityNote.lower.name}&rsquo;s {sB.pgs} - a difference of {equityNote.diff} points. The gap means communities in {equityNote.higher.name} wait longer to reach a clinic and have fewer facilities nearby. Use this direct comparison in community-led monitoring to advocate for equitable resource allocation from national and county health executives.
           </p>
           <div className="mt-4 border-t border-[#E0DBD0] pt-4 text-[12px] font-semibold text-[#78350F] print:mt-2 print:pt-2 print:text-[9px]">
             Use this direct comparison in community-led monitoring to advocate for equitable resource allocation from national and county health executives.

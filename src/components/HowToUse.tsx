@@ -49,7 +49,7 @@ export default function HowToUse() {
               Compare two counties side-by-side to see where gaps are largest.
             </li>
             <li>
-              Print a one-page brief with source citations for CHMT meetings.
+              Print a one-page brief with source citations for County Health Management Team meetings.
             </li>
           </ul>
         </div>
