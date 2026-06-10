@@ -10,7 +10,7 @@ export default function Header() {
         <Link href="/" className="text-sm font-bold tracking-tight text-stone-800 no-underline">
           {siteConfig.name}
         </Link>
-        <nav className="flex items-center gap-5 text-sm font-medium text-stone-500" aria-label="Main navigation">
+        <nav className="flex items-center gap-3 sm:gap-5 text-[13px] sm:text-sm font-medium text-stone-500" aria-label="Main navigation">
           <Link href="/method" className="hover:text-stone-800 transition-colors focus-visible:outline-2 focus-visible:outline-accent-600 focus-visible:outline-offset-2 rounded px-1">
             Methodology
           </Link>

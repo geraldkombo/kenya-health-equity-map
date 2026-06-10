@@ -212,7 +212,7 @@ export default function MapView({
     <div className="relative min-h-[400px] w-full overflow-hidden rounded-xl border border-stone-200 shadow-sm">
       <div
         ref={containerRef}
-        className="h-[70svh] w-full min-h-[400px] max-h-[800px]"
+        className="h-[50svh] w-full min-h-[350px] max-h-[800px] md:h-[60svh] lg:h-[70svh]"
         aria-label="Map of Kenya counties with health equity data"
         role="application"
         tabIndex={0}

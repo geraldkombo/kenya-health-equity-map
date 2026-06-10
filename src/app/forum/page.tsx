@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ForumPage() {
   return (
-    <main className="mx-auto max-w-5xl space-y-12 px-4 py-8 text-stone-800">
+    <main className="mx-auto max-w-5xl space-y-8 px-4 py-6 sm:space-y-12 sm:py-8 text-stone-800">
       <header className="space-y-4 text-center">
         <h1 className="text-4xl font-bold text-stone-900">Kenya Health Equity Map</h1>
         <p className="text-xl text-stone-600">

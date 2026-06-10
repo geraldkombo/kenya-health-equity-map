@@ -3,7 +3,7 @@ import SourcesPanel from "@/components/SourcesPanel";
 
 export default function MethodPage() {
   return (
-    <div className="mx-auto max-w-3xl px-8 py-8">
+    <div className="mx-auto max-w-3xl px-4 py-6 sm:px-8 sm:py-8">
       <h1 className="text-[24px] font-bold font-serif text-[#78350F]">Methodology Framework</h1>
       <p className="mt-4 text-[14px] leading-7 text-[#6B6355] border-l-4 border-[#EA580C] pl-4">
         Health equity requires transparent, verifiable methodologies. All methods, data sources, and calculations are publicly documented and independently reproducible.

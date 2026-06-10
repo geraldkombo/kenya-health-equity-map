@@ -241,7 +241,7 @@ function BriefContent() {
 
   return (
     <div className="min-h-[100svh] bg-white text-[#292524]">
-      <div className="mx-auto max-w-3xl px-8 py-8">
+      <div className="mx-auto max-w-3xl px-4 py-6 sm:px-8 sm:py-8">
         {/* Screen controls */}
         <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 print:hidden">
           <div>
@@ -276,8 +276,8 @@ function BriefContent() {
         )}
 
         {!countyCode ? (
-          <div className="mt-8 rounded-[8px] border border-[#E0DBD0] p-8 text-[14px] text-[#524B3F] print:hidden">
-            To access this page, select a county from the map interface and choose <strong>Generate analytical brief</strong>.
+          <div className="mt-8 rounded-[8px] border border-[#E0DBD0] p-4 sm:p-8 text-[14px] text-[#524B3F] print:hidden">
+            To access this page, select a county from the map interface and choose <strong>Generate county brief</strong>.
           </div>
         ) : !selected || !indicator ? (
           <div className="mt-8 rounded-[8px] border border-[#E0DBD0] p-8 text-[14px] text-[#524B3F] print:hidden">
@@ -302,7 +302,7 @@ function BriefContent() {
 
 export default function BriefPage() {
   return (
-    <Suspense fallback={<div className="mx-auto max-w-3xl px-8 py-8 text-[14px] text-[#524B3F]">Loading brief...</div>}>
+    <Suspense fallback={<div className="mx-auto max-w-3xl px-4 py-6 sm:px-8 sm:py-8 text-[14px] text-[#524B3F]">Loading brief...</div>}>
       <BriefContent />
     </Suspense>
   );

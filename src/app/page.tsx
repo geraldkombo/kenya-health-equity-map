@@ -155,7 +155,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hidden space-y-4 lg:block">
+        <div className="hidden space-y-4 md:block">
           {selectedCounty ? (
             <CountyDetails
               county={selectedCounty}
@@ -175,7 +175,7 @@ export default function HomePage() {
       </div>
 
       {selectedCounty && (
-        <div className="fixed inset-x-0 bottom-0 z-50 max-h-[70svh] overflow-y-auto rounded-t-2xl border border-stone-200 bg-white shadow-2xl lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 z-50 max-h-[60svh] overflow-y-auto rounded-t-2xl border border-stone-200 bg-white shadow-2xl md:hidden">
           <div className="sticky top-0 flex items-center justify-between bg-white px-4 pt-2 pb-1">
             <div className="h-1.5 w-12 rounded-full bg-stone-300 mx-auto"></div>
             <button

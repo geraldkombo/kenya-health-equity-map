@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ComparePage() {
   return (
-    <div className="mx-auto max-w-5xl px-8 py-8">
+    <div className="mx-auto max-w-5xl px-4 py-6 sm:px-8 sm:py-8">
       <CompareClient
         counties={countiesData as { id: string; name: string }[]}
         indicators={indicatorsData as any[]}

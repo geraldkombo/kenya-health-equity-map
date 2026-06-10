@@ -187,7 +187,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
         </div>
       ) : (
         <div className="mt-8 rounded-[8px] border border-[#E0DBD0] bg-white p-8 text-center text-[14px] leading-7 text-[#8A8170]">
-          Choose a primary county from the left dropdown, then select a neighbor or secondary county to reveal infrastructure disparities.
+          Choose a primary county from the dropdown, then select a neighboring county to compare their infrastructure gaps side by side.
         </div>
       )}
 
