@@ -68,19 +68,19 @@ export function computePGS(
 
   const drivers: string[] = [];
   if (norm.travelTime > 0.7) {
-    drivers.push("Longer travel time to clinics than 70% of counties.");
+    drivers.push("Residents travel farther to reach a clinic than in most counties. Long travel times mean delays in emergency care and fewer routine checkups.");
   }
   if (norm.facilityDensity > 0.7) {
-    drivers.push("Fewer health facilities per person compared to other counties");
+    drivers.push("Very few clinics for the number of people living here compared to most counties. Each facility is stretched thin, making it harder for residents to get care.");
   }
   if (norm.poverty > 0.7) {
-    drivers.push("Poverty rate is higher than 70% of counties - harder for families to afford care");
+    drivers.push("More families live below the poverty line than in most counties. When every shilling counts, transport costs and clinic fees become barriers to seeking care.");
   }
   if (norm.populationPressure > 0.7) {
-    drivers.push("More people sharing each health facility than 70% of counties");
+    drivers.push("Each health facility serves far more people than in most counties. More patients per clinic means longer queues and less time with each health worker.");
   }
   if (norm.travelTime <= 0.7 && norm.facilityDensity <= 0.7 && norm.poverty <= 0.7 && norm.populationPressure <= 0.7) {
-    drivers.push("All measures are within typical range compared to other counties.");
+    drivers.push("No single factor stands out as extreme. All measures are in line with typical conditions across Kenyan counties.");
   }
 
   return {
