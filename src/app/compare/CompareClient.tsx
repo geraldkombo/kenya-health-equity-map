@@ -116,7 +116,7 @@ export default function CompareClient({ counties, indicators }: CompareClientPro
       {/* Metadata Form */}
       <div className="rounded-[8px] border border-[#E0DBD0] bg-[#F8F5F0] p-6 shadow-sm print:hidden mb-8">
         <h2 className="text-[12px] font-bold uppercase tracking-widest text-[#524B3F] mb-6">
-          Author Information
+          Prepared by
         </h2>
         <div className="grid gap-6 sm:grid-cols-3">
           <div>
