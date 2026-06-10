@@ -32,9 +32,16 @@ function PrintableBrief({
   const badgeClass = getPGSBadgeClass(score.pgs);
   const today = new Date().toLocaleDateString("en-KE", { month: "long", day: "numeric", year: "numeric" });
 
+  const communityContext = useMemo(() => {
+    if (county.name === "Turkana") return "Turkana has a 42.6% hardcore poverty rate - the highest nationally, encompassing over 745,000 individuals. 42% of women aged 15-49 report having experienced physical violence, compounding barriers to safe reproductive health access. Nomadic populations face near-impassable distances across 77,000 square kilometres of arid terrain.";
+    if (county.name === "Tana River") return "Tana River has a Rural Access Index of just 11.35% and a banking access rate of only 8.6%. In late 2023, excessive rains destroyed over 9,568 acres of crops, causing maize yields to fall 50% and green gram yields 71% below long-term averages. Food prices surged 36% above average, depleting household ability to afford delivery costs.";
+    if (county.name === "Elgeyo Marakwet" || county.name === "Elgeyo-Marakwet") return "The official Kenya Master Health Facility List records approximately 129 health facilities in this county, but fewer than 20 are mapped on OpenStreetMap. This mapping gap results in a score of 1 facility per 454,000 people. The county reports a 30% stunting rate among children under five and skilled birth attendance of only 56%.";
+    return null;
+  }, [county.name]);
+
   return (
     <div className="p-8 print:p-0 flex flex-col justify-between min-h-[277mm]">
-      <div className="space-y-5 print:space-y-4">
+      <div className="space-y-4 print:space-y-3">
 
         {/* Header */}
         <header className="border-b-4 border-[#EA580C] pb-3 flex justify-between items-end break-inside-avoid">
@@ -61,6 +68,29 @@ function PrintableBrief({
             <span className="text-5xl print:text-[36pt] font-black leading-none">{score.pgs}</span>
           </div>
         </div>
+
+        {/* Baseline Summary */}
+        <div className="break-inside-avoid">
+          <h3 className="text-[11px] print:text-[8pt] font-bold text-stone-900 uppercase tracking-wider mb-1.5">Baseline Summary</h3>
+          <p className="text-[13px] print:text-[9pt] text-stone-800 leading-relaxed print:leading-snug">
+            {county.name} has a Priority Gap Score of {score.pgs} out of 100. This reflects a combination of travel
+            time, poverty, and population pressure on health facilities. Travel time to the nearest clinic is{" "}
+            {indicator.travel_time_to_facility_proxy} minutes on average. The poverty rate is{" "}
+            {indicator.poverty_proxy}%. Only{" "}
+            {indicator.facility_count} facilities are mapped in the county. These figures come from
+            public data sources (KNBS 2019 Census, KIHBS 2015/16, OpenStreetMap / ICPAC) and provide a
+            transparent starting point for community-led advocacy.
+          </p>
+        </div>
+
+        {/* Community Context */}
+        {communityContext && (
+          <div className="break-inside-avoid border-l-4 border-amber-600 bg-amber-50 p-4 print:p-2 rounded-r-lg">
+            <p className="text-[12px] print:text-[8pt] text-stone-800 leading-relaxed print:leading-snug">
+              <span className="font-bold text-stone-900">Community context:</span> {communityContext}
+            </p>
+          </div>
+        )}
 
         {/* Key Drivers */}
         {score.drivers.length > 0 && (
@@ -97,6 +127,49 @@ function PrintableBrief({
             <p className="text-2xl print:text-[16pt] font-black text-stone-900 leading-none">{indicator.facility_count}</p>
             <p className="text-[11px] print:text-[7pt] text-stone-600 font-medium mt-1 leading-tight">Mapped facilities</p>
           </div>
+        </div>
+
+        {/* Community Advocacy Focus Areas */}
+        <div className="break-inside-avoid">
+          <h3 className="text-[11px] print:text-[8pt] font-bold text-stone-900 uppercase tracking-wider mb-2">Community Advocacy Focus</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 print:gap-2">
+            <div className="border-l-4 border-[#EA580C] bg-stone-50 p-4 print:p-2 rounded-r-lg">
+              <h4 className="font-bold text-stone-900 text-[12px] print:text-[8pt]">Infrastructure Access</h4>
+              <p className="text-[11px] print:text-[7pt] text-stone-700 mt-1 leading-relaxed print:leading-snug">
+                {norm.travelTime > 0.6
+                  ? `Travel time of ${indicator.travel_time_to_facility_proxy} minutes exceeds most counties. Use this metric to advocate for mobile clinics, ambulance services, or a new dispensary in the underserved ward.`
+                  : `With ${indicator.travel_time_to_facility_proxy} minute average travel time, use this baseline to monitor whether new road or transport investments reduce access barriers over time.`}
+              </p>
+            </div>
+            <div className="border-l-4 border-amber-600 bg-stone-50 p-4 print:p-2 rounded-r-lg">
+              <h4 className="font-bold text-stone-900 text-[12px] print:text-[8pt]">Financial Protection</h4>
+              <p className="text-[11px] print:text-[7pt] text-stone-700 mt-1 leading-relaxed print:leading-snug">
+                {norm.poverty > 0.6
+                  ? `A ${indicator.poverty_proxy}% poverty rate means most families cannot absorb out-of-pocket delivery costs. Raise this at County Health Management Team planning meetings and Health Facility Management Committee discussions to advocate for waived maternal health fees.`
+                  : `At ${indicator.poverty_proxy}% poverty, financial barriers still affect access. Use this figure to argue for subsidized transport or supply vouchers for expectant mothers.`}
+              </p>
+            </div>
+            <div className="border-l-4 border-stone-500 bg-stone-50 p-4 print:p-2 rounded-r-lg">
+              <h4 className="font-bold text-stone-900 text-[12px] print:text-[8pt]">Facility Capacity</h4>
+              <p className="text-[11px] print:text-[7pt] text-stone-700 mt-1 leading-relaxed print:leading-snug">
+                {norm.populationPressure > 0.6 || norm.facilityDensity > 0.6
+                  ? `${indicator.facility_count} mapped facilities serve ${indicator.population.toLocaleString()} people. Leverage this ratio to demand staffing increases, drug supply allocations, and infrastructure upgrades.`
+                  : `${indicator.facility_count} mapped facilities serve this county. Community mapping can expand this count - report missing clinics to OpenStreetMap to strengthen the evidence base.`}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Data Integrity */}
+        <div className="break-inside-avoid border-t border-stone-200 pt-3">
+          <h3 className="text-[10px] print:text-[7pt] font-bold text-stone-700 uppercase tracking-wider mb-1">Data Sources</h3>
+          <p className="text-[10px] print:text-[6.5pt] text-stone-600 leading-relaxed print:leading-snug">
+            County populations from <span className="font-medium">KNBS 2019 Census</span>.
+            Poverty rates from <span className="font-medium">KIHBS 2015/16</span>.
+            Facility locations from <span className="font-medium">ICPAC/KEMRI</span> and <span className="font-medium">OpenStreetMap</span>.
+            Travel modelling via <span className="font-medium">WHO AccessMod</span>.
+            If a local clinic is absent from this map, report it at openstreetmap.org/note/new or send the facility name and location via WhatsApp to +254 706 813 068.
+          </p>
         </div>
 
         {/* Action Notes */}
