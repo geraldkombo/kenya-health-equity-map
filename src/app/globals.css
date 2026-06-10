@@ -136,6 +136,18 @@ body {
   outline-offset: 2px;
 }
 
+button, a, input, select, textarea, [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (max-width: 640px) {
+  button, a, input, select, textarea, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
 .maplibregl-marker {
   filter: hue-rotate(120deg);
 }

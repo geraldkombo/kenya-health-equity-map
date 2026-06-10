@@ -1,112 +1,95 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Forum | Kenya Health Equity Map",
+  title: "CSS Forum Exhibition | Kenya Health Equity Map",
   description:
-    "3rd CSS Knowledge Dissemination Forum - offline-first CLM evidence base.",
+    "Digital Health and Evidence Generation Through Community-Led Monitoring. A verifiable, offline-first civic tech platform.",
 };
 
-export default function ForumLanding() {
+export default function ForumPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white p-6 font-sans text-stone-900">
-      <div className="w-full max-w-md rounded-xl border border-orange-200 bg-orange-50 p-8 text-center shadow-sm">
-        <p className="mb-3 text-xs font-bold uppercase tracking-widest text-orange-700">
-          3rd CSS Knowledge Dissemination Forum
+    <main className="mx-auto max-w-5xl space-y-12 px-4 py-8 text-stone-800">
+      <header className="space-y-4 text-center">
+        <h1 className="text-4xl font-bold text-stone-900">Kenya Health Equity Map</h1>
+        <p className="text-xl text-stone-600">
+          Digital Health Evidence Generation for Community-Led Monitoring
         </p>
-        <h1 className="mb-2 font-serif text-3xl font-extrabold text-amber-900">
-          Kenya Health Equity Map
-        </h1>
-        <p className="mb-6 text-sm text-stone-700">
-          Evidence base for health equity monitoring. Fully functional offline
-          with no user tracking.
-        </p>
+      </header>
 
-        <div className="mb-6 rounded-lg border border-orange-100 bg-white p-4 text-left">
-          <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-800">
-            Offline Functionality Verification
-          </p>
-          <p className="text-sm text-stone-600">
-            1. Allow the application to initialize completely.<br />
-            2. Enable <strong>Airplane Mode</strong> on the device.<br />
-            3. Select a county below to view the corresponding data.
-          </p>
+      <section className="flex flex-col items-center gap-6 rounded-xl border border-blue-200 bg-blue-50 p-6 md:flex-row">
+        <div className="rounded-lg bg-white p-4 shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-stone-800"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="10" height="10" rx="1"/><line x1="12" y1="3" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-
-        <h2 className="mb-3 text-left text-sm font-bold uppercase tracking-widest text-amber-900">
-          Live CLM Case Studies
-        </h2>
-
         <div className="space-y-3">
-          <Link
-            href="/brief?county=turkana"
-            className="flex w-full flex-col gap-1 rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold">Turkana County</span>
-              <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
-                Score: 92
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-orange-200">
-              Analysis indicates critical vulnerabilities in geographic accessibility and health infrastructure.
-            </p>
-          </Link>
-
-          <Link
-            href="/brief?county=mandera"
-            className="flex w-full flex-col gap-1 rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold">Mandera County</span>
-              <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
-                Score: 91
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-orange-200">
-              Data demonstrates significant resource disparities requiring targeted intervention.
-            </p>
-          </Link>
-
-          <Link
-            href="/brief?county=tana-river"
-            className="flex w-full flex-col gap-1 rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold">Tana River County</span>
-              <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
-                Score: 89
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-orange-200">
-              Metrics highlight substantial gaps in facility-to-population ratios.
-            </p>
-          </Link>
-
-          <Link
-            href="/brief?county=elgeyo-marakwet"
-            className="flex w-full flex-col gap-1 rounded-lg bg-amber-900 px-5 py-3 text-left text-white shadow-sm transition-colors hover:bg-orange-800"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold">Elgeyo-Marakwet County</span>
-              <span className="rounded border border-white/40 px-2 py-0.5 text-xs opacity-80">
-                129 facilities
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-orange-200">
-              Evaluations reveal an elevated necessity for systematic policy reform to address service deficits.
-            </p>
-          </Link>
+          <h2 className="flex items-center gap-2 text-2xl font-semibold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="M2 22h20"/><path d="M6.36 17.4 4 22h16l-2.36-4.6"/><path d="M12 2v8"/><path d="m9 7 3-3 3 3"/></svg>
+            Test Offline Mode
+          </h2>
+          <p className="text-lg">
+            Scan the code or load the platform. Once loaded, switch your device to{" "}
+            <strong>Airplane Mode</strong>. Navigate the map, view county details, and
+            generate printable briefs without an internet connection.
+          </p>
         </div>
+      </section>
 
-        <div className="mt-8">
-          <Link
-            href="/"
-            className="text-sm font-bold text-orange-700 underline underline-offset-4 hover:text-amber-900"
-          >
-            Access the complete interactive map
-          </Link>
+      <section className="space-y-6">
+        <h2 className="border-b pb-2 text-2xl font-semibold">Marketplace Case Studies</h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="mb-4 flex items-start justify-between">
+              <h3 className="text-xl font-bold">Turkana County</h3>
+              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">PGS: 92</span>
+            </div>
+            <p className="mb-4 text-stone-600">
+              Critical disparities. Home births account for 47% of deliveries. Significant travel times to health facilities.
+            </p>
+            <Link href="/brief?county=Turkana" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              View Brief
+            </Link>
+          </div>
+          <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="mb-4 flex items-start justify-between">
+              <h3 className="text-xl font-bold">Mandera County</h3>
+              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">PGS: 91</span>
+            </div>
+            <p className="mb-4 text-stone-600">
+              Critical vulnerabilities. Home births account for 50% of deliveries alongside intense population pressures.
+            </p>
+            <Link href="/brief?county=Mandera" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              View Brief
+            </Link>
+          </div>
+          <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="mb-4 flex items-start justify-between">
+              <h3 className="text-xl font-bold">Tana River County</h3>
+              <span className="rounded-full bg-[#78350F] px-3 py-1 font-bold text-white">PGS: 89</span>
+            </div>
+            <p className="mb-4 text-stone-600">
+              Severe intersection of poverty (72.5%) and limited facility access across the road network.
+            </p>
+            <Link href="/brief?county=Tana+River" className="flex items-center gap-1 font-medium text-blue-600 hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              View Brief
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="rounded-xl border border-stone-200 bg-stone-50 p-6">
+        <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-600"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Marketplace Exhibition Flow
+        </h2>
+        <ul className="space-y-3 text-lg">
+          <li><strong>1. Find your county:</strong> Tap your home county on the map.</li>
+          <li><strong>2. Review the score:</strong> See your verifiable Priority Gap Score (PGS) and key advocacy indicators.</li>
+          <li><strong>3. Compare:</strong> Select a neighboring county to see the resource gap.</li>
+          <li><strong>4. Generate evidence:</strong> Print the one-page brief to take into your next CHMT meeting.</li>
+        </ul>
+      </section>
+    </main>
   );
 }

@@ -14,6 +14,7 @@ const SHELL = [
   BASE + "/method.txt",
   BASE + "/forum.txt",
   BASE + "/dua.txt",
+  BASE + "/_not-found",
 ];
 
 const TILE_ORIGINS = ["https://basemaps.cartocdn.com"];

@@ -6,7 +6,7 @@ export default function MethodPage() {
     <div className="mx-auto max-w-3xl px-8 py-8">
       <h1 className="text-[24px] font-bold font-serif text-[#78350F]">Methodology Framework</h1>
       <p className="mt-4 text-[14px] leading-7 text-[#6B6355] border-l-4 border-[#EA580C] pl-4">
-        Health equity requires transparent, verifiable methodologies. All algorithms, data sources, and calculations are publicly documented and independently reproducible.
+        Health equity requires transparent, verifiable methodologies. All methods, data sources, and calculations are publicly documented and independently reproducible.
       </p>
 
       <div className="mt-8 space-y-8">
@@ -24,7 +24,7 @@ export default function MethodPage() {
         <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
           <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">The Priority Gap Score (PGS)</h2>
           <p className="mt-4 text-[14px] leading-7 text-[#292524]">
-            The Priority Gap Score (PGS) is a composite index from <strong>0 to 100</strong> that measures health infrastructure inequity within each county. Higher scores indicate greater service gaps and stronger claims on resource allocation.
+            The Priority Gap Score (PGS) is a simple score from <strong>0 to 100</strong> that measures health infrastructure inequity within each county. Higher scores indicate greater service gaps and stronger claims on resource allocation.
           </p>
           <div className="mt-4 rounded-[6px] bg-[#F8F5F0] p-4 text-[14px] leading-7 text-[#524B3F]">
             <p className="font-semibold text-[#292524]">How to read the score:</p>
@@ -43,8 +43,8 @@ export default function MethodPage() {
         {/* ── Three Components ── */}
         <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8">
           <h2 className="text-[14px] font-bold uppercase tracking-widest text-[#78350F]">Score Components</h2>
-          <p className="mt-4 text-[14px] leading-7 text-[#524B3F]">
-            The PGS combines three dimensions, each normalised to a 0–1 scale before aggregation:
+            <p className="mt-4 text-[14px] leading-7 text-[#524B3F]">
+            The PGS combines three dimensions into a single transparent score. Anyone can verify the calculation with pen and paper:
           </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
             <div className="rounded-[8px] bg-[#F8F5F0] p-4">
@@ -72,7 +72,7 @@ export default function MethodPage() {
               <strong>PGS</strong> = (Physical Access × 0.40) + (Vulnerability × 0.30) + (Population Pressure × 0.30)
             </p>
             <p className="text-[12px] leading-5 text-[#6B6355] mt-2">
-              Each component is normalised to a 0–1 scale, then the weighted sum is multiplied by 100.
+              Each component is converted to a 0–1 scale, then the weighted sum is multiplied by 100. This is a verifiable paper calculation — not an algorithm or model.
             </p>
           </div>
         </section>

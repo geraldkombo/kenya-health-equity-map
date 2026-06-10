@@ -124,7 +124,7 @@ export const REAL_SOURCES: Record<string, SourceEntry[]> = {
       url: "https://www.accessmod.org",
       license: "Open Source (GPL-3.0)",
       licenseUrl: "https://www.gnu.org/licenses/gpl-3.0.html",
-      note: "The World Health Organization's open source tool for modelling physical accessibility to health services. Implements lowest cost path algorithms over combined transport networks (walking, motorized, and manual transport).",
+      note: "The World Health Organization's open source tool for modelling physical accessibility to health services. Implements lowest cost path routing over combined transport networks (walking, motorized, and manual transport).",
       type: "research",
     },
     {

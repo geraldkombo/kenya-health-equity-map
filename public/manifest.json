@@ -5,8 +5,10 @@
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
-  "background_color": "#FDFBF7",
+  "background_color": "#FAFAF9",
   "theme_color": "#78350F",
+  "prefer_related_applications": false,
+  "categories": ["health", "maps", "civic-tech"],
   "orientation": "portrait-primary",
   "icons": [
     {
