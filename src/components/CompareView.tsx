@@ -43,6 +43,10 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
   }
 
   const overlap = Math.abs(sA.pgs - sB.pgs) < 8;
+  const aIsLeft = sA.pgs < sB.pgs;
+  const overlapSpread = overlap ? 7 : 0;
+  const offsetA = aIsLeft ? -overlapSpread : overlapSpread;
+  const offsetB = aIsLeft ? overlapSpread : -overlapSpread;
 
   return (
     <div className="space-y-6 print:space-y-2">
@@ -68,7 +72,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
             <>
               <div
                 className="absolute -top-[4px] flex -translate-x-1/2 flex-col items-center transition-all duration-500"
-                style={{ left: `${Math.min(Math.max(sA.pgs, 0), 100)}%` }}
+                style={{ left: `${Math.min(Math.max(sA.pgs + offsetA, 0), 100)}%` }}
               >
                 <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#292524] px-2 py-1 text-[11px] font-bold text-[#FFFBEB] shadow-sm print:text-[8px] print:px-2 print:py-0 max-w-[40vw] text-center leading-tight">
                   {countyA.name} ({sA.pgs})
@@ -77,7 +81,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
               </div>
               <div
                 className="absolute flex -translate-x-1/2 flex-col items-center transition-all duration-500"
-                style={{ left: `${Math.min(Math.max(sB.pgs, 0), 100)}%`, bottom: '0' }}
+                style={{ left: `${Math.min(Math.max(sB.pgs + offsetB, 0), 100)}%`, bottom: '0' }}
               >
                 <div className="mb-[2px] h-[10px] w-[10px] rotate-45 bg-[#EA580C] print:hidden" />
                 <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#EA580C] px-2 py-1 text-[11px] font-bold text-[#FFFBEB] shadow-sm print:text-[8px] print:px-2 print:py-0 max-w-[40vw] text-center leading-tight">
