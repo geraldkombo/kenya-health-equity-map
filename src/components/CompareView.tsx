@@ -58,10 +58,10 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
         </div>
       </header>
 
-      {/* National Disparity Spectrum */}
+      {/* Priority Gap Scale */}
       <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8 shadow-sm print:border-black print:bg-transparent print:p-4">
         <h2 className="text-[12px] font-bold uppercase tracking-widest text-[#524B3F]">
-          National Disparity Index (0–100)
+          Priority Gap Scale: 0 (best) to 100 (worst)
         </h2>
         <div className="relative mt-4 h-[56px] w-full rounded-[6px] bg-gradient-to-r from-[#FFF7BC] via-[#FEC44F] via-[#D95F0E] to-[#8C2D04] shadow-inner print:h-[40px]" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
           {overlap ? (
@@ -109,7 +109,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
           )}
         </div>
         <div className="mt-4 flex justify-between text-[12px] text-[#8A8170] print:text-[9px]">
-          <span>Low (0)</span>
+          <span title="0 means the county has the best access to health services. Higher scores mean worse gaps.">Low (0)</span>
           <span title="Scores of 70 or above signal severe gaps. These counties need urgent resource allocation">Critical (70+)</span>
         </div>
       </section>
@@ -210,10 +210,14 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
-            Advocacy Takeaway
+            What this means
           </h3>
           <p className="mt-2 text-[14px] leading-7 text-[#292524] print:text-[10px] print:leading-snug">
-            {equityNote.higher.name} has a Priority Gap Score of {sA.pgs} compared to {equityNote.lower.name}&rsquo;s {sB.pgs} - a difference of {equityNote.diff} points. The gap means communities in {equityNote.higher.name} wait longer to reach a clinic and have fewer facilities nearby. Use this direct comparison in community-led monitoring to advocate for equitable resource allocation from national and county health executives.
+            {equityNote.diff <= 2 ? (
+              <>Both counties score nearly the same on the Priority Gap Scale. The {equityNote.diff}-point difference is too small to call one county worse off than the other. Use the specific indicators above (travel time, poverty rate, facility density) to identify where each county needs investment.</>
+            ) : (
+              <>{equityNote.higher.name} scores {equityNote.diff} {equityNote.diff === 1 ? "point" : "points"} higher than {equityNote.lower.name}. A higher score means residents face bigger barriers to health care — longer travel, fewer clinics, or higher poverty. Use this comparison to show which county needs more resources.</>
+            )}
           </p>
           <div className="mt-4 border-t border-[#E0DBD0] pt-4 text-[12px] font-semibold text-[#78350F] print:mt-2 print:pt-2 print:text-[9px]">
             Use this direct comparison in community-led monitoring to advocate for equitable resource allocation from national and county health executives.
