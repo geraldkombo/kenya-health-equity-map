@@ -59,7 +59,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
       </header>
 
       {/* Priority Gap Scale */}
-      <section className="rounded-[8px] border border-[#E0DBD0] bg-white p-8 shadow-sm print:border-black print:bg-transparent print:p-4">
+      <section className="break-inside-avoid rounded-[8px] border border-[#E0DBD0] bg-white p-8 shadow-sm print:border-black print:bg-transparent print:p-4">
         <h2 className="text-[12px] font-bold uppercase tracking-widest text-[#524B3F]">
           Priority Gap Scale: 0 (best) to 100 (worst)
         </h2>
@@ -123,7 +123,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
           return (
             <div
               key={county.id}
-              className="rounded-[8px] border border-[#E0DBD0] bg-white shadow-sm print:border-black print:shadow-none"
+              className="break-inside-avoid rounded-[8px] border border-[#E0DBD0] bg-white shadow-sm print:border-black print:shadow-none"
               style={{ borderTop: `4px solid ${accentColor}` }}
             >
               {/* Card Header */}
@@ -202,7 +202,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
       {/* Advocacy Takeaway */}
       {equityNote && (
         <section
-          className="rounded-[8px] border-l-4 bg-[#FFFBEB] p-8 shadow-sm print:border-black print:bg-transparent print:p-4"
+          className="break-inside-avoid rounded-[8px] border-l-4 bg-[#FFFBEB] p-8 shadow-sm print:border-black print:bg-transparent print:p-4"
           style={{ borderLeftColor: "#EA580C" }}
           role="note"
         >
