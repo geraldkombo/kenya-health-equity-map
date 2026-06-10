@@ -33,7 +33,7 @@ export default function InstallPrompt() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-3 bg-white border border-stone-200 rounded-xl shadow-lg p-4 print:hidden max-w-xs">
+    <div className="fixed bottom-0 left-0 right-0 md:bottom-4 md:right-4 md:left-auto z-50 flex items-center gap-3 bg-white border-t md:border border-stone-200 md:rounded-xl shadow-lg p-3 md:p-4 print:hidden">
       <div className="w-10 h-10 rounded-lg bg-[#78350F] flex items-center justify-center flex-shrink-0">
         <svg className="w-6 h-6" viewBox="0 0 512 512" fill="none">
           <circle cx="256" cy="240" r="130" fill="#FDFBF7"/>
@@ -47,7 +47,7 @@ export default function InstallPrompt() {
       </div>
       <button
         onClick={handleInstall}
-        className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg bg-[#EA580C] px-3 py-2 text-sm font-bold text-white hover:bg-[#C2410C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] active:scale-[0.98]"
+        className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg bg-[#EA580C] px-4 py-2 text-sm font-bold text-white hover:bg-[#C2410C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] active:scale-[0.98]"
       >
         Install
       </button>
