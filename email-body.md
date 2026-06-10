@@ -22,8 +22,3 @@
 ---
 
 **Platform URL:** https://geraldkombo.github.io/kenya-health-equity-map/
-
-Regards,
-
-**Gerald Kombo**
-Independent Researcher and Developer, Kenya Health Equity Map
