@@ -13,184 +13,112 @@ import { matchCountyName } from "@/lib/county-names";
 function PrintableBrief({
   county,
   indicator,
+  authorName,
+  authorTitle,
+  authorOrg,
 }: {
   county: CountyRecord;
   indicator: IndicatorRecord;
+  authorName: string;
+  authorTitle: string;
+  authorOrg: string;
 }) {
   const norm = normalizeCounty(indicator);
   const score = computePGS(county.id, norm, DEFAULT_WEIGHTS);
+  const badgeClass = getPGSBadgeClass(score.pgs);
+  const today = new Date().toLocaleDateString("en-KE", { month: "long", day: "numeric", year: "numeric" });
 
   return (
-    <div className="space-y-8">
-      {/* Institutional Header */}
-      <header className="break-inside-avoid border-b-4 border-[#78350F] pb-4">
-        <p className="text-[12px] font-bold uppercase tracking-widest text-[#EA580C]">
-          Kenya Health Equity Map, Community Evidence Base
-        </p>
-        <div className="mt-4 flex items-end justify-between">
+    <div className="p-8 print:p-0 flex flex-col justify-between min-h-[277mm]">
+      <div className="space-y-5 print:space-y-4">
+
+        {/* Header */}
+        <header className="border-b-4 border-[#EA580C] pb-3 flex justify-between items-end break-inside-avoid">
           <div>
-            <h1 className="text-4xl font-serif font-extrabold uppercase tracking-tight text-[#78350F]">
-              {county.name} County
-            </h1>
-            <p className="mt-2 text-[14px] font-medium text-[#6B6355]">
-              Health Equity &amp; Infrastructure Disparity Report
-            </p>
+            <h1 className="text-xl font-black text-stone-900 tracking-tight uppercase leading-none mb-1">Kenya Health Equity Map</h1>
+            <p className="text-stone-600 font-medium text-[11px] uppercase tracking-wider">Community-Led Monitoring Evidence Brief</p>
           </div>
-          <div className="pl-4 text-right">
-            <div className="text-4xl font-bold leading-none text-[#78350F]">
-              {score.pgs}
-            </div>
-            <div className="text-[12px] font-bold uppercase tracking-wide text-[#524B3F]">
-              Priority Gap Score / 100
-            </div>
+          <div className="text-right text-[11px] text-stone-700 leading-tight">
+            {authorName && <p className="font-bold text-stone-900">{authorName}</p>}
+            {authorTitle && <p>{authorTitle}</p>}
+            {authorOrg && <p>{authorOrg}</p>}
+            <p className="text-stone-500 mt-1">{today}</p>
+          </div>
+        </header>
+
+        {/* County Name + PGS Badge */}
+        <div className="flex gap-4 items-stretch break-inside-avoid">
+          <div className="flex-1 bg-stone-50 p-5 print:p-4 border border-stone-200 rounded-lg flex flex-col justify-center">
+            <h2 className="text-4xl print:text-[28pt] font-black text-stone-900 leading-none tracking-tight">{county.name} County</h2>
+            <p className="text-sm print:text-[10pt] text-stone-600 mt-1 font-medium">Priority Gap Score: {score.pgs} out of 100</p>
+          </div>
+          <div className={`w-44 print:w-36 flex flex-col items-center justify-center rounded-lg border-2 ${badgeClass} shadow-sm`}>
+            <span className="text-[10px] print:text-[8pt] font-bold uppercase tracking-wider opacity-90 mb-0.5">Priority Gap Score</span>
+            <span className="text-5xl print:text-[36pt] font-black leading-none">{score.pgs}</span>
           </div>
         </div>
-      </header>
 
-      {/* Baseline Narrative */}
-      <section className="break-inside-avoid">
-        <h2 className="text-[12px] font-bold uppercase tracking-widest text-[#EA580C]">
-          Baseline Summary
-        </h2>
-        <p className="mt-4 text-[14px] leading-7 text-[#292524] text-justify">
-          {county.name} has a Priority Gap Score of {score.pgs}/100. This reflects a combination of travel
-          time, poverty, and population pressure on health facilities. Travel time to the nearest clinic is{" "}
-          {indicator.travel_time_to_facility_proxy} minutes on average. The poverty rate is{" "}
-          {indicator.poverty_proxy}%. Only{" "}
-          {indicator.facility_count} facilities are mapped in the county. These figures come from
-          public data sources (KNBS 2019 Census, KIHBS 2015/16, OpenStreetMap / ICPAC) and provide a
-          transparent starting point for community-led advocacy.
-        </p>
-        {county.name === "Turkana" && (
-          <div className="mt-4 rounded-[8px] border-l-4 border-[#EA580C] bg-[#FFFBEB] p-4 text-[12px] leading-6 text-[#524B3F]">
-            <strong className="text-[#292524]">Community context:</strong> Turkana has a 42.6% hardcore poverty rate -
-            the highest nationally, encompassing over 745,000 individuals. 42% of women aged 15-49
-            report having experienced physical violence, compounding barriers to safe reproductive
-            health access. Nomadic populations face near-impassable distances across 77,000 sq km of
-            arid terrain.
+        {/* Key Drivers */}
+        {score.drivers.length > 0 && (
+          <div className="break-inside-avoid border-l-4 border-[#EA580C] bg-stone-50 p-5 print:p-3 rounded-r-lg">
+            <h3 className="text-[11px] print:text-[8pt] font-bold text-stone-900 uppercase tracking-wider mb-2">Key Advocacy Drivers</h3>
+            <ul className="space-y-2 print:space-y-1 text-[13px] print:text-[9pt] text-stone-800 leading-snug">
+              {score.drivers.map((d, i) => (
+                <li key={i} className="flex gap-2 items-start">
+                  <span className="text-[#EA580C] mt-0.5 flex-shrink-0">
+                    <svg className="w-4 h-4 print:w-3 print:h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                  </span>
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
-        {county.name === "Tana River" && (
-          <div className="mt-4 rounded-[8px] border-l-4 border-[#EA580C] bg-[#FFFBEB] p-4 text-[12px] leading-6 text-[#524B3F]">
-            <strong className="text-[#292524]">Community context:</strong> Tana River has a Rural Access Index of just 11.35%
-            and a banking access rate of only 8.6%. In late 2023, excessive rains destroyed over
-            9,568 acres of crops, causing maize yields to fall 50% and green gram yields 71% below
-            long-term averages. Food prices surged 36% above average, depleting household ability to
-            afford delivery costs.
-          </div>
-        )}
-        {county.name === "Elgeyo Marakwet" && (
-          <div className="mt-4 rounded-[8px] border-l-4 border-[#EA580C] bg-[#FFFBEB] p-4 text-[12px] leading-6 text-[#524B3F]">
-            <strong className="text-[#292524]">Community context:</strong> The official Kenya Master Health Facility List
-            records approximately 129 health facilities in this county, but fewer than 20 are mapped
-on OpenStreetMap. This mapping gap results in a score of 1 facility per
-              454,000 people. The county reports a 30% stunting rate among children under five and
-            skilled birth attendance of only 56%.
-          </div>
-        )}
-      </section>
 
-      {/* Key Infrastructure Indicators */}
-      <section className="break-inside-avoid rounded-[8px] border border-[#E0DBD0] bg-[#F8F5F0] p-8 print:border-black print:bg-transparent">
-        <h2 className="text-[12px] font-bold uppercase tracking-widest text-[#EA580C]">
-          Key Infrastructure Indicators
-        </h2>
-        <div className="mt-4 grid grid-cols-2 gap-8 md:grid-cols-4">
-          <div>
-            <p className="text-[12px] font-semibold uppercase text-[#6B6355]">Population</p>
-            <p className="text-2xl font-bold text-[#78350F]">
-              {indicator.population.toLocaleString()}
-            </p>
+        {/* Core Metrics */}
+        <div className="grid grid-cols-4 gap-3 print:gap-2 break-inside-avoid">
+          <div className="border border-stone-200 rounded-lg p-4 print:p-3 bg-white">
+            <p className="text-2xl print:text-[16pt] font-black text-stone-900 leading-none">{indicator.population.toLocaleString()}</p>
+            <p className="text-[11px] print:text-[7pt] text-stone-600 font-medium mt-1 leading-tight">Total population</p>
           </div>
-          <div>
-            <p className="text-[12px] font-semibold uppercase text-[#6B6355]">Poverty Rate</p>
-            <p className="text-2xl font-bold text-[#78350F]">{indicator.poverty_proxy}%</p>
+          <div className="border border-stone-200 rounded-lg p-4 print:p-3 bg-white">
+            <p className="text-2xl print:text-[16pt] font-black text-stone-900 leading-none">{indicator.poverty_proxy}%</p>
+            <p className="text-[11px] print:text-[7pt] text-stone-600 font-medium mt-1 leading-tight">Poverty rate</p>
           </div>
-          <div>
-            <p className="text-[12px] font-semibold uppercase text-[#6B6355]">Mapped Facilities</p>
-            <p className="text-2xl font-bold text-[#78350F]">{indicator.facility_count}</p>
+          <div className="border border-stone-200 rounded-lg p-4 print:p-3 bg-white">
+            <p className="text-2xl print:text-[16pt] font-black text-stone-900 leading-none">{indicator.travel_time_to_facility_proxy} <span className="text-sm font-normal text-stone-500">min</span></p>
+            <p className="text-[11px] print:text-[7pt] text-stone-600 font-medium mt-1 leading-tight">Travel time to clinic</p>
           </div>
-          <div>
-            <p className="text-[12px] font-semibold uppercase text-[#6B6355]">Avg. Travel Time</p>
-            <p className="text-2xl font-bold text-[#78350F]">
-              {indicator.travel_time_to_facility_proxy} min
-            </p>
+          <div className="border border-stone-200 rounded-lg p-4 print:p-3 bg-white">
+            <p className="text-2xl print:text-[16pt] font-black text-stone-900 leading-none">{indicator.facility_count}</p>
+            <p className="text-[11px] print:text-[7pt] text-stone-600 font-medium mt-1 leading-tight">Mapped facilities</p>
           </div>
         </div>
-      </section>
 
-      {/* Active Advocacy Focus Section */}
-      <section className="mb-8">
-        <h2 className="text-[14px] font-bold text-[#EA580C] uppercase tracking-widest mb-4">
-          Community Advocacy Focus Areas
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {(
-            [
-              {
-                key: "infrastructure",
-                label: "Infrastructure Access",
-                desc: norm.travelTime > 0.6
-                  ? `Travel time of ${indicator.travel_time_to_facility_proxy} minutes exceeds most counties. Use this metric to advocate for mobile clinics, ambulance services, or a new dispensary in the underserved ward.`
-                  : `With ${indicator.travel_time_to_facility_proxy} minute average travel time, use this baseline to monitor whether new road or transport investments reduce access barriers over time.`,
-              },
-              {
-                key: "financial",
-                label: "Financial Protection",
-                desc: norm.poverty > 0.6
-                  ? `A ${indicator.poverty_proxy}% poverty rate means most families cannot absorb out-of-pocket delivery costs. Raise this at County Health Management Team planning meetings and Health Facility Management Committee discussions to advocate for waived maternal health fees.`
-                  : `At ${indicator.poverty_proxy}% poverty, financial barriers still affect access. Use this figure to argue for subsidized transport or supply vouchers for expectant mothers.`,
-              },
-              {
-                key: "capacity",
-                label: "Facility Capacity",
-                desc: norm.populationPressure > 0.6 || norm.facilityDensity > 0.6
-                  ? `${indicator.facility_count} mapped facilities serve ${indicator.population.toLocaleString()} people. Leverage this ratio to demand staffing increases, drug supply allocations, and infrastructure upgrades.`
-                  : `${indicator.facility_count} mapped facilities serve this county. Community mapping can expand this count - report missing clinics to OpenStreetMap to strengthen the evidence base.`,
-              },
-            ] satisfies { key: string; label: string; desc: string }[]
-          ).map((item) => (
-            <div key={item.key} className="border-l-4 border-[#EA580C] bg-[#F8F5F0] p-4 rounded-[8px] shadow-sm">
-              <h3 className="font-bold font-serif text-[#78350F] text-[14px]">{item.label}</h3>
-              <p className="text-[12px] text-[#524B3F] mt-2">{item.desc}</p>
-            </div>
-          ))}
+        {/* Action Notes */}
+        <div className="break-inside-avoid border border-stone-300 rounded-lg p-4 print:p-3 bg-white">
+          <h3 className="text-[11px] print:text-[8pt] font-bold text-stone-900 uppercase tracking-wider mb-2">County Health Management Team Action Notes</h3>
+          <div className="space-y-5 print:space-y-4 mt-4">
+            <div className="border-b border-stone-300 w-full"></div>
+            <div className="border-b border-stone-300 w-full"></div>
+          </div>
         </div>
-      </section>
+      </div>
 
-      {/* Data Integrity & Community Crowdsourcing */}
-      <section className="break-inside-avoid border-t border-[#E0DBD0] pt-8">
-        <h2 className="text-[12px] font-bold uppercase tracking-widest text-[#6B6355]">
-          Data Integrity &amp; Community Crowdsourcing
-        </h2>
-        <p className="mt-4 text-[12px] leading-6 text-[#524B3F] text-justify">
-          This brief acts as a transparent, open-data baseline for advocacy. It quantifies physical
-          access barriers using travel time estimates and validated facility mapping. It does
-          not measure clinical quality or staff capacity. Because facility data relies on the current
-          OpenStreetMap/ICPAC baseline of 1,699 community-mapped facilities, unmapped rural
-          dispensaries may not be reflected.
-          <strong className="text-[#78350F]">
-            {" "}If a local clinic is absent from this map, community members can report it directly to
-            OpenStreetMap at <a href="https://www.openstreetmap.org/note/new#map=6/0.5/38.0" target="_blank" rel="noreferrer" className="min-h-[44px] inline-flex items-center underline underline-offset-2 hover:text-[#B45309] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">www.openstreetmap.org/note/new</a> - drop a pin and describe the
-            facility. No account is required. Every addition strengthens the evidence base for all
-            communities. Facility name and location can also be sent via WhatsApp to
-            <a href="https://wa.me/254706813068" target="_blank" rel="noreferrer" className="min-h-[44px] inline-flex items-center text-[#059669] hover:text-[#047857] underline underline-offset-2 ml-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">+254 706 813 068</a>.
-          </strong>
-        </p>
-        <p className="mt-4 text-[12px] leading-5 text-[#8A8170]">
-          <strong>Data sources:</strong> County populations from{" "}
-          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/116" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#524B3F] min-h-[44px] inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">KNBS 2019 Census</a>.
-          Poverty rates from{" "}
-          <a href="https://statistics.knbs.or.ke/nada/index.php/catalog/13" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#524B3F] min-h-[44px] inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">KIHBS 2015/16</a>.
-          Facility locations from{" "}
-          <a href="https://geoportal.icpac.net/layers/geonode:kenya_health/metadata_detail" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#524B3F] min-h-[44px] inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">ICPAC/KEMRI</a>.
-          Travel modelling via{" "}
-          <a href="https://www.accessmod.org" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#524B3F] min-h-[44px] inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] rounded-[4px] px-1">WHO AccessMod</a>.
-          <br />
-          <strong>Citation:</strong> Kenya Health Equity Map. {county.name} County Community-Led Monitoring Evidence
-          Brief. geraldkombo.github.io/kenya-health-equity-map
-        </p>
-      </section>
+      {/* Footer */}
+      <footer className="pt-3 border-t-2 border-stone-200 break-inside-avoid">
+        <div className="flex justify-between items-end">
+          <div className="text-[10px] print:text-[6.5pt] text-stone-500 leading-tight max-w-xl">
+            <p className="font-bold text-stone-700 mb-0.5">Methodology:</p>
+            <p>The Priority Gap Score (0-100) combines travel time to the nearest clinic (40%), poverty rate (30%), and population-to-facility pressure (30%). Higher scores mean bigger barriers to health care. This is a verifiable paper calculation.</p>
+            <p className="mt-0.5">Data: KNBS 2019 Census, KIHBS 2015/16, ICPAC/KEMRI Health Facilities, WHO AccessMod. {county.name} County Community-Led Monitoring Evidence Brief.</p>
+          </div>
+          <div className="text-right text-[10px] print:text-[6.5pt] font-medium text-stone-400">
+            <p>Kenya Health Equity Map</p>
+            <p>geraldkombo.github.io/kenya-health-equity-map</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
@@ -203,6 +131,10 @@ function BriefContent() {
   const [counties, setCounties] = useState<CountyRecord[] | null>(null);
   const [indicators, setIndicators] = useState<IndicatorRecord[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const [authorName, setAuthorName] = useState("");
+  const [authorTitle, setAuthorTitle] = useState("");
+  const [authorOrg, setAuthorOrg] = useState("");
 
   useEffect(() => {
     async function load() {
@@ -239,62 +171,80 @@ function BriefContent() {
     `,
   });
 
+  const ready = selected && indicator;
+
   return (
-    <div className="min-h-[100svh] bg-white text-[#292524]">
+    <div className="min-h-[100svh] bg-stone-100 text-[#292524]">
       <div className="mx-auto max-w-3xl px-4 py-6 sm:px-8 sm:py-8">
-        {/* Screen controls */}
-        <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 print:hidden">
-          <div>
-            <div className="text-[12px] font-semibold uppercase tracking-wider text-[#A8A08F]">
-              Kenya Health Equity Map
+
+        {/* Top nav */}
+        <div className="mb-6 flex items-center gap-4 print:hidden">
+          <Link
+            href="/"
+            className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-[6px] text-[14px] font-medium text-[#524B3F] underline underline-offset-2 transition-colors hover:text-[#292524] hover:bg-[#F8F5F0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C]"
+          >
+            &larr; Return to map
+          </Link>
+        </div>
+
+        {/* Metadata Form */}
+        <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm print:hidden">
+          <h2 className="text-lg font-bold text-stone-900 mb-1">Prepare Printed Brief</h2>
+          <p className="text-sm text-stone-500 mb-5">Your details will appear on the printed document for County Health Management Team meetings.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label htmlFor="brief-name" className="block text-sm font-medium text-stone-700 mb-1">Your name</label>
+              <input id="brief-name" type="text" value={authorName} onChange={(e) => setAuthorName(e.target.value)} placeholder="e.g. Jane Doe" className="w-full min-h-[44px] rounded-md border border-stone-300 px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]" />
             </div>
-            <h1 className="mt-2 text-xl font-bold font-serif text-[#292524]">
-              {selected ? selected.name : "Select a county"}
-            </h1>
+            <div>
+              <label htmlFor="brief-title" className="block text-sm font-medium text-stone-700 mb-1">Your title</label>
+              <input id="brief-title" type="text" value={authorTitle} onChange={(e) => setAuthorTitle(e.target.value)} placeholder="e.g. Community Health Promoter" className="w-full min-h-[44px] rounded-md border border-stone-300 px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]" />
+            </div>
+            <div>
+              <label htmlFor="brief-org" className="block text-sm font-medium text-stone-700 mb-1">Organization / County</label>
+              <input id="brief-org" type="text" value={authorOrg} onChange={(e) => setAuthorOrg(e.target.value)} placeholder="e.g. Turkana CHMT" className="w-full min-h-[44px] rounded-md border border-stone-300 px-3 py-2 text-sm text-stone-800 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]" />
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="mt-5 flex justify-end">
             <button
               onClick={() => handlePrint()}
-              disabled={!selected || !indicator}
-              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-[6px] bg-[#78350F] px-4 py-2 text-[14px] font-bold text-[#FFFBEB] shadow-sm transition-colors hover:bg-[#451A03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C] disabled:cursor-not-allowed disabled:opacity-40 active:scale-[0.98]"
+              disabled={!ready}
+              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-2 rounded-md bg-[#EA580C] px-5 py-2 text-[14px] font-bold text-white shadow-sm transition-colors hover:bg-[#C2410C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#92400E] disabled:cursor-not-allowed disabled:opacity-40 active:scale-[0.98]"
             >
-              Download PDF Document
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              Print A4 Brief
             </button>
-            <Link
-              href="/"
-              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-4 py-2 rounded-[6px] text-[14px] font-medium text-[#524B3F] underline underline-offset-2 transition-colors hover:text-[#292524] hover:bg-[#F8F5F0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EA580C]"
-            >
-              &larr; Return to map
-            </Link>
           </div>
         </div>
 
         {error && (
-          <div className="mb-8 rounded-[8px] border border-red-200 bg-red-50 p-4 text-[14px] text-red-700 print:hidden" role="alert">
+          <div className="mt-6 rounded-lg border border-red-200 bg-red-50 p-4 text-[14px] text-red-700 print:hidden" role="alert">
             {error}
           </div>
         )}
 
+        {/* Print Area */}
         {!countyCode ? (
-          <div className="mt-8 rounded-[8px] border border-[#E0DBD0] p-4 sm:p-8 text-[14px] text-[#524B3F] print:hidden">
+          <div className="mt-8 rounded-[8px] border border-[#E0DBD0] bg-white p-8 text-[14px] text-[#524B3F] print:hidden">
             To access this page, select a county from the map interface and choose <strong>Generate county brief</strong>.
           </div>
-        ) : !selected || !indicator ? (
-          <div className="mt-8 rounded-[8px] border border-[#E0DBD0] p-8 text-[14px] text-[#524B3F] print:hidden">
+        ) : !ready ? (
+          <div className="mt-8 rounded-[8px] border border-[#E0DBD0] bg-white p-8 text-[14px] text-[#524B3F] print:hidden">
             Loading county metrics&hellip;
           </div>
         ) : (
-          <div ref={printRef}>
+          <div className="mt-6 rounded-xl border border-stone-200 bg-white shadow-xl print:shadow-none print:border-0" ref={printRef}>
             <PrintableBrief
               county={selected}
               indicator={indicator}
+              authorName={authorName}
+              authorTitle={authorTitle}
+              authorOrg={authorOrg}
             />
           </div>
         )}
-
-        <p className="mt-8 text-center text-[12px] text-[#C8C1B3] print:hidden">
-          geraldkombo.github.io/kenya-health-equity-map
-        </p>
       </div>
     </div>
   );
