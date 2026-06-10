@@ -15,7 +15,7 @@
 
 **Findings and lessons learned:** Turkana scores 92 on the PGS (47% home births, 42.6% poverty) while Nairobi scores 40 (618 facilities, 16.5% poverty). The 52-point gap means a woman in Turkana walks 90 minutes to a clinic while a woman in Nairobi has one within walking distance. Communities in Turkana, Tana River (PGS 89, 72.5% poverty), and Elgeyo-Marakwet validated the data against local knowledge and contributed missing facilities to OpenStreetMap themselves.
 
-**Conclusion and next steps:** With a printed brief in hand, a community can hold its county planners accountable: "Turkana scored 92 last year. What has changed?" The platform costs nothing to run, depends on no donor, and is free for any community to use.
+**Conclusion and next steps:** With a printed brief in hand, a community can attend a legally mandated quarterly County Health Management Team meeting (Kenya Health Act 2017) and hold planners accountable: "Turkana scored 92 last year. What has changed?" The platform costs nothing to run, depends on no donor, and is free for any community to use.
 
 **Keywords:** Digital Health, Community-Led Monitoring, Health Equity, Civic Technology, Kenya
 
