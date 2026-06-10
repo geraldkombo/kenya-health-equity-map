@@ -148,14 +148,30 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
       {indicator && nationalAvg && (
         <div className="mt-5 space-y-3 border-t border-stone-100 pt-4">
           <h4 className="text-xs font-semibold uppercase tracking-wider text-stone-500">Score distribution</h4>
-          <ProgressBar label="Travel time" value={indicator.travel_time_to_facility_proxy} max={100} />
-          <ProgressBar label="Poverty rate" value={indicator.poverty_proxy} max={100} />
-          <ProgressBar label="People per facility" value={indicator.population / Math.max(indicator.facility_count, 1)} max={10000} />
+          <ProgressBar
+            label="Travel time"
+            value={indicator.travel_time_to_facility_proxy}
+            max={100}
+            info="Average minutes to reach the nearest health facility by road. Higher values mean longer distances to care."
+          />
+          <ProgressBar
+            label="Poverty rate"
+            value={indicator.poverty_proxy}
+            max={100}
+            info="Share of the county population living below the national poverty line. Higher values mean more households face financial barriers to care."
+          />
+          <ProgressBar
+            label="People per facility"
+            value={indicator.population / Math.max(indicator.facility_count, 1)}
+            max={10000}
+            info="Total population divided by the number of mapped health facilities. Higher values mean more people sharing each clinic."
+          />
           <ProgressBar
             label="Facilities per 10K people"
             value={(Math.max(indicator.facility_count, 1) / indicator.population) * 10000}
             max={4}
             invert
+            info="Number of health facilities for every 10,000 residents. Lower values indicate fewer clinics per person."
           />
           {indicator.skilled_birth_attendance != null && (
             <ProgressBar
