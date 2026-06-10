@@ -70,7 +70,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                 className="absolute -top-[4px] flex -translate-x-1/2 flex-col items-center transition-all duration-500"
                 style={{ left: `${Math.min(Math.max(sA.pgs, 0), 100)}%` }}
               >
-                <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#292524] px-4 py-1 text-[12px] font-bold text-[#FFFBEB] shadow-sm whitespace-nowrap print:text-[8px] print:px-2 print:py-0">
+                <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#292524] px-2 py-1 text-[11px] font-bold text-[#FFFBEB] shadow-sm print:text-[8px] print:px-2 print:py-0 max-w-[40vw] text-center leading-tight">
                   {countyA.name} ({sA.pgs})
                 </span>
                 <div className="mt-[2px] h-[10px] w-[10px] rotate-45 bg-[#292524] print:hidden" />
@@ -80,7 +80,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                 style={{ left: `${Math.min(Math.max(sB.pgs, 0), 100)}%`, bottom: '0' }}
               >
                 <div className="mb-[2px] h-[10px] w-[10px] rotate-45 bg-[#EA580C] print:hidden" />
-                <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#EA580C] px-4 py-1 text-[12px] font-bold text-[#FFFBEB] shadow-sm whitespace-nowrap print:text-[8px] print:px-2 print:py-0">
+                <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#EA580C] px-2 py-1 text-[11px] font-bold text-[#FFFBEB] shadow-sm print:text-[8px] print:px-2 print:py-0 max-w-[40vw] text-center leading-tight">
                   {countyB.name} ({sB.pgs})
                 </span>
               </div>
@@ -91,7 +91,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                 className="absolute -top-[4px] flex -translate-x-1/2 flex-col items-center transition-all duration-500"
                 style={{ left: `${Math.min(Math.max(sA.pgs, 0), 100)}%` }}
               >
-                <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#292524] px-4 py-1 text-[12px] font-bold text-[#FFFBEB] shadow-sm whitespace-nowrap print:text-[8px] print:px-2 print:py-0">
+                <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#292524] px-2 py-1 text-[11px] font-bold text-[#FFFBEB] shadow-sm print:text-[8px] print:px-2 print:py-0 max-w-[40vw] text-center leading-tight">
                   {countyA.name} ({sA.pgs})
                 </span>
                 <div className="mt-[2px] h-[10px] w-[10px] rotate-45 bg-[#292524] print:hidden" />
@@ -101,7 +101,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                 style={{ left: `${Math.min(Math.max(sB.pgs, 0), 100)}%` }}
               >
                 <div className="mb-[2px] h-[10px] w-[10px] rotate-45 bg-[#EA580C] print:hidden" />
-                <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#EA580C] px-4 py-1 text-[12px] font-bold text-[#FFFBEB] shadow-sm whitespace-nowrap print:text-[8px] print:px-2 print:py-0">
+                <span className="min-h-[44px] inline-flex items-center rounded-[4px] bg-[#EA580C] px-2 py-1 text-[11px] font-bold text-[#FFFBEB] shadow-sm print:text-[8px] print:px-2 print:py-0 max-w-[40vw] text-center leading-tight">
                   {countyB.name} ({sB.pgs})
                 </span>
               </div>
