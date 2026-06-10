@@ -216,7 +216,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
             {equityNote.diff <= 2 ? (
               <>Both counties score nearly the same on the Priority Gap Scale. The {equityNote.diff}-point difference is too small to call one county worse off than the other. Use the specific indicators above (travel time, poverty rate, facility density) to identify where each county needs investment.</>
             ) : (
-              <>{equityNote.higher.name} scores {equityNote.diff} {equityNote.diff === 1 ? "point" : "points"} higher than {equityNote.lower.name}. A higher score means residents face bigger barriers to health care — longer travel, fewer clinics, or higher poverty. Use this comparison to show which county needs more resources.</>
+              <>{equityNote.higher.name} scores {equityNote.diff} {equityNote.diff === 1 ? "point" : "points"} higher than {equityNote.lower.name}. A higher score means residents face bigger barriers to health care - longer travel, fewer clinics, or higher poverty. Use this comparison to show which county needs more resources.</>
             )}
           </p>
           <div className="mt-4 border-t border-[#E0DBD0] pt-4 text-[12px] font-semibold text-[#78350F] print:mt-2 print:pt-2 print:text-[9px]">

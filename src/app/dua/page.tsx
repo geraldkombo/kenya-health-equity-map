@@ -33,7 +33,7 @@ export default function DUAPage() {
             The Kenya Health Equity Map is built entirely on open civic data. Every indicator, boundary, and
             facility location displayed on this platform can be traced to a publicly available source.
             We believe transparency in methodology builds trust with the communities and stakeholders
-            who use this tool for planning and advocacy.
+            who use this platform for planning and advocacy.
           </p>
           <p className="mt-3 text-sm leading-6 text-stone-700">
             Use of this platform constitutes agreement to attribute the original data creators in any derivative
