@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import KillServiceWorker from "@/components/KillServiceWorker";
 import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
@@ -79,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
           </div>
         </footer>
-        <script dangerouslySetInnerHTML={{ __html: `if("serviceWorker"in navigator){navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(s){s.unregister()})})}` }} />
+        <KillServiceWorker />
       </body>
     </html>
   );
