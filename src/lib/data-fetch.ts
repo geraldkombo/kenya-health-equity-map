@@ -8,9 +8,17 @@ export function dataUrl(path: string): string {
 
 async function loadJSON<T>(path: string): Promise<T> {
   const url = dataUrl(path);
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
-  return res.json();
+  try {
+    const res = await fetch(url);
+    if (res.ok) return res.json();
+  } catch {}
+  // Offline fallback: try the service worker cache directly
+  if ("caches" in globalThis) {
+    const cache = await caches.open("ke-data-v1");
+    const cached = await cache.match(url);
+    if (cached && cached.ok) return cached.json();
+  }
+  throw new Error(`Failed to load ${url}`);
 }
 
 export async function fetchCounties(): Promise<{ counties: CountyRecord[]; source: "live" | "snapshot" }> {
