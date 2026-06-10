@@ -63,7 +63,7 @@ function PrintableBrief({
             <h2 className="text-4xl print:text-[28pt] font-black text-stone-900 leading-none tracking-tight">{county.name} County</h2>
             <p className="text-sm print:text-[10pt] text-stone-600 mt-1 font-medium">Priority Gap Score: {score.pgs} out of 100</p>
           </div>
-          <div className={`w-44 print:w-36 flex flex-col items-center justify-center rounded-lg border-2 ${badgeClass} shadow-sm`}>
+          <div className={`w-44 print:w-36 flex flex-col items-center justify-center rounded-lg border-2 ${badgeClass} shadow-sm print-fill`}>
             <span className="text-[10px] print:text-[8pt] font-bold uppercase tracking-wider opacity-90 mb-0.5">Priority Gap Score</span>
             <span className="text-5xl print:text-[36pt] font-black leading-none">{score.pgs}</span>
           </div>

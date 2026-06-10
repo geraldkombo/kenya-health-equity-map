@@ -133,7 +133,7 @@ export default function CompareView({ countyA, countyB, indicators }: CompareVie
                   <p className="text-[12px] uppercase tracking-wide text-[#A8A08F] print:hidden">County</p>
                 </div>
                 {s && (
-                  <div className={`rounded-[6px] px-4 py-1 text-center font-bold shadow-sm print:px-2 print:py-0 ${getPGSBadgeClass(s.pgs)}`}>
+                  <div className={`rounded-[6px] px-4 py-1 text-center font-bold shadow-sm print:px-2 print:py-0 print-fill ${getPGSBadgeClass(s.pgs)}`}>
                     <span className="text-[20px] print:text-[14px]">{s.pgs}</span>
                     <span className="ml-1 text-[12px] font-normal opacity-80 print:hidden">Priority Gap Score</span>
                   </div>
