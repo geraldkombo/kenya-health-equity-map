@@ -22,5 +22,3 @@
 ---
 
 **Platform URL:** https://geraldkombo.github.io/kenya-health-equity-map/
-
-**Trackable outreach links:** Community partners can append `?ref=workshop_name` to any platform URL. The ref persists in session storage and is passed through shared links — no cookies, no database, no backend required. This lets organizers see which workshops, flyers, or WhatsApp groups drive the most county brief downloads without compromising user privacy.
