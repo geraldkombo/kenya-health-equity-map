@@ -117,6 +117,7 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
     return lines;
   }, [comparisons, indicator, nationalAvg]);
 
+  const [showPgsInfo, setShowPgsInfo] = useState(false);
   const pgsClass = score ? getPGSBadgeClass(score.pgs) : "";
 
   return (
@@ -129,9 +130,22 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
           </p>
         </div>
         {score && (
-          <div className={`rounded-lg px-3 py-1.5 text-right flex-shrink-0 ${pgsClass}`} title={pgsPlainLanguage(score.pgs)}>
-            <div className="text-xl font-bold tracking-tight whitespace-nowrap">{score.pgs}</div>
-            <div className="text-[10px] font-medium opacity-80 whitespace-nowrap">Priority Gap Score</div>
+          <div className="relative flex-shrink-0">
+            <button
+              onClick={() => setShowPgsInfo(!showPgsInfo)}
+              onBlur={() => setShowPgsInfo(false)}
+              className={`rounded-lg px-3 py-1.5 text-right ${pgsClass} w-full cursor-pointer`}
+              title={pgsPlainLanguage(score.pgs)}
+              aria-label={pgsPlainLanguage(score.pgs)}
+            >
+              <div className="text-xl font-bold tracking-tight whitespace-nowrap">{score.pgs}</div>
+              <div className="text-[10px] font-medium opacity-80 whitespace-nowrap">Priority Gap Score</div>
+            </button>
+            {showPgsInfo && (
+              <div className="absolute right-0 top-full z-10 mt-1 w-56 rounded-md bg-stone-800 px-3 py-2 text-[10px] leading-4 text-white shadow-lg" role="tooltip">
+                {pgsPlainLanguage(score.pgs)}
+              </div>
+            )}
           </div>
         )}
       </div>
