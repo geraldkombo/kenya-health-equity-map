@@ -70,7 +70,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js');
+                  var swUrl = (${JSON.stringify(BASE)} || '') + '/sw.js';
+                  navigator.serviceWorker.register(swUrl);
                 });
               }
             `,
@@ -90,7 +91,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               No account needed &middot; No data collected &middot; Community-owned
             </p>
             <div className="mt-3 flex items-center justify-center gap-4 text-xs">
-              <Link href="/abstract" className="text-stone-400 hover:text-stone-600 underline underline-offset-2">Abstract</Link>
               <Link href="/dua" className="text-stone-400 hover:text-stone-600 underline underline-offset-2">Data use</Link>
               <Link href="/method" className="text-stone-400 hover:text-stone-600 underline underline-offset-2">Method</Link>
             </div>

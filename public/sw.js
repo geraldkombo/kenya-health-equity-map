@@ -1,5 +1,10 @@
-const CACHE = "khem-v4";
-const PRECACHE_PATHS = ["/", "/brief", "/compare", "/method", "/abstract", "/dua", "/forum", "/manifest.json", "/og-image.svg"];
+const CACHE = "khem-v5";
+
+const BASE = self.location.pathname.replace(/\/sw\.js$/, "") || "";
+
+const PRECACHE_PATHS = ["/", "/abstract", "/brief", "/compare", "/dua", "/forum", "/method", "/manifest.json", "/og-image.svg"].map(
+  (p) => BASE + p
+);
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
@@ -16,9 +21,7 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   const isMapTile = url.hostname.includes("tile") || url.hostname.includes("cartocdn") || url.hostname.includes("openstreetmap");
-  if (isMapTile) {
-    return;
-  }
+  if (isMapTile) return;
   e.respondWith(
     caches.match(e.request).then((cached) => cached || fetch(e.request).then((res) => {
       if (url.origin === self.location.origin && res.ok) {
@@ -26,7 +29,6 @@ self.addEventListener("fetch", (e) => {
         caches.open(CACHE).then((cache) => cache.put(e.request, clone));
       }
       return res;
-    }).catch(() => new Response("Offline - some content may not be available", { status: 408 }))
-    )
+    }).catch(() => new Response("Offline", { status: 408 })))
   );
 });
