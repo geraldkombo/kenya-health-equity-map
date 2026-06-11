@@ -1,19 +1,33 @@
 "use client";
 
+import { useMemo } from "react";
+
 interface ShareButtonProps {
   title: string;
   text: string;
   url: string;
 }
 
+function getRef(): string {
+  if (typeof window === "undefined") return "";
+  const cached = sessionStorage.getItem("khem_ref");
+  if (cached) return cached;
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref") || "";
+  if (ref) sessionStorage.setItem("khem_ref", ref);
+  return ref;
+}
+
 export default function ShareButton({ title, text, url }: ShareButtonProps) {
+  const ref = useMemo(() => getRef(), []);
+  const trackedUrl = ref ? `${url}${url.includes("?") ? "&" : "?"}ref=${encodeURIComponent(ref)}` : url;
   const canShare = typeof navigator !== "undefined" && "share" in navigator;
 
   const share = () => {
     if (canShare) {
-      navigator.share({ title, text, url }).catch(() => {});
+      navigator.share({ title, text, url: trackedUrl }).catch(() => {});
     } else {
-      navigator.clipboard.writeText(url).catch(() => {});
+      navigator.clipboard.writeText(trackedUrl).catch(() => {});
     }
   };
 
