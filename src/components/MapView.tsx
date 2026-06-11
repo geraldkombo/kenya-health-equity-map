@@ -224,7 +224,7 @@ export default function MapView({
           role="tooltip"
           aria-live="polite"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 whitespace-nowrap">
             {pgsColor && (
               <span
                 className="inline-block h-3 w-3 flex-shrink-0 rounded-sm"
@@ -234,7 +234,7 @@ export default function MapView({
             <span className="font-semibold text-stone-800">{hoverInfo.countyName}</span>
           </div>
           {pgsLabel && (
-            <p className="mt-1 text-sm text-stone-500" title={hoverInfo?.pgs !== undefined ? pgsPlainLanguage(hoverInfo.pgs) : ""}>
+            <p className="mt-1 text-sm text-stone-500 whitespace-nowrap" title={hoverInfo?.pgs !== undefined ? pgsPlainLanguage(hoverInfo.pgs) : ""}>
               Priority Gap Score: <span className="font-medium text-stone-700">{pgsLabel}</span>
             </p>
           )}

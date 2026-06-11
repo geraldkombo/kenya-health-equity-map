@@ -63,8 +63,8 @@ function PrintableBrief({
             <h2 className="text-4xl print:text-[28pt] font-black text-stone-900 leading-none tracking-tight">{county.name} County</h2>
             <p className="text-sm print:text-[10pt] text-stone-600 mt-1 font-medium">Priority Gap Score: {score.pgs} out of 100</p>
           </div>
-          <div className={`w-44 print:w-36 flex flex-col items-center justify-center rounded-lg border-2 ${badgeClass} shadow-sm print-fill`}>
-            <span className="text-[10px] print:text-[8pt] font-bold uppercase tracking-wider opacity-90 mb-0.5">Priority Gap Score</span>
+          <div className={`w-44 print:w-36 flex flex-col items-center justify-center rounded-lg border-2 ${badgeClass} shadow-sm print-fill flex-shrink-0`}>
+            <span className="text-[10px] print:text-[8pt] font-bold uppercase tracking-wider opacity-90 mb-0.5 whitespace-nowrap">Priority Gap Score</span>
             <span className="text-5xl print:text-[36pt] font-black leading-none">{score.pgs}</span>
           </div>
         </div>
@@ -146,7 +146,7 @@ function PrintableBrief({
               <p className="text-[11px] print:text-[7pt] text-stone-700 mt-1 leading-relaxed print:leading-snug">
                 {norm.poverty > 0.6
                   ? `A ${indicator.poverty_proxy}% poverty rate means most families cannot absorb out-of-pocket delivery costs. Raise this at County Health Management Team planning meetings and Health Facility Management Committee discussions to advocate for waived maternal health fees.`
-                  : `At ${indicator.poverty_proxy}% poverty, financial barriers still affect access. Use this figure to argue for subsidized transport or supply vouchers for expectant mothers.`}
+                  : `At ${indicator.poverty_proxy}% poverty, financial barriers still affect access. Raise this at County Health Management Team planning meetings to demand county-funded transport stipends for Community Health Promoters handling emergency maternal referrals.`}
               </p>
             </div>
             <div className="border-l-4 border-stone-500 bg-stone-50 p-4 print:p-2 rounded-r-lg">

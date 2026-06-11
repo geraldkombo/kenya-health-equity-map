@@ -129,9 +129,9 @@ export default function CountyDetails({ county, indicators }: CountyDetailsProps
           </p>
         </div>
         {score && (
-          <div className={`rounded-lg px-3 py-1.5 text-right ${pgsClass}`} title={pgsPlainLanguage(score.pgs)}>
-            <div className="text-xl font-bold tracking-tight">{score.pgs}</div>
-            <div className="text-[10px] font-medium opacity-80">Priority Gap Score</div>
+          <div className={`rounded-lg px-3 py-1.5 text-right flex-shrink-0 ${pgsClass}`} title={pgsPlainLanguage(score.pgs)}>
+            <div className="text-xl font-bold tracking-tight whitespace-nowrap">{score.pgs}</div>
+            <div className="text-[10px] font-medium opacity-80 whitespace-nowrap">Priority Gap Score</div>
           </div>
         )}
       </div>
