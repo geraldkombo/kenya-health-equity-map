@@ -31,13 +31,13 @@ Email: cssabstracts@amref.org
 
 **Body of the abstract (must not exceed 300 words):**
 
-**Introduction:** Community-led monitoring needs evidence citizens can actually use. National numbers hide what is happening inside counties. When the data sits in a PDF somewhere, nobody can challenge a health manager with it.
+**Introduction:** Community-led monitoring only works when citizens have evidence they can use. National statistics hide sharp differences between counties, and when data is locked in reports, communities cannot challenge health managers with it.
 
-**Description of intervention:** The Kenya Health Equity Map works offline on basic phones. No login, no data collection, no internet past the first visit. It turns messy statistics into one number per county — the Priority Gap Score — so a Community Health Promoter can open it, look up their county, and see how bad things really are. Travel times, clinic crowding, poverty — all folded into something you can explain to anybody.
+**Description of intervention:** The Kenya Health Equity Map is a free, offline-first digital platform that turns complex data into a simple Priority Gap Score (0-100). No login, no data collection, no internet after the first load. A Community Health Promoter can open it on a basic phone, tap their county, and see travel times, poverty rates, and facility crowding in one place.
 
-**Findings and lessons learned:** Turkana scores 92 out of 100. A mother there travels 90 minutes to reach a clinic. Nearly half of births happen at home. Forty-two percent of households live in poverty. Nairobi scores 40, with 618 clinics and 16.5% poverty. That 52-point gap is 90 minutes of travel versus a clinic minutes away. Communities in Turkana, Tana River (89, 72.5% poverty), and Elgeyo-Marakwet took this data, checked it against what they know, and added missing clinics to OpenStreetMap themselves — without being asked.
+**Findings and lessons learned:** Turkana scores 92 out of 100. A mother there travels 90 minutes to reach a clinic, 47% of births happen at home, and 42.6% of households live in poverty. Nairobi scores 40, with 618 mapped facilities and 16.5% poverty. That 52-point gap means a woman in Turkana travels 90 minutes for basic care while a Nairobi resident finds a clinic minutes away. Communities in Turkana, Tana River (score 89, 72.5% poverty), and Elgeyo-Marakwet checked this data against their own experience and added missing clinics to OpenStreetMap themselves.
 
-**Conclusion and next steps:** The thing costs nothing to run. No donor funding, no server bills, nobody's permission required. A community can load it once, then walk into a County Health Management Team meeting — which the Kenya Health Act 2017 already guarantees them — and say: "Last year Turkana was 92 out of 100. Mothers here travelled 90 minutes to a clinic. Half of births happened at home. What did you do about it?"
+**Conclusion and next steps:** The platform costs nothing to run and belongs to no single organization. Communities can load the evidence on a phone, attend legally mandated County Health Management Team meetings, and ask directly: "Last year Turkana scored 92 out of 100. Mothers travelled 90 minutes to a clinic. What has changed since then?"
 
 **Keywords:** Digital Health, Community-Led Monitoring, Health Equity, Civic Technology, Kenya
 
