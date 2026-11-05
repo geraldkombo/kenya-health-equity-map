@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import maplibregl from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
 import { getPGSColor, pgsPlainLanguage } from "@/lib/scoring";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -158,7 +158,10 @@ export default function MapView({
         map.fitBounds([[33.5, -5], [42.5, 5]], { padding: 40, duration: 0 });
 
         map.on("error", (e) => {
-          if (e.error && typeof e.error.status === "number" && e.error.status >= 400) {
+          // maplibre-gl v6 types the payload as a plain Error; tile/request failures
+          // still carry a numeric HTTP status at runtime, so read it defensively.
+          const status = (e.error as { status?: number } | undefined)?.status;
+          if (typeof status === "number" && status >= 400) {
             setTileError(true);
           }
         });
