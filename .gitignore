@@ -21,3 +21,7 @@ tmp/
 # Raw ETL staging data (KMHFR API dumps, etc.)
 raw-data/
 scripts/etl/raw-data/
+
+# generated at build time by scripts/copy-maplibre-worker.mjs
+public/maplibre-gl-worker.mjs
+public/maplibre-gl-shared.mjs

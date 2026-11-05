@@ -46,6 +46,9 @@ export default function MapView({
 
     let map: maplibregl.Map | null = null;
     try {
+      // maplibre-gl v6 needs an explicit worker URL under a bundler; the file is
+      // copied into public/ by scripts/copy-maplibre-worker.mjs during prebuild.
+      maplibregl.setWorkerUrl(`${BASE}/maplibre-gl-worker.mjs`);
       map = new maplibregl.Map({
         container: containerRef.current,
         style: {
